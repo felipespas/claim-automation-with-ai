@@ -1,0 +1,204 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    triggerQueries:
+      - Abrir um sinistro
+      - Abrir ocorrência
+
+  actions:
+    - kind: SendActivity
+      id: sendActivity_xoRFZO
+      activity: Vou precisar de alguns dados do corretor, ok?
+
+    - kind: Question
+      id: question_LzaA8f
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarNomeCorretor
+      prompt: Qual o nome do corretor?
+      entity: PersonNamePrebuiltEntity
+
+    - kind: Question
+      id: question_32g0Gy
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.varCorretora
+      prompt: Qual o nome da corretora?
+      entity: StringPrebuiltEntity
+
+    - kind: Question
+      id: question_vtJST0
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarEmailCorretor
+      prompt: Qual é o seu e-mail de contato do corretor?
+      entity: EmailPrebuiltEntity
+
+    - kind: SendActivity
+      id: sendActivity_lNyzQ5
+      activity: Agora vamos falar sobre o segurado...
+
+    - kind: Question
+      id: question_qadtJz
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarNomeSegurado
+      prompt: Qual o nome do segurado?
+      entity: PersonNamePrebuiltEntity
+
+    - kind: Question
+      id: question_pXcCBr
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarEmailSegurado
+      prompt: Qual o e-mail de contato do segurado?
+      entity: EmailPrebuiltEntity
+
+    - kind: Question
+      id: question_QBob1s
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.FlagVistoriaSegurado
+      prompt: A vistoria será feita com o próprio segurado?
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          items:
+            - id: Sim
+              displayName: Sim
+
+            - id: Não
+              displayName: Não
+
+        displayName: EmbeddedEntity-D7Tmbd
+
+    - kind: ConditionGroup
+      id: conditionGroup_SGCTkF
+      conditions:
+        - id: conditionItem_zr9SH0
+          condition: =Topic.FlagVistoriaSegurado = "Sim"
+
+        - id: conditionItem_uOBA1G
+          condition: =Topic.FlagVistoriaSegurado = "Não"
+          actions:
+            - kind: Question
+              id: question_YGsvLz
+              interruptionPolicy:
+                allowInterruption: true
+
+              variable: init:Topic.VarContatoVistoria
+              prompt: Qual o nome do contato da vistoria?
+              entity: PersonNamePrebuiltEntity
+
+            - kind: Question
+              id: question_Jezere
+              interruptionPolicy:
+                allowInterruption: true
+
+              variable: init:Topic.VarTelefoneVistoria
+              prompt: Qual o telefone do contato da vistoria?
+              entity: StringPrebuiltEntity
+
+    - kind: SendActivity
+      id: sendActivity_KxuE0O
+      activity: Agora vamos falar sobre o incidente, ok?
+
+    - kind: Question
+      id: question_FDzlqV
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarNumeroApolice
+      prompt: Qual é o número da apólice do segurado?
+      entity: NumberPrebuiltEntity
+
+    - kind: Question
+      id: question_FCDSwl
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarDescricaoOcorrencia
+      prompt: O que ocorreu? Por favor, descreva...
+      entity: StringPrebuiltEntity
+
+    - kind: Question
+      id: question_TUlAL9
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarDataOcorrencia
+      prompt: Qual a data da ocorrência?
+      entity: DatePrebuiltEntity
+
+    - kind: Question
+      id: question_E9sJqu
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarEnderecoOcorrencia
+      prompt: Qual o endereço em que o sinistro ocorreu?
+      entity: StringPrebuiltEntity
+
+    - kind: Question
+      id: question_VDa0lU
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarValorPrejuizo
+      prompt: Qual o valor estimado para o prejuízo?
+      entity: MoneyPrebuiltEntity
+
+    - kind: SendActivity
+      id: sendActivity_uTpQIi
+      activity: Salvando dados. Aguarde um instante.
+
+    - kind: InvokeFlowAction
+      id: invokeFlowAction_SpzcgC
+      input:
+        binding:
+          number: =Topic.VarNumeroApolice
+          text: =Topic.VarNomeSegurado
+          text_1: =Topic.VarEnderecoOcorrencia
+          text_2: =Text(Topic.VarDataOcorrencia)
+
+      output:
+        binding:
+          body: Topic.OutBody
+          outfilename: Topic.OutFileName
+
+      flowId: ae784330-4ad3-ee11-904c-002248de5df8
+
+    - kind: SendActivity
+      id: sendActivity_zMoHPW
+      activity: Arquivo [ {Topic.OutFileName} ] salvo com sucesso.
+
+    - kind: SendActivity
+      id: sendActivity_nIvBHK
+      activity: "Corpo do arquivo: [ {Topic.OutBody}]."
+
+    - kind: SendActivity
+      id: sendActivity_lNdf0i
+      activity: |-
+        Você informou o seguinte nome do segurado: {Topic.VarNomeSegurado}
+        
+        Você informou a seguinte data do incidente:
+        {Topic.VarDataOcorrencia} 
+        
+        Você também informou o seguinte endereço:
+        {Topic.VarEnderecoOcorrencia} 
+        
+        E por fim, informou a seguinte estimativa de prejuízo: R$
+        {Topic.VarValorPrejuizo} 
+
+    - kind: BeginDialog
+      id: MLIeVA
+      dialog: cr28b_copilot2.topic.EndofConversation
