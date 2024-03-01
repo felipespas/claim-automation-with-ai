@@ -7,7 +7,7 @@ from azure.ai.vision.imageanalysis.models import VisualFeatures
 from azure.core.credentials import AzureKeyCredential
 from azure.storage.blob import BlobServiceClient, BlobSasPermissions, generate_blob_sas
 
-connection_string = "DefaultEndpointsProtocol=https;AccountName=datalake1705mvp;AccountKey=+JLA9gdxANoq+Y+xYMaQvTSiCjYT0v3cDBzwHrQAilkpc65/rnS0wdAZma9WvoKx7oQpPK2sOxE2+ASt4d+d7w==;EndpointSuffix=core.windows.net"
+connection_string = ""
 container_name = "data"
 blob_name = "1/Redes de proteção.jpeg"
 

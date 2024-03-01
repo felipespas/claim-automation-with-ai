@@ -2,7 +2,7 @@
 az login
 
 # Set the subscription
-az account set --subscription "MCAPS-Hybrid-REQ-37753-2022-Fassis"
+az account set --subscription ""
 
 # create the infrastructure for the azure function
 # az storage account create --name storage1704mvp --location eastus `

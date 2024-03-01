@@ -1,3 +1,3 @@
 Invoke-RestMethod -Method Post `
-    -Uri https://functionapp1705mvp.azurewebsites.net/api/validacaoinicial?code=ypY56WVbKqwBVbGQLmpd6VpeCkvSjYwEOtrTiv414uhFAzFuRJDBGw== `
+    -Uri https://function-name.azurewebsites.net/api/endpoint-name?code=access-code `
     -Body '{"name": "Felipe"}'
