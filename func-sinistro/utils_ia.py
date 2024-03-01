@@ -56,7 +56,7 @@ def capture_text_from_pdf(blob_url: str):
     poller = client.begin_analyze_document_from_url("prebuilt-document", blob_url)
     result = poller.result()
     
-    result_text = '['
+    form_fields = {}
     try:
         for pair in result.key_value_pairs:
 
@@ -68,19 +68,35 @@ def capture_text_from_pdf(blob_url: str):
             else:
                 value_content = ""
 
-            result_text += "{\"" + key_content + "\": \"" + value_content + "\"}"
+            # add to form_fields json
+            form_fields.update({key_content : value_content})       
 
-            # check if it's the last pair
-            if not pair == result.key_value_pairs[-1]:
-                result_text += ","           
-
-        # remove the last comma and space
-        result_text += "]"
-        
-        # convert string to json
-        result_json = json.loads(result_text)
+        # get data from tables present in the pdf
+        headers = []
+        row_json = {}
+        table_json = {}
+        tables_array = []
+        for table in result.tables:
+            for cell in table.cells:
+                row_index = cell.row_index
+                if cell.row_index == 0:
+                    # append cell content to headers list
+                    headers.append(cell.content)
+                else:
+                    item_json = {headers[cell.column_index] : cell.content}
+                    row_json.update(item_json)
+                    if cell.column_index == len(headers) - 1:
+                        table_json.update({row_index : row_json})
+                        row_json = {}
+            tables_array.append(table_json)
         
     except Exception as e:
         print(str(e))
+
+    # create a single json with all the data
+    result_json = {
+        "fields": form_fields,
+        "tables": tables_array
+    }
 
     return result_json

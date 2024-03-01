@@ -10,8 +10,8 @@ app = func.FunctionApp()
 @app.route(route="validacaoinicial", auth_level=func.AuthLevel.FUNCTION)
 def validacaoinicial(req: func.HttpRequest) -> func.HttpResponse:
     
-    # example of image_fullname: "1/Redes de proteção.jpeg"    
-    # example of pdf_fullname: "1/Pedido 02.pdf"    
+    # example of image_fullname: "1/Redes de proteção.jpeg"
+    # example of pdf_fullname: "1/Pedido 02.pdf"
     
     logging.info('Python HTTP trigger function processed a request.')
     
@@ -19,13 +19,19 @@ def validacaoinicial(req: func.HttpRequest) -> func.HttpResponse:
     image_path = req_body.get('image_path')
     pdf_path = req_body.get('pdf_path')    
 
-    image_sas = get_filepath_from_lake(image_path)
-    image_json = capture_text_from_image(image_sas)
+    result = {}
 
-    pdf_sas = get_filepath_from_lake(pdf_path)
-    pdf_json = capture_text_from_pdf(pdf_sas)
-    
-    return func.HttpResponse(f"Hello, This HTTP triggered function executed successfully. \n Image: {image_json} \n PDF: {pdf_json}")
+    if image_path:
+        image_sas = get_filepath_from_lake(image_path)
+        image_json = capture_text_from_image(image_sas)
+        result.update({"image": image_json})
+
+    if pdf_path:
+        pdf_sas = get_filepath_from_lake(pdf_path)
+        pdf_json = capture_text_from_pdf(pdf_sas)
+        result.update({"pdf": pdf_json})
+
+    return func.HttpResponse(f"Hello, This HTTP triggered function executed successfully. \n Result: {json.dumps(result)}.")
 
 @app.route(route="validacaocomplementar", auth_level=func.AuthLevel.FUNCTION)
 def validacaocomplementar(req: func.HttpRequest) -> func.HttpResponse:
