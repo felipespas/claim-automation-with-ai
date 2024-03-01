@@ -1,0 +1,25 @@
+{
+    "apólice": {
+      "número": "123456789",
+      "segurado": "Loja de Perfumes",
+      "coberturas": [
+        {
+          "tipo": "Vidros Quebrados",
+          "valor_coberto": "R$ 5000"
+        },
+        {
+          "tipo": "Ar Condicionado Queimado",
+          "valor_coberto": "R$ 3000"
+        },
+        {
+          "tipo": "Furto",
+          "valor_coberto": "R$ 10000"
+        },
+        {
+          "tipo": "Roubo",
+          "valor_coberto": "R$ 15000"
+        }
+      ]
+    }
+}
+  
