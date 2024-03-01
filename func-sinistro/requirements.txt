@@ -3,6 +3,7 @@
 # Manually managing azure-functions-worker may cause unexpected issues
 
 azure-functions
-azure-ai-vision-imageanalysis
-azure-storage-blob
 python-dotenv
+azure-storage-blob
+azure-ai-formrecognizer
+azure-ai-vision-imageanalysis
