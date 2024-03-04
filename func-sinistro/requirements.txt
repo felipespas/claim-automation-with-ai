@@ -7,3 +7,5 @@ python-dotenv
 azure-storage-blob
 azure-ai-formrecognizer
 azure-ai-vision-imageanalysis
+bs4==0.0.1
+beautifulsoup4==4.12.2

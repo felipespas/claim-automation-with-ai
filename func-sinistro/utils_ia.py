@@ -9,8 +9,8 @@ from azure.core.credentials import AzureKeyCredential
 
 load_dotenv()
 
-endpoint = os.environ["VISION_ENDPOINT"]
-key = os.environ["VISION_KEY"]
+endpoint = os.environ["AISERVICES_ENDPOINT"]
+key = os.environ["AISERVICES_KEY"]
 
 def capture_text_from_image(image_url: str):     
 

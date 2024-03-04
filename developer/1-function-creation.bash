@@ -25,7 +25,7 @@ pip install -r .\requirements.txt
 func new --name validacaoinicial --template "HTTP trigger" --authlevel "function"
 
 # Now add the second function
-func new --name validacaocomplementar --template "HTTP trigger" --authlevel "function"
+func new --name removehtml --template "HTTP trigger" --authlevel "function"
 
 # Step 5: Test the function locally
 # Run the function locally with:
