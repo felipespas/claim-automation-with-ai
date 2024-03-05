@@ -22,7 +22,7 @@ pip install -r .\requirements.txt
 # Step 4: Add a new function to the project
 # Still in the terminal, run the command below
 # and remember to choose function as the auth
-func new --name validacaoinicial --template "HTTP trigger" --authlevel "function"
+func new --name gettext --template "HTTP trigger" --authlevel "function"
 
 # Now add the second function
 func new --name removehtml --template "HTTP trigger" --authlevel "function"

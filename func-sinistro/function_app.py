@@ -8,8 +8,8 @@ from utils_text import remove_html
 
 app = func.FunctionApp()
 
-@app.route(route="validacaoinicial", auth_level=func.AuthLevel.FUNCTION)
-def validacaoinicial(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="gettext", auth_level=func.AuthLevel.FUNCTION)
+def gettext(req: func.HttpRequest) -> func.HttpResponse:
     
     # example of image_fullname: "1/Redes de proteção.jpeg"
     # example of pdf_fullname: "1/Pedido 02.pdf"
