@@ -1,0 +1,225 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Capture_only_text_from_email_message": {
+                "inputs": {
+                    "body": {
+                        "text": "@triggerBody()?['body']"
+                    },
+                    "method": "POST",
+                    "uri": "https://functionapp0503mvp.azurewebsites.net/api/removehtml?code=7IVaW002ZiXCp-nc9H7h_4KTWI4Twn6qhwcNx7KjxSGPAzFuiO5mYQ=="
+                },
+                "runAfter": {
+                    "Save_email_message_as_original_format": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http"
+            },
+            "Condition": {
+                "actions": {
+                    "For_each": {
+                        "actions": {
+                            "Extract_and_save_attachment_as_JSON": {
+                                "inputs": {
+                                    "body": {
+                                        "file_path": "@body('Save_attachment_in_original_format')?['Path']"
+                                    },
+                                    "method": "POST",
+                                    "uri": "https://functionapp0503mvp.azurewebsites.net/api/gettext?code=bfmAzphcxj3bWbeUJeh_Z6zV7meFLnl8-CRbdQANse96AzFu2sP_1Q=="
+                                },
+                                "runAfter": {
+                                    "Save_attachment_in_original_format": [
+                                        "Succeeded"
+                                    ]
+                                },
+                                "type": "Http"
+                            },
+                            "Save_attachment_in_original_format": {
+                                "inputs": {
+                                    "body": "@base64ToBinary(items('For_each')?['contentBytes'])",
+                                    "headers": {
+                                        "ReadFileMetadataFromServer": true
+                                    },
+                                    "host": {
+                                        "connection": {
+                                            "name": "@parameters('$connections')['azureblob_1']['connectionId']"
+                                        }
+                                    },
+                                    "method": "post",
+                                    "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent(parameters('storageaccount_name')))}/files",
+                                    "queries": {
+                                        "folderPath": "@{concat('/',parameters('docs_container'),'/',triggerBody()?['receivedDateTime'],'-',triggerBody()?['Subject'],'-',triggerBody()?['From'])}",
+                                        "name": "@items('For_each')?['name']",
+                                        "queryParametersSingleEncoded": true
+                                    }
+                                },
+                                "runAfter": {},
+                                "runtimeConfiguration": {
+                                    "contentTransfer": {
+                                        "transferMode": "Chunked"
+                                    }
+                                },
+                                "type": "ApiConnection"
+                            }
+                        },
+                        "foreach": "@triggerBody()?['attachments']",
+                        "runAfter": {},
+                        "type": "Foreach"
+                    }
+                },
+                "expression": {
+                    "and": [
+                        {
+                            "equals": [
+                                "@triggerBody()?['hasAttachments']",
+                                true
+                            ]
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Save_email_content_as_JSON": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "If"
+            },
+            "Save_email_content_as_JSON": {
+                "inputs": {
+                    "body": "@body('Capture_only_text_from_email_message')",
+                    "headers": {
+                        "ReadFileMetadataFromServer": true
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azureblob_1']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent(parameters('storageaccount_name')))}/files",
+                    "queries": {
+                        "folderPath": "@{concat('/',parameters('jsons_container'),'/',triggerBody()?['receivedDateTime'],'-',triggerBody()?['Subject'],'-',triggerBody()?['From'])}",
+                        "name": "@{triggerBody()?['subject']}.json",
+                        "queryParametersSingleEncoded": true
+                    }
+                },
+                "runAfter": {
+                    "Capture_only_text_from_email_message": [
+                        "Succeeded"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                },
+                "type": "ApiConnection"
+            },
+            "Save_email_message_as_original_format": {
+                "inputs": {
+                    "body": "@triggerBody()?['body']",
+                    "headers": {
+                        "ReadFileMetadataFromServer": true
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azureblob_1']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent(parameters('storageaccount_name')))}/files",
+                    "queries": {
+                        "folderPath": "@{concat('/',parameters('docs_container'),'/',triggerBody()?['receivedDateTime'],'-',triggerBody()?['Subject'],'-',triggerBody()?['From'])}",
+                        "name": "@{triggerBody()?['subject']}.msg",
+                        "queryParametersSingleEncoded": true
+                    }
+                },
+                "runAfter": {},
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                },
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            },
+            "docs_container": {
+                "defaultValue": "emails",
+                "type": "String"
+            },
+            "jsons_container": {
+                "defaultValue": "jsons",
+                "type": "String"
+            },
+            "storageaccount_name": {
+                "defaultValue": "datalake0503mvp",
+                "type": "String"
+            }
+        },
+        "triggers": {
+            "When_a_new_email_arrives_(V3)": {
+                "inputs": {
+                    "fetch": {
+                        "method": "get",
+                        "pathTemplate": {
+                            "template": "/v3/Mail/OnNewEmail"
+                        },
+                        "queries": {
+                            "folderPath": "Inbox",
+                            "includeAttachments": true
+                        }
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['office365']['connectionId']"
+                        }
+                    },
+                    "subscribe": {
+                        "body": {
+                            "NotificationUrl": "@{listCallbackUrl()}"
+                        },
+                        "method": "post",
+                        "pathTemplate": {
+                            "template": "/GraphMailSubscriptionPoke/$subscriptions"
+                        },
+                        "queries": {
+                            "folderPath": "Inbox"
+                        }
+                    }
+                },
+                "splitOn": "@triggerBody()?['value']",
+                "type": "ApiConnectionNotification"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "azureblob_1": {
+                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-mvp-sinistro/providers/Microsoft.Web/connections/azureblob",
+                    "connectionName": "azureblob",
+                    "connectionProperties": {
+                        "authentication": {
+                            "type": "ManagedServiceIdentity"
+                        }
+                    },
+                    "id": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/providers/Microsoft.Web/locations/eastus/managedApis/azureblob"
+                },
+                "office365": {
+                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-mvp-sinistro/providers/Microsoft.Web/connections/office365",
+                    "connectionName": "office365",
+                    "id": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/providers/Microsoft.Web/locations/eastus/managedApis/office365"
+                }
+            }
+        }
+    }
+}
