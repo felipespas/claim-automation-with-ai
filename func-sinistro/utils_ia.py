@@ -19,11 +19,15 @@ def capture_text_from_image(image_url: str):
         credential=AzureKeyCredential(key)
     )
 
-    result = client.analyze_from_url(
-        image_url=image_url,
-        visual_features=[VisualFeatures.CAPTION, VisualFeatures.READ],
-        gender_neutral_caption=True
-    )
+    try:
+        result = client.analyze_from_url(
+            image_url=image_url,
+            visual_features=[VisualFeatures.CAPTION, VisualFeatures.READ],
+            gender_neutral_caption=True
+        )
+    except Exception as e:
+        if "InvalidImageSize" in str(e):
+            return {"error": "InvalidImageSize"}
 
     # Capture caption and confidence from the image
     caption = ""
@@ -58,6 +62,9 @@ def capture_text_from_pdf(blob_url: str):
     
     form_fields = {}
     try:
+        if result.content:
+            content = result.content.replace("\n", " ")
+        
         for pair in result.key_value_pairs:
 
             if pair.key and pair.key.content:
@@ -95,6 +102,7 @@ def capture_text_from_pdf(blob_url: str):
 
     # create a single json with all the data
     result_json = {
+        "content": content,
         "fields": form_fields,
         "tables": tables_array
     }

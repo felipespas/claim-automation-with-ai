@@ -24,11 +24,11 @@ terraform apply -auto-approve
 ############################################################################
 # PERMISSIONS
 
-# grant permission to me in the storage account
+# grant permission to me (felipe de assis) in the storage account
 az role assignment create --assignee-object-id 200d5c65-b7ae-42ec-9c5a-978b410ee830 `
     --assignee-principal-type ServicePrincipal `
     --role "Storage Blob Data Contributor" `
-    --scope "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-mvp-sinistro/providers/Microsoft.Storage/storageAccounts/datalake1804mvp/blobServices/default"  
+    --scope "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-mvp-sinistro/providers/Microsoft.Storage/storageAccounts/datalake0503mvp/blobServices/default"  
 
 ############################################################################
 # CODE DEPLOY 
@@ -37,6 +37,6 @@ az role assignment create --assignee-object-id 200d5c65-b7ae-42ec-9c5a-978b410ee
 cd ..\..\func-sinistro
 
 # Then, publish the function with:
-func azure functionapp publish functionapp1804mvp --python
+func azure functionapp publish functionapp0503mvp --python
 
-func azure functionapp list-functions functionapp1804mvp
+func azure functionapp list-functions functionapp0503mvp

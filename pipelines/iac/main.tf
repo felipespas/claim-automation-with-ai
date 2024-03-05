@@ -21,7 +21,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_storage_account" "datalake_res" {
-  name                              = "datalake1804mvp"
+  name                              = "datalake0503mvp"
   resource_group_name               = azurerm_resource_group.rg.name
   location                          = azurerm_resource_group.rg.location
   account_tier                      = "Standard"
@@ -31,13 +31,18 @@ resource "azurerm_storage_account" "datalake_res" {
   public_network_access_enabled     = "true"  
 }
 
-resource "azurerm_storage_data_lake_gen2_filesystem" "datalake_fs" {
-  name               = "data"
+resource "azurerm_storage_data_lake_gen2_filesystem" "datalake_emails" {
+  name               = "emails"
+  storage_account_id = azurerm_storage_account.datalake_res.id
+}
+
+resource "azurerm_storage_data_lake_gen2_filesystem" "datalake_jsons" {
+  name               = "jsons"
   storage_account_id = azurerm_storage_account.datalake_res.id
 }
 
 resource "azurerm_service_plan" "function_plan" {
-  name                = "functionplan1804mvp"
+  name                = "functionplan0503mvp"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   os_type             = "Linux"
@@ -45,15 +50,31 @@ resource "azurerm_service_plan" "function_plan" {
 }
 
 resource "azurerm_storage_account" "storage_fn" {
-  name                     = "functionstg1804mvp"
+  name                     = "functionstg0503mvp"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
+resource "azurerm_log_analytics_workspace" "log_analytics" {
+  name                = "loganalytics0503mvp"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  sku                 = "PerGB2018"
+  retention_in_days   = 30
+}
+
+resource "azurerm_application_insights" "app_insights" {
+  name                = "appinsights0503mvp"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  workspace_id        = azurerm_log_analytics_workspace.log_analytics.id
+  application_type    = "other"
+}
+
 resource "azurerm_linux_function_app" "function_app" {
-  name                = "functionapp1804mvp"
+  name                = "functionapp0503mvp"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
 
@@ -65,6 +86,7 @@ resource "azurerm_linux_function_app" "function_app" {
     application_stack {
       python_version = "3.11"
     }
+    application_insights_key = azurerm_application_insights.app_insights.instrumentation_key
   }
 
   identity {
@@ -73,16 +95,16 @@ resource "azurerm_linux_function_app" "function_app" {
 }
 
 resource "azurerm_cognitive_account" "azure_ai_services" {
-  name                = "aiservices1804mvp"
+  name                = "aiservices0503mvp"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   kind                = "CognitiveServices"
-  custom_subdomain_name = "aiservices1804mvp"
+  custom_subdomain_name = "aiservices0503mvp"
   sku_name = "S0" 
 }
 
 resource "azurerm_logic_app_workflow" "logic_app" {
-  name                = "logicapp1804mvp"
+  name                = "logicapp0503mvp"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
