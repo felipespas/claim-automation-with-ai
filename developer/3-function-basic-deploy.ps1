@@ -11,12 +11,12 @@ az account set --subscription ""
 # # create the function app
 # az functionapp create --resource-group azure-mvp-sinistro --os-type Linux `
 #     --consumption-plan-location eastus --runtime python --runtime-version 3.11 `
-#     --functions-version 4 --name functionapp1704mvp --storage-account storage1704mvp
+#     --functions-version 4 --name functionapp0503mvp --storage-account storage1704mvp
 
 # # # Then, navigate to the project directory (in case you're not there already)
 # # cd mvp\funcs-sinistro
 
 # # Then, publish the function with:
-# func azure functionapp publish functionapp1704mvp --python
+func azure functionapp publish functionapp0503mvp --python
 
-# func azure functionapp list-functions function1704validacoes
+func azure functionapp list-functions functionapp0503mvp

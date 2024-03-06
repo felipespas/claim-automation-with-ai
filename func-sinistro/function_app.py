@@ -1,7 +1,8 @@
 import azure.functions as func
 import logging
 from utils_ia import capture_text_from_image, capture_text_from_pdf
-from utils_lake import get_filepath_from_lake, save_json_to_lake, extract_content_from_msg, validate_path
+from utils_lake import get_filepath_from_lake, save_json_to_lake
+from utils_text import extract_content_from_eml, validate_path
 
 app = func.FunctionApp()
 
@@ -22,30 +23,30 @@ def gettext(req: func.HttpRequest) -> func.HttpResponse:
     # validate the file path, and if it contains the container name, remove it
     file_path = validate_path(file_path)
 
-    result = {}
+    result = {}  
 
     # capture the file extension based on the file_path
     file_type = file_path.split(".")[-1]   
 
     if file_type == "jpeg" or file_type == "png" or file_type == "jpg":
         file_sas = get_filepath_from_lake(file_path)
-        image_json = capture_text_from_image(file_sas)
-        result.update({"image": image_json})
+        result_json = capture_text_from_image(file_sas)
 
     elif file_type == "pdf":        
         file_sas = get_filepath_from_lake(file_path)
-        pdf_json = capture_text_from_pdf(file_sas)
-        result.update({"pdf": pdf_json})
+        result_json = capture_text_from_pdf(file_sas)
 
-    elif file_type == "msg":
-        msg_json = extract_content_from_msg(file_path)
-        result.update({"msg": msg_json})
+    elif file_type == "eml":
+        result_json = extract_content_from_eml(file_path)
 
     else:
         return func.HttpResponse(
              "Você não forneceu dados em um dos formatos atualmente suportados. Por favor, reveja sua solicitação.",
              status_code=200
         )
+    
+    result.update({"file_path": file_path})
+    result.update({"content": result_json})
 
     success = save_json_to_lake(result, file_path)
 

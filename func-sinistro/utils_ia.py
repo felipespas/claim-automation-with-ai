@@ -1,6 +1,4 @@
 import os
-import re
-import json
 from dotenv import load_dotenv
 from azure.ai.vision.imageanalysis import ImageAnalysisClient
 from azure.ai.vision.imageanalysis.models import VisualFeatures
