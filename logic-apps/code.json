@@ -2,21 +2,6 @@
     "definition": {
         "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
         "actions": {
-            "Capture_only_text_from_email_message": {
-                "inputs": {
-                    "body": {
-                        "text": "@triggerBody()?['body']"
-                    },
-                    "method": "POST",
-                    "uri": "https://functionapp0503mvp.azurewebsites.net/api/removehtml?code=7IVaW002ZiXCp-nc9H7h_4KTWI4Twn6qhwcNx7KjxSGPAzFuiO5mYQ=="
-                },
-                "runAfter": {
-                    "Save_email_message_as_original_format": [
-                        "Succeeded"
-                    ]
-                },
-                "type": "Http"
-            },
             "Condition": {
                 "actions": {
                     "For_each": {
@@ -50,7 +35,7 @@
                                     "method": "post",
                                     "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent(parameters('storageaccount_name')))}/files",
                                     "queries": {
-                                        "folderPath": "@{concat('/',parameters('docs_container'),'/',triggerBody()?['receivedDateTime'],'-',triggerBody()?['Subject'],'-',triggerBody()?['From'])}",
+                                        "folderPath": "@{concat('/',parameters('docs_container'),'/',string(ticks(triggerBody()?['receivedDateTime'])))}",
                                         "name": "@items('For_each')?['name']",
                                         "queryParametersSingleEncoded": true
                                     }
@@ -80,15 +65,43 @@
                     ]
                 },
                 "runAfter": {
-                    "Save_email_content_as_JSON": [
+                    "Save_email_message_as_original_format": [
                         "Succeeded"
                     ]
                 },
                 "type": "If"
             },
-            "Save_email_content_as_JSON": {
+            "Extract_text_from_EML_file": {
                 "inputs": {
-                    "body": "@body('Capture_only_text_from_email_message')",
+                    "body": {
+                        "file_path": "@body('Save_email_as_EML')?['Path']"
+                    },
+                    "method": "POST",
+                    "uri": "https://functionapp0503mvp.azurewebsites.net/api/gettext?code=bfmAzphcxj3bWbeUJeh_Z6zV7meFLnl8-CRbdQANse96AzFu2sP_1Q=="
+                },
+                "runAfter": {
+                    "Save_email_as_EML": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http"
+            },
+            "Generate_EML_data_from_email": {
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['office365']['connectionId']"
+                        }
+                    },
+                    "method": "get",
+                    "path": "/codeless/beta/me/messages/@{encodeURIComponent(triggerBody()?['id'])}/$value"
+                },
+                "runAfter": {},
+                "type": "ApiConnection"
+            },
+            "Save_email_as_EML": {
+                "inputs": {
+                    "body": "@body('Generate_EML_data_from_email')",
                     "headers": {
                         "ReadFileMetadataFromServer": true
                     },
@@ -100,13 +113,13 @@
                     "method": "post",
                     "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent(parameters('storageaccount_name')))}/files",
                     "queries": {
-                        "folderPath": "@{concat('/',parameters('jsons_container'),'/',triggerBody()?['receivedDateTime'],'-',triggerBody()?['Subject'],'-',triggerBody()?['From'])}",
-                        "name": "@{triggerBody()?['subject']}.json",
+                        "folderPath": "@{concat('/',parameters('docs_container'),'/',string(ticks(triggerBody()?['receivedDateTime'])))}",
+                        "name": "@{triggerBody()?['subject']}.eml",
                         "queryParametersSingleEncoded": true
                     }
                 },
                 "runAfter": {
-                    "Capture_only_text_from_email_message": [
+                    "Generate_EML_data_from_email": [
                         "Succeeded"
                     ]
                 },
@@ -119,7 +132,7 @@
             },
             "Save_email_message_as_original_format": {
                 "inputs": {
-                    "body": "@triggerBody()?['body']",
+                    "body": "@body('Generate_EML_data_from_email')",
                     "headers": {
                         "ReadFileMetadataFromServer": true
                     },
@@ -131,12 +144,16 @@
                     "method": "post",
                     "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent(parameters('storageaccount_name')))}/files",
                     "queries": {
-                        "folderPath": "@{concat('/',parameters('docs_container'),'/',triggerBody()?['receivedDateTime'],'-',triggerBody()?['Subject'],'-',triggerBody()?['From'])}",
+                        "folderPath": "@{concat('/',parameters('docs_container'),'/',string(ticks(triggerBody()?['receivedDateTime'])))}",
                         "name": "@{triggerBody()?['subject']}.msg",
                         "queryParametersSingleEncoded": true
                     }
                 },
-                "runAfter": {},
+                "runAfter": {
+                    "Extract_text_from_EML_file": [
+                        "Succeeded"
+                    ]
+                },
                 "runtimeConfiguration": {
                     "contentTransfer": {
                         "transferMode": "Chunked"
@@ -175,6 +192,7 @@
                         },
                         "queries": {
                             "folderPath": "Inbox",
+                            "importance": "Normal",
                             "includeAttachments": true
                         }
                     },
@@ -192,7 +210,8 @@
                             "template": "/GraphMailSubscriptionPoke/$subscriptions"
                         },
                         "queries": {
-                            "folderPath": "Inbox"
+                            "folderPath": "Inbox",
+                            "importance": "Normal"
                         }
                     }
                 },
