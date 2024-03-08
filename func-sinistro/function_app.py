@@ -20,6 +20,9 @@ def gettext(req: func.HttpRequest) -> func.HttpResponse:
     # capture the file path from the request body
     file_path = req_body.get('file_path')
 
+    # log the file path for traceability
+    logging.info(f'file_path: {file_path}')
+
     # validate the file path, and if it contains the container name, remove it
     file_path = validate_path(file_path)
 
@@ -28,11 +31,12 @@ def gettext(req: func.HttpRequest) -> func.HttpResponse:
     # capture the file extension based on the file_path
     file_type = file_path.split(".")[-1]   
 
-    if file_type == "jpeg" or file_type == "png" or file_type == "jpg":
-        file_sas = get_filepath_from_lake(file_path)
-        result_json = capture_text_from_image(file_sas)
+    # if file_type == "jpeg" or file_type == "png" or file_type == "jpg":
+    #     file_sas = get_filepath_from_lake(file_path)
+    #     result_json = capture_text_from_image(file_sas)
 
-    elif file_type == "pdf":        
+    # elif 
+    if file_type == "pdf" or file_type == "jpeg":        
         file_sas = get_filepath_from_lake(file_path)
         result_json = capture_text_from_pdf(file_sas)
 
