@@ -6,8 +6,8 @@ from utils_text import extract_content_from_eml, validate_path
 
 app = func.FunctionApp()
 
-@app.route(route="gettext", auth_level=func.AuthLevel.FUNCTION)
-def gettext(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="extract01", auth_level=func.AuthLevel.FUNCTION)
+def extract01(req: func.HttpRequest) -> func.HttpResponse:
     
     # example of image_fullname: "1/Redes de proteção.jpeg"
     # example of pdf_fullname: "1/Pedido 02.pdf"

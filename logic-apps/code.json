@@ -12,7 +12,7 @@
                                         "file_path": "@body('Save_attachment_in_original_format')?['Path']"
                                     },
                                     "method": "POST",
-                                    "uri": "https://functionapp0503mvp.azurewebsites.net/api/gettext?code=bfmAzphcxj3bWbeUJeh_Z6zV7meFLnl8-CRbdQANse96AzFu2sP_1Q=="
+                                    "uri": "https://functionapp0503mvp.azurewebsites.net/api/extract01?code=bfmAzphcxj3bWbeUJeh_Z6zV7meFLnl8-CRbdQANse96AzFu2sP_1Q=="
                                 },
                                 "runAfter": {
                                     "Save_attachment_in_original_format": [
@@ -77,7 +77,7 @@
                         "file_path": "@body('Save_email_as_EML')?['Path']"
                     },
                     "method": "POST",
-                    "uri": "https://functionapp0503mvp.azurewebsites.net/api/gettext?code=bfmAzphcxj3bWbeUJeh_Z6zV7meFLnl8-CRbdQANse96AzFu2sP_1Q=="
+                    "uri": "https://functionapp0503mvp.azurewebsites.net/api/extract01?code=bfmAzphcxj3bWbeUJeh_Z6zV7meFLnl8-CRbdQANse96AzFu2sP_1Q=="
                 },
                 "runAfter": {
                     "Save_email_as_EML": [
