@@ -1,1 +1,1 @@
-curl -X POST -d '{"question": "How can you help me?"}' http://localhost:7071/api/validate01
+curl -X POST -d '{"question": "De que tipo de documento se trata o conteúdo que te enviei?", "json_url": "638457585670000000/Felipe de Assis.pdf.json"}' http://localhost:7072/api/validate01

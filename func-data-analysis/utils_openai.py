@@ -1,27 +1,34 @@
+import os
 from dotenv import load_dotenv
 from openai import AzureOpenAI
 
 load_dotenv()
 
+azure_openai_endpoint = os.environ["AZURE_OPENAI_ENDPOINT"]
+azure_openai_api_version = os.environ["AZURE_OPENAI_API_VERSION"]
+
 client = AzureOpenAI(
-    api_version="2023-07-01-preview",
-    azure_endpoint="https://openai1704canadaeast.openai.azure.com/",
+    api_version=azure_openai_api_version,
+    azure_endpoint=azure_openai_endpoint,
 )
 
-def make_question(question: str):
-    completion = client.chat.completions.create(
-        model="gpt-4",
-        messages=[
+def make_question(question: str, content: str):
+    messages = [
             {
                 "role": "system",
-                "content": "You are a helpful assistant.",
+                "content": "Você é um assistente que responde às perguntas do usuário com base no contexto fornecido. \
+                    Para responder, use sempre o mesmo idioma utilizado na pergunta.",
             },
             {
                 "role": "user",
-                "content": question,
+                "content": f"Aqui está todo o contexto que você conhece: {content}. \
+                    Com base nisso, responda a pergunta do usuário: {question}"
             },
-        ],
+        ]
+
+    completion = client.chat.completions.create(
+        model="gpt-4",
+        messages=messages,
     )
-    print(completion.model_dump_json(indent=2))
 
     return completion.choices[0].message.content
