@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "ms-poc-sinistro-ai",
+			"path": "."
+		},
+		{
+			"name": "func-data-prep",
+			"path": "func-data-prep"
+		},
+		{
+			"name": "func-data-analysis",
+			"path": "func-data-analysis"
+		}
+	],
+	"settings": {
+		"debug.internalConsoleOptions": "neverOpen"
+	}
+}

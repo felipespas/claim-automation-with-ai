@@ -29,7 +29,11 @@ def validate_path(text: str) -> str:
 
 def clean_html(html_text):
     soup = BeautifulSoup(html_text, "html.parser")
-    cleaned_text = soup.get_text(separator=' ').replace("\n", " ").replace("\r", " ").replace("\t", " ").replace("\xa0", " ")
+    cleaned_text = soup.get_text(separator=' ') \
+        .replace("\n", " ").replace("\r", " ").replace("\t", "") \
+            .replace("\xa0", "").replace("‌&nbsp;", "").replace("\u200c", "") \
+                .replace("  ", " ").strip()
+    
     return cleaned_text
 
 def extract_content_from_eml(file_path):
@@ -56,7 +60,7 @@ def extract_content_from_eml(file_path):
     subject = msg['subject']
     from_address = msg['from']
     to_address = msg['to']
-    body = msg.get_body(preferencelist=('plain', 'html')).get_content().replace("\n", " ").replace("\r", " ")
+    body = clean_html(msg.get_body(preferencelist=('plain', 'html')).get_content())
 
     email_dict = {
         'subject': subject,

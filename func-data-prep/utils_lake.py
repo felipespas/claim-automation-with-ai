@@ -12,10 +12,10 @@ jsons_container_name = os.environ["STORAGE_CONTAINER_JSONS"]
 storage_account_key = os.environ["STORAGE_ACCOUNT_KEY"]
 storage_account_url = os.environ["DATA_LAKE_URL_ENDPOINT"]
 
-def get_filepath_from_lake(blob_path: str):
+# Create a blob client
+blob_service_client = BlobServiceClient.from_connection_string(connection_string)
 
-    # Create a blob client
-    blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+def get_filepath_from_lake(blob_path: str):
 
     # Define the expiry time (1 hour from now in this example)
     expiry_time = datetime.utcnow() + timedelta(hours=1)
@@ -40,7 +40,6 @@ def save_json_to_lake(json_data, file_path):
 
         file_path = file_path + ".json"
 
-        blob_service_client = BlobServiceClient.from_connection_string(connection_string)
         blob_client = blob_service_client.get_blob_client(jsons_container_name, file_path)
 
         json_str = json.dumps(json_data, ensure_ascii=False).encode('utf-8')

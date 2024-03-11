@@ -1,0 +1,1 @@
+curl -X POST -d '{"question": "How can you help me?"}' http://localhost:7071/api/validate01

@@ -4,12 +4,12 @@
 		{
 			"type": "func",
 			"label": "func: host start",
-			"command": "host start",
+			"command": "host start --port 7072",
 			"problemMatcher": "$func-python-watch",
 			"isBackground": true,
 			"dependsOn": "pip install (functions)",
 			"options": {
-				"cwd": "${workspaceFolder}/func-sinistro"
+				"cwd": "${workspaceFolder}"
 			}
 		},
 		{
@@ -26,7 +26,7 @@
 			},
 			"problemMatcher": [],
 			"options": {
-				"cwd": "${workspaceFolder}/func-sinistro"
+				"cwd": "${workspaceFolder}"
 			}
 		}
 	]
