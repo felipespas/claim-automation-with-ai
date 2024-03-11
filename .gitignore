@@ -3,4 +3,4 @@ __blobstorage*
 __queuestorage*
 pipelines/iac/.terraform*
 pipelines/iac/terraform.*
-
+developer/.env

@@ -3,8 +3,8 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
     api_version="2023-07-01-preview",
-    azure_endpoint="https://openai1704canadaeast.openai.azure.com",
-    api_key="9c49d2f8e3d84767bea9c23c2439c38e"
+    azure_endpoint="",
+    api_key=""
 )
 
 # read the file input-cliente.txt and store it in a variable
