@@ -1,5 +1,4 @@
 import os
-import json
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from azure.storage.blob import BlobServiceClient, BlobSasPermissions, generate_blob_sas
@@ -34,23 +33,6 @@ def get_filepath_from_lake(blob_path: str):
     blob_url = f"https://{blob_service_client.account_name}.blob.core.windows.net/{files_container_name}/{blob_path}?{sas_token}"
 
     return blob_url
-
-def save_json_to_lake(json_data, file_path):
-
-    try:
-
-        file_path = file_path + ".json"
-
-        blob_client = blob_service_client.get_blob_client(jsons_container_name, file_path)
-
-        json_str = json.dumps(json_data, ensure_ascii=False).encode('utf-8')
-
-        blob_client.upload_blob(json_str, overwrite=True)
-
-        return 0
-
-    except Exception as e:
-        return e        
 
 def download_content(file_path):
     

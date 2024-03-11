@@ -1,7 +1,7 @@
 import azure.functions as func
 import logging
-from utils_ia import capture_text_from_image, capture_text_from_pdf
-from utils_lake import get_filepath_from_lake, save_json_to_lake
+from utils_ia import capture_text_from_pdf
+from utils_lake import get_filepath_from_lake, save_json_to_lake, download_content
 from utils_text import extract_content_from_eml, validate_path
 
 app = func.FunctionApp()
@@ -41,8 +41,9 @@ def gettext(req: func.HttpRequest) -> func.HttpResponse:
         result_json = capture_text_from_pdf(file_sas)
 
     elif file_type == "eml":
-        result_json = extract_content_from_eml(file_path)
-
+        eml_content = download_content(file_path)
+        result_json = extract_content_from_eml(eml_content)
+        
     else:
         return func.HttpResponse(
              "Você não forneceu dados em um dos formatos atualmente suportados. Por favor, reveja sua solicitação.",

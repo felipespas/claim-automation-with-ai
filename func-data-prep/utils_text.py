@@ -1,11 +1,8 @@
 import os
-# import eml_parser
-# import json
 from email import policy
 from email.parser import BytesParser
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
-from azure.storage.filedatalake import DataLakeServiceClient
 
 load_dotenv()
 
@@ -36,25 +33,9 @@ def clean_html(html_text):
     
     return cleaned_text
 
-def extract_content_from_eml(file_path):
+def extract_content_from_eml(eml_content):
     
-    # Create a DataLakeServiceClient object
-    service_client = DataLakeServiceClient(account_url=storage_account_url, credential=storage_account_key)
-
-    # Get the file system client
-    file_system_client = service_client.get_file_system_client(files_container_name)
-
-    # Get the data lake file client
-    file_client = file_system_client.get_file_client(file_path)
-
-    # Download the content of the file into a variable
-    download_stream = file_client.download_file()
-    downloaded_content = download_stream.readall()
-
-    # ep = eml_parser.EmlParser()
-    # parsed_eml = ep.decode_email_bytes(downloaded_content)
-    
-    msg = BytesParser(policy=policy.default).parsebytes(downloaded_content)
+    msg = BytesParser(policy=policy.default).parsebytes(eml_content)
 
     # Now you can access the email parts
     subject = msg['subject']
