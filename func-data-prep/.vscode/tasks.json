@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "func",
-			"label": "func: host start",
+			"label": "func: host start (func-data-prep)",
 			"command": "host start --port 7071",
 			"problemMatcher": "$func-python-watch",
 			"isBackground": true,

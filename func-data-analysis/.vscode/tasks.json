@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "func",
-			"label": "func: host start",
+			"label": "func: host start (func-data-analysis)",
 			"command": "host start --port 7072",
 			"problemMatcher": "$func-python-watch",
 			"isBackground": true,
