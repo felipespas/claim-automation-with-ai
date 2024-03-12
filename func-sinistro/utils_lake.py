@@ -1,5 +1,4 @@
 import os
-import logging
 import json
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
@@ -16,7 +15,6 @@ storage_account_key = os.environ["STORAGE_ACCOUNT_KEY"]
 blob_service_client = BlobServiceClient.from_connection_string(storage_account_connection_string)
 
 def list_files(container_name, dir_path):
-    logging.info('Initializing client.')
     
     # Create a DataLakeServiceClient object
     service_client = DataLakeServiceClient(account_url=data_lake_url_endpoint, credential=storage_account_key)
@@ -27,17 +25,11 @@ def list_files(container_name, dir_path):
     # Get the directory client
     directory_client = file_system_client.get_paths(dir_path)    
 
-    logging.info('Client instantiated. Starting loop.')
-
     # iterate over the files and store their names in a list
     file_list = []
     
     for file in directory_client:
-        file_name_str = file.name
-        logging.info(f'File found: {file_name_str}')
         file_list.append(file.name)    
-
-    logging.info('Loop finished. Returning file_list.')
 
     return file_list
 

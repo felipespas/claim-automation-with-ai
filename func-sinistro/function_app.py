@@ -11,17 +11,14 @@ storage_account_container_jsons = os.environ['STORAGE_ACCOUNT_CONTAINER_JSONS']
 
 app = func.FunctionApp()
 
-@app.route(route="processor01", auth_level=func.AuthLevel.FUNCTION)
-def processor01(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="prepare01", auth_level=func.AuthLevel.FUNCTION)
+def prepare01(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     req_body = req.get_json()
     directory = req_body.get('directory')
-    question = req_body.get('question')
 
     email_files = list_files(storage_account_container_emails, directory)
-
-    context = []
 
     # iterate over the files and call a function
     for file in email_files:
@@ -37,12 +34,37 @@ def processor01(req: func.HttpRequest) -> func.HttpResponse:
             continue
 
         save_json_to_lake(storage_account_container_jsons, file, result)  
-        
-        context.append(result)
 
     logging.info('All files saved as json and context obtained.\n')
 
-    response = make_question(question, context)        
+    return func.HttpResponse(f'\n Processamento OK! Arquivos processados: {email_files}. \n\n', status_code=200)
 
-    return func.HttpResponse(f'\n Processamento OK! \n Resposta à pergunta do usuário: {response} \n\n', status_code=200)
+@app.route(route="validate01", auth_level=func.AuthLevel.FUNCTION)
+def validate01(req: func.HttpRequest) -> func.HttpResponse:
+    
+    logging.info('Python HTTP trigger function processed a request.')
 
+    req_body = req.get_json()
+    directory = req_body.get('directory')
+    question = req_body.get('question')
+
+    logging.info(f'Directory: {directory}')
+
+    json_files = list_files(storage_account_container_jsons, directory)
+
+    logging.info(f'Json files: {json_files}')
+
+    context = []
+
+    for file in json_files:
+        result = download_content(storage_account_container_jsons, file)
+        context.append(result)
+
+    logging.info(f'Question: {question}')
+    logging.info(f'Context: {context}')
+
+    response = make_question(question, context)   
+
+    logging.info(f'Response: {response}')
+
+    return func.HttpResponse(f'\n Resposta: {response}', status_code=200)

@@ -22,7 +22,9 @@ pip install -r .\requirements.txt
 # Step 4: Add a new function to the project
 # Still in the terminal, run the command below
 # and remember to choose function as the auth
-func new --name processor01 --template "HTTP trigger" --authlevel "function"
+func new --name prepare01 --template "HTTP trigger" --authlevel "function"
+
+func new --name validate01 --template "HTTP trigger" --authlevel "function"
 
 # Step 5: Test the function locally
 # Run the function locally with:

@@ -1,7 +1,5 @@
-import os
 from email import policy
 from email.parser import BytesParser
-from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 
 def clean_html(html_text):

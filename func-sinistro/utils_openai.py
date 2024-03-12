@@ -13,7 +13,7 @@ client = AzureOpenAI(
     azure_endpoint=azure_openai_endpoint,
 )
 
-def make_question(question: str, content: str):
+def make_question(question: str, context: str):
     messages = [
             {
                 "role": "system",
@@ -22,7 +22,7 @@ def make_question(question: str, content: str):
             },
             {
                 "role": "user",
-                "content": f"Aqui está todo o contexto que você conhece: {content}. \
+                "content": f"Aqui está todo o contexto que você conhece: {context}. \
                     Com base nisso, responda a pergunta do usuário: {question}"
             },
         ]
