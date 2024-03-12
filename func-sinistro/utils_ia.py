@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
 
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+from azure.ai.documentintelligence.models import AnalyzeResult
+
 load_dotenv()
 
 endpoint = os.environ["AISERVICES_ENDPOINT"]
@@ -12,7 +15,7 @@ def capture_text_from_pdf(blob_url: str):
 
     client = DocumentAnalysisClient(
         endpoint=endpoint,
-        credential=AzureKeyCredential(key)
+        credential=AzureKeyCredential(key)     
     )
 
     poller = client.begin_analyze_document_from_url("prebuilt-document", blob_url)
@@ -66,3 +69,29 @@ def capture_text_from_pdf(blob_url: str):
     }
 
     return result_json
+
+def capture_text_from_office(blob_url: str):
+
+    client = DocumentAnalysisClient(
+        endpoint=endpoint,
+        credential=AzureKeyCredential(key),
+        api_version="2023-10-31-preview"        
+    )
+
+    poller = client.begin_analyze_document_from_url("prebuilt-document", blob_url)
+    result = poller.result()
+
+    return result.content
+
+    # document_intelligence_client = DocumentIntelligenceClient(
+    #     endpoint=endpoint, credential=AzureKeyCredential(key)
+    # )
+
+    # poller = document_intelligence_client.begin_analyze_document(
+    #     "prebuilt-layout", blob_url
+    # )
+
+    # result: AnalyzeResult = poller.result()
+
+    # return result.content
+    

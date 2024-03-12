@@ -2,7 +2,7 @@ import os
 import azure.functions as func
 import logging
 from utils_lake import list_files, get_filepath_from_lake, save_json_to_lake, download_content
-from utils_ia import capture_text_from_pdf
+from utils_ia import capture_text_from_pdf, capture_text_from_office
 from utils_text import extract_content_from_eml
 from utils_openai import make_question
 
@@ -30,6 +30,10 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
             content = download_content(storage_account_container_emails, file)
             result = extract_content_from_eml(content)
             
+        elif file.endswith(".docx") or file.endswith(".doc"):
+            blob_path = get_filepath_from_lake(storage_account_container_emails, file)
+            result = capture_text_from_office(blob_path)
+
         else:
             continue
 
