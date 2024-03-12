@@ -3,10 +3,10 @@
 
 # Step 2: Create a new Azure Functions project
 # Still in the terminal, run:
-func init func-data-prep --python
+func init func-sinistro --python
 
 # Then, navigate to the project directory
-cd func-data-prep
+cd func-sinistro
 
 # Step 3: Create a virtual environment for Python
 # Open a terminal and navigate to the directory where you want to create the project. Then run:
@@ -22,22 +22,10 @@ pip install -r .\requirements.txt
 # Step 4: Add a new function to the project
 # Still in the terminal, run the command below
 # and remember to choose function as the auth
-func new --name extract01 --template "HTTP trigger" --authlevel "function"
+func new --name processor01 --template "HTTP trigger" --authlevel "function"
 
 # Step 5: Test the function locally
 # Run the function locally with:
 func start
 
 ########################################################################################################
-
-func init func-data-analysis --python
-
-cd func-data-analysis
-
-python3 -m venv .venv
-
-pip install -r .\requirements.txt
-
-func new --name validate01 --template "HTTP trigger" --authlevel "function"
-
-func start

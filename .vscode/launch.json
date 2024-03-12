@@ -2,11 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Attach to Python Functions (func-data-prep)",
+            "name": "Attach to Python Functions",
             "type": "python",
             "request": "attach",
             "port": 9090,
-            "preLaunchTask": "func: host start (func-data-prep)"
+            "preLaunchTask": "func: host start"
         }
     ]
 }

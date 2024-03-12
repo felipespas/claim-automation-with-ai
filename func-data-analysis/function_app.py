@@ -7,24 +7,19 @@ from utils_lake import download_content, list_files
 
 app = func.FunctionApp()
 
-@app.route(route="validate01", auth_level=func.AuthLevel.FUNCTION)
-def validate01(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="processor01", auth_level=func.AuthLevel.FUNCTION)
+def processor01(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     req_body = req.get_json()
     
-    question = req_body.get('question')    
+    question = req_body.get('question')
     logging.info(f'Question received: {question}')
-    
+
     directory = req_body.get('directory')
-    logging.info(f'Directory received: {directory}')    
+    logging.info(f'Directory received: {directory}')
 
-    try:
-        file_list = list_files(directory)
-    except Exception as e:
-        logging.error(f'Error listing files: {e}\n')
-        return func.HttpResponse(f"Error listing files: {e}\n", status_code=500)
-
+    file_list = list_files(directory)
     logging.info('Files listed.')
 
     full_content = []

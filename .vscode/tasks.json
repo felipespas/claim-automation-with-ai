@@ -3,13 +3,13 @@
 	"tasks": [
 		{
 			"type": "func",
-			"label": "func: host start (func-data-analysis)",
-			"command": "host start --port 7072",
+			"label": "func: host start",
+			"command": "host start --port 7071",
 			"problemMatcher": "$func-python-watch",
 			"isBackground": true,
 			"dependsOn": "pip install (functions)",
 			"options": {
-				"cwd": "${workspaceFolder}"
+				"cwd": "${workspaceFolder}/func-sinistro"
 			}
 		},
 		{
@@ -26,7 +26,7 @@
 			},
 			"problemMatcher": [],
 			"options": {
-				"cwd": "${workspaceFolder}"
+				"cwd": "${workspaceFolder}/func-sinistro"
 			}
 		}
 	]

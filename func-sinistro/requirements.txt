@@ -1,0 +1,12 @@
+# Do not include azure-functions-worker in this file
+# The Python Worker is managed by the Azure Functions platform
+# Manually managing azure-functions-worker may cause unexpected issues
+
+azure-ai-formrecognizer==3.3.2
+azure-functions==1.18.0
+azure-storage-file-datalake==12.14.0
+bs4==0.0.1
+beautifulsoup4==4.12.2
+eml-parser==1.17.5
+python-dotenv==1.0.1
+openai==1.13.3
