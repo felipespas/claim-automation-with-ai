@@ -63,8 +63,9 @@ def validate01(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'Question: {question}')
     logging.info(f'Context: {context}')
 
-    response = make_question(question, context)   
-
+    response, tokens = make_question(question, context)   
+    
+    logging.info(f'Total tokens: {str(tokens)}')
     logging.info(f'Response: {response}')
 
-    return func.HttpResponse(f'\n Resposta: {response}', status_code=200)
+    return func.HttpResponse(f'\n Resposta: {response} \n\n', status_code=200)

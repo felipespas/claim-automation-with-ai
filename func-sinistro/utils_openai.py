@@ -32,4 +32,7 @@ def make_question(question: str, context: str):
         messages=messages,
     )
 
-    return completion.choices[0].message.content
+    response = completion.choices[0].message.content
+    tokens = completion.usage.total_tokens
+
+    return response, tokens
