@@ -6,11 +6,21 @@
       "index": -1
     },
     "outputs": {
-      "x": 220,
-      "y": 444,
+      "x": 550,
+      "y": 42,
       "index": -1
     },
-    "rewrite_question": {
+    "obtem_infomacao_inicial": {
+      "x": 140,
+      "y": 310,
+      "index": -1
+    },
+    "busca_conteudo_emails": {
+      "x": 227.5,
+      "y": 176,
+      "index": -1
+    },
+    "make_question": {
       "x": 140,
       "y": 310,
       "index": 0

@@ -10,7 +10,7 @@ outputs:
     type: string
     reference: ${rewrite_question.output}
 nodes:
-- name: rewrite_question
+- name: make_question
   type: llm
   source:
     type: code

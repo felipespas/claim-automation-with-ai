@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "rewrite_question": {
+    "obtem_infomacao_inicial": {
       "variant_0": {
         "inputs": {
           "question": [],
@@ -9,7 +9,7 @@
         }
       }
     },
-    "retrieve_emails_content": {
+    "busca_conteudo_emails": {
       "variant_0": {
         "inputs": {
           "directory": []
