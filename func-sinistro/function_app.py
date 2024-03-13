@@ -1,6 +1,7 @@
 import os
 import azure.functions as func
 import logging
+import json
 from utils_lake import list_files, get_filepath_from_lake, save_json_to_lake, download_content
 from utils_ia import capture_text_from_pdf, capture_text_from_office
 from utils_text import extract_content_from_eml
@@ -15,6 +16,10 @@ app = func.FunctionApp()
 def prepare01(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
+    # check if the request body is string and convert it to json
+    if isinstance(req_body, str):
+        req_body = json.loads(req_body)
+    
     req_body = req.get_json()
     directory = req_body.get('directory')
 
@@ -22,9 +27,11 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
 
     logging.info(f'Files listed: {email_files}')
 
+    processed_files = []
+
     # iterate over the files and call a function
     for file in email_files:
-        if file.endswith(".pdf"):
+        if file.endswith(".pdf") or file.endswith(".jpeg"):
             blob_path = get_filepath_from_lake(storage_account_container_emails, file)
             result = capture_text_from_pdf(blob_path)
             
@@ -43,9 +50,12 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
 
         logging.info(f'File processed: {file}')
 
+        # append file to processed_files
+        processed_files.append(file)
+
     logging.info('All files saved as json and context obtained.\n')
 
-    return func.HttpResponse(f'\n Processamento OK! Arquivos processados: {email_files}. \n\n', status_code=200)
+    return func.HttpResponse(f'\n Processamento OK! Arquivos processados: {processed_files}. \n\n', status_code=200)
 
 @app.route(route="validate01", auth_level=func.AuthLevel.FUNCTION)
 def validate01(req: func.HttpRequest) -> func.HttpResponse:
@@ -53,6 +63,11 @@ def validate01(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     req_body = req.get_json()
+
+    # check if the request body is string and convert it to json
+    if isinstance(req_body, str):
+        req_body = json.loads(req_body)
+
     directory = req_body.get('directory')
     question = req_body.get('question')
 
