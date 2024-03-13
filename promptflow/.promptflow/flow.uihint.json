@@ -1,3 +1,20 @@
 {
-  "nodes": {}
+  "nodes": {
+    "rewrite_question": {
+      "variant_0": {
+        "inputs": {
+          "question": [],
+          "response_format": [],
+          "context": []
+        }
+      }
+    },
+    "retrieve_emails_content": {
+      "variant_0": {
+        "inputs": {
+          "directory": []
+        }
+      }
+    }
+  }
 }

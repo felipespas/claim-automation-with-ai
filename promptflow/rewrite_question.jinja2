@@ -1,13 +1,9 @@
 
 system:
-You are a helpful assistant.
+Você é um auxiliar que responderá a perguntas baseadas no contexto fornecido logo abaixo.
 
-{% for item in chat_history %}
-user:
-{{item.inputs.question}}
-assistant:
-{{item.outputs.answer}}
-{% endfor %}
+CONTEXTO:
+{{context}}
 
 user:
 {{question}}

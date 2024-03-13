@@ -4,7 +4,7 @@
     "rewrite_question.jinja2": {
       "type": "llm",
       "inputs": {
-        "chat_history": {
+        "context": {
           "type": [
             "string"
           ]
@@ -16,6 +16,18 @@
         }
       },
       "source": "rewrite_question.jinja2"
+    },
+    "retrieve_emails_content.py": {
+      "type": "python",
+      "inputs": {
+        "directory": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "retrieve_emails_content.py",
+      "function": "my_python_tool"
     }
   }
 }

@@ -6,14 +6,19 @@
       "index": -1
     },
     "outputs": {
-      "x": 550,
-      "y": 42,
+      "x": 220,
+      "y": 444,
       "index": -1
     },
     "rewrite_question": {
-      "x": 800,
-      "y": 42,
+      "x": 140,
+      "y": 310,
       "index": 0
+    },
+    "retrieve_emails_content": {
+      "x": 227.5,
+      "y": 176,
+      "index": 1
     }
   },
   "orientation": "Vertical"

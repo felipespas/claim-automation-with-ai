@@ -1,13 +1,14 @@
 inputs:
   question:
     type: string
-    default: ""
+    default: Quantos aparelhos foram comprados?
   directory:
     type: string
-    default: ""
+    default: "638459229660000000"
 outputs:
   answer:
     type: string
+    reference: ${rewrite_question.output}
 nodes:
 - name: rewrite_question
   type: llm
@@ -17,5 +18,16 @@ nodes:
   inputs:
     deployment_name: gpt-4
     temperature: 0
+    question: ${inputs.question}
+    response_format:
+      type: text
+    context: ${retrieve_emails_content.output}
   connection: azure-open-ai
   api: chat
+- name: retrieve_emails_content
+  type: python
+  source:
+    type: code
+    path: retrieve_emails_content.py
+  inputs:
+    directory: ${inputs.directory}
