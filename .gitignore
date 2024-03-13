@@ -1,5 +1,6 @@
 __azurite*
 __blobstorage*
 __queuestorage*
-terraform/
+terraform/terraform
+terraform/.terraform
 developer-scripts/.env
