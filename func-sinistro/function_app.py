@@ -16,11 +16,16 @@ app = func.FunctionApp()
 def prepare01(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
-    # check if the request body is string and convert it to json
-    if isinstance(req_body, str):
-        req_body = json.loads(req_body)
-    
     req_body = req.get_json()
+    
+    # check if the request body is string and convert it to json
+    try:        
+        if isinstance(req_body, str):
+            req_body = json.loads(req_body)
+    except:
+        logging.info(f'Error when processing the following input: {req_body}')
+        return func.HttpResponse(f'\n Error: invalid JSON. Not proceeding with next steps. \n\n', status_code=400)
+    
     directory = req_body.get('directory')
 
     email_files = list_files(storage_account_container_emails, directory)
@@ -65,8 +70,12 @@ def validate01(req: func.HttpRequest) -> func.HttpResponse:
     req_body = req.get_json()
 
     # check if the request body is string and convert it to json
-    if isinstance(req_body, str):
-        req_body = json.loads(req_body)
+    try:        
+        if isinstance(req_body, str):
+            req_body = json.loads(req_body)
+    except:
+        logging.info(f'Error when processing the following input: {req_body}')
+        return func.HttpResponse(f'\n Error: invalid JSON. Not proceeding with next steps. \n\n', status_code=400)
 
     directory = req_body.get('directory')
     question = req_body.get('question')
