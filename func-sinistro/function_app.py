@@ -17,7 +17,7 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     req_body = req.get_json()
-    
+
     # check if the request body is string and convert it to json
     try:        
         if isinstance(req_body, str):
@@ -44,9 +44,9 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
             content = download_content(storage_account_container_emails, file)
             result = extract_content_from_eml(content)
             
-        # elif file.endswith(".docx") or file.endswith(".doc"):
-        #     blob_path = get_filepath_from_lake(storage_account_container_emails, file)
-        #     result = capture_text_from_office(blob_path)
+        elif file.endswith(".docx")
+            blob_path = get_filepath_from_lake(storage_account_container_emails, file)
+            result = capture_text_from_office(blob_path)
 
         else:
             continue
