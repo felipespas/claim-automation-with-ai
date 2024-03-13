@@ -1,0 +1,21 @@
+inputs:
+  question:
+    type: string
+    default: ""
+  directory:
+    type: string
+    default: ""
+outputs:
+  answer:
+    type: string
+nodes:
+- name: rewrite_question
+  type: llm
+  source:
+    type: code
+    path: rewrite_question.jinja2
+  inputs:
+    deployment_name: gpt-4
+    temperature: 0
+  connection: azure-open-ai
+  api: chat

@@ -1,6 +1,5 @@
 __azurite*
 __blobstorage*
 __queuestorage*
-pipelines/iac/.terraform*
-pipelines/iac/terraform.*
+terraform/
 developer-scripts/.env

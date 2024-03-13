@@ -20,6 +20,8 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
 
     email_files = list_files(storage_account_container_emails, directory)
 
+    logging.info(f'Files listed: {email_files}')
+
     # iterate over the files and call a function
     for file in email_files:
         if file.endswith(".pdf"):
@@ -30,14 +32,16 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
             content = download_content(storage_account_container_emails, file)
             result = extract_content_from_eml(content)
             
-        elif file.endswith(".docx") or file.endswith(".doc"):
-            blob_path = get_filepath_from_lake(storage_account_container_emails, file)
-            result = capture_text_from_office(blob_path)
+        # elif file.endswith(".docx") or file.endswith(".doc"):
+        #     blob_path = get_filepath_from_lake(storage_account_container_emails, file)
+        #     result = capture_text_from_office(blob_path)
 
         else:
             continue
 
         save_json_to_lake(storage_account_container_jsons, file, result)  
+
+        logging.info(f'File processed: {file}')
 
     logging.info('All files saved as json and context obtained.\n')
 
