@@ -6,21 +6,6 @@
                 "actions": {
                     "For_each": {
                         "actions": {
-                            "Extract_and_save_attachment_as_JSON": {
-                                "inputs": {
-                                    "body": {
-                                        "file_path": "@body('Save_attachment_in_original_format')?['Path']"
-                                    },
-                                    "method": "POST",
-                                    "uri": "https://functionapp0503mvp.azurewebsites.net/api/extract01?code=bfmAzphcxj3bWbeUJeh_Z6zV7meFLnl8-CRbdQANse96AzFu2sP_1Q=="
-                                },
-                                "runAfter": {
-                                    "Save_attachment_in_original_format": [
-                                        "Succeeded"
-                                    ]
-                                },
-                                "type": "Http"
-                            },
                             "Save_attachment_in_original_format": {
                                 "inputs": {
                                     "body": "@base64ToBinary(items('For_each')?['contentBytes'])",
@@ -65,26 +50,11 @@
                     ]
                 },
                 "runAfter": {
-                    "Save_email_message_as_original_format": [
-                        "Succeeded"
-                    ]
-                },
-                "type": "If"
-            },
-            "Extract_text_from_EML_file": {
-                "inputs": {
-                    "body": {
-                        "file_path": "@body('Save_email_as_EML')?['Path']"
-                    },
-                    "method": "POST",
-                    "uri": "https://functionapp0503mvp.azurewebsites.net/api/extract01?code=bfmAzphcxj3bWbeUJeh_Z6zV7meFLnl8-CRbdQANse96AzFu2sP_1Q=="
-                },
-                "runAfter": {
                     "Save_email_as_EML": [
                         "Succeeded"
                     ]
                 },
-                "type": "Http"
+                "type": "If"
             },
             "Generate_EML_data_from_email": {
                 "inputs": {
@@ -96,8 +66,44 @@
                     "method": "get",
                     "path": "/codeless/beta/me/messages/@{encodeURIComponent(triggerBody()?['id'])}/$value"
                 },
-                "runAfter": {},
+                "runAfter": {
+                    "Save_email_message_as_original_format": [
+                        "Succeeded"
+                    ]
+                },
                 "type": "ApiConnection"
+            },
+            "Get_secret": {
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['keyvault']['connectionId']"
+                        }
+                    },
+                    "method": "get",
+                    "path": "/secrets/@{encodeURIComponent('function-prepare01-code')}/value"
+                },
+                "runAfter": {
+                    "Condition": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            },
+            "HTTP": {
+                "inputs": {
+                    "body": {
+                        "directory": "@string(ticks(triggerBody()?['receivedDateTime']))"
+                    },
+                    "method": "POST",
+                    "uri": "@{concat('https://',parameters('function_name'),'.azurewebsites.net/api/',parameters('function_endpoint'),'?code=',body('Get_secret')?['value'])}"
+                },
+                "runAfter": {
+                    "Get_secret": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http"
             },
             "Save_email_as_EML": {
                 "inputs": {
@@ -132,7 +138,7 @@
             },
             "Save_email_message_as_original_format": {
                 "inputs": {
-                    "body": "@body('Generate_EML_data_from_email')",
+                    "body": "@triggerBody()?['body']",
                     "headers": {
                         "ReadFileMetadataFromServer": true
                     },
@@ -149,11 +155,7 @@
                         "queryParametersSingleEncoded": true
                     }
                 },
-                "runAfter": {
-                    "Extract_text_from_EML_file": [
-                        "Succeeded"
-                    ]
-                },
+                "runAfter": {},
                 "runtimeConfiguration": {
                     "contentTransfer": {
                         "transferMode": "Chunked"
@@ -170,11 +172,19 @@
                 "type": "Object"
             },
             "docs_container": {
-                "defaultValue": "emails",
+                "defaultValue": "email",
+                "type": "String"
+            },
+            "function_endpoint": {
+                "defaultValue": "prepare01",
+                "type": "String"
+            },
+            "function_name": {
+                "defaultValue": "functionapp0503mvp",
                 "type": "String"
             },
             "jsons_container": {
-                "defaultValue": "jsons",
+                "defaultValue": "json",
                 "type": "String"
             },
             "storageaccount_name": {
@@ -192,7 +202,7 @@
                         },
                         "queries": {
                             "folderPath": "Inbox",
-                            "importance": "Normal",
+                            "importance": "Any",
                             "includeAttachments": true
                         }
                     },
@@ -211,7 +221,7 @@
                         },
                         "queries": {
                             "folderPath": "Inbox",
-                            "importance": "Normal"
+                            "importance": "Any"
                         }
                     }
                 },
@@ -232,6 +242,16 @@
                         }
                     },
                     "id": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/providers/Microsoft.Web/locations/eastus/managedApis/azureblob"
+                },
+                "keyvault": {
+                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-mvp-sinistro/providers/Microsoft.Web/connections/keyvault",
+                    "connectionName": "keyvault",
+                    "connectionProperties": {
+                        "authentication": {
+                            "type": "ManagedServiceIdentity"
+                        }
+                    },
+                    "id": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/providers/Microsoft.Web/locations/eastus/managedApis/keyvault"
                 },
                 "office365": {
                     "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-mvp-sinistro/providers/Microsoft.Web/connections/office365",

@@ -33,6 +33,7 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'Files listed: {email_files}')
 
     processed_files = []
+    format_not_supported_files = []
 
     # iterate over the files and call a function
     for file in email_files:
@@ -44,11 +45,12 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
             content = download_content(storage_account_container_emails, file)
             result = extract_content_from_eml(content)
             
-        elif file.endswith(".docx")
+        elif file.endswith(".docx") or file.endswith(".xlsx") or file.endswith(".pptx"):
             blob_path = get_filepath_from_lake(storage_account_container_emails, file)
             result = capture_text_from_office(blob_path)
 
         else:
+            format_not_supported_files.append(file)
             continue
 
         save_json_to_lake(storage_account_container_jsons, file, result)  
@@ -60,7 +62,7 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
 
     logging.info('All files saved as json and context obtained.\n')
 
-    return func.HttpResponse(f'\n Processamento OK! Arquivos processados: {processed_files}. \n\n', status_code=200)
+    return func.HttpResponse(f'\n Processamento OK! Arquivos processados: {processed_files}. \n\n Arquivos não suportados: {format_not_supported_files}\n\n', status_code=200)
 
 @app.route(route="validate01", auth_level=func.AuthLevel.FUNCTION)
 def validate01(req: func.HttpRequest) -> func.HttpResponse:

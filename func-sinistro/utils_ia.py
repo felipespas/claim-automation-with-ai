@@ -4,7 +4,7 @@ from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
 
 from azure.ai.documentintelligence import DocumentIntelligenceClient
-from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult
+from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult, DocumentAnalysisFeature
 
 load_dotenv()
 
@@ -77,10 +77,15 @@ def capture_text_from_office(blob_url: str):
     )
 
     poller = document_intelligence_client.begin_analyze_document(
-        "prebuilt-layout", AnalyzeDocumentRequest(url_source=blob_url)
+        "prebuilt-layout", 
+        AnalyzeDocumentRequest(url_source=blob_url)
     )
 
     result: AnalyzeResult = poller.result()
 
-    return result.content
+    result_json = {
+        "content": result.content.replace("\n", " ")
+    }
+
+    return result_json
     
