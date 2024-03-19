@@ -1,8 +1,8 @@
-2024-03-13 08:47:46 -0300  106040 execution.flow     INFO     Start executing nodes in thread pool mode.
-2024-03-13 08:47:46 -0300  106040 execution.flow     INFO     Start to run 2 nodes with concurrency level 16.
-2024-03-13 08:47:46 -0300  106040 execution.flow     INFO     Executing node retrieve_emails_content. node run id: e308ea73-9a23-4b73-8e54-1c582c0c328c_retrieve_emails_content_0
-2024-03-13 08:48:24 -0300  106040 execution.flow     WARNING  Output of retrieve_emails_content is not json serializable, use str to store it.
-2024-03-13 08:48:24 -0300  106040 execution.flow     INFO     Node retrieve_emails_content completes.
-2024-03-13 08:48:24 -0300  106040 execution.flow     INFO     Executing node rewrite_question. node run id: e308ea73-9a23-4b73-8e54-1c582c0c328c_rewrite_question_0
-2024-03-13 08:48:28 -0300  106040 execution.flow     WARNING  Input 'context' of rewrite_question is not json serializable, use str to store it.
-2024-03-13 08:48:28 -0300  106040 execution.flow     INFO     Node rewrite_question completes.
+2024-03-19 10:50:30 -0300  149240 execution.flow     INFO     Start executing nodes in thread pool mode.
+2024-03-19 10:50:31 -0300  149240 execution.flow     INFO     Start to run 2 nodes with concurrency level 16.
+2024-03-19 10:50:31 -0300  149240 execution.flow     INFO     Executing node retrieve_emails_content. node run id: 801a4614-b4eb-4c8b-9abf-0e6098aaaa1b_retrieve_emails_content_0
+2024-03-19 10:50:48 -0300  149240 execution.flow     WARNING  Output of retrieve_emails_content is not json serializable, use str to store it.
+2024-03-19 10:50:48 -0300  149240 execution.flow     INFO     Node retrieve_emails_content completes.
+2024-03-19 10:50:48 -0300  149240 execution.flow     INFO     Executing node make_question. node run id: 801a4614-b4eb-4c8b-9abf-0e6098aaaa1b_make_question_0
+2024-03-19 10:50:55 -0300  149240 execution.flow     WARNING  Input 'context' of make_question is not json serializable, use str to store it.
+2024-03-19 10:50:55 -0300  149240 execution.flow     INFO     Node make_question completes.

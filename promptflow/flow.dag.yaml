@@ -4,11 +4,11 @@ inputs:
     default: Quantos aparelhos foram comprados?
   directory:
     type: string
-    default: "638459229660000000"
+    default: ExampleData
 outputs:
   answer:
     type: string
-    reference: ${rewrite_question.output}
+    reference: ${make_question.output}
 nodes:
 - name: make_question
   type: llm

@@ -113,6 +113,20 @@ resource "azurerm_logic_app_workflow" "logic_app" {
   }
 }
 
+resource "azurerm_key_vault" "key_vault" {
+  name                        = "keyvault0503mvp"
+  location                    = azurerm_resource_group.rg.location
+  resource_group_name         = azurerm_resource_group.rg.name
+  enabled_for_disk_encryption = true
+  tenant_id                   = data.azurerm_client_config.current.tenant_id
+  soft_delete_retention_days  = 7
+  purge_protection_enabled    = false
+  sku_name = "standard"
+  access_policy = {
+    enable_rbac_authorization = true
+  }
+}
+
 resource "azurerm_role_assignment" "logic_app_blob_contributor" {
   scope                = azurerm_storage_account.datalake_res.id
   role_definition_name = "Storage Blob Data Contributor"
@@ -124,5 +138,12 @@ resource "azurerm_role_assignment" "function_blob_contributor" {
   scope                = azurerm_storage_account.datalake_res.id
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = azurerm_linux_function_app.function_app.identity[0].principal_id
+  depends_on = [ azurerm_linux_function_app.function_app ]
+}
+
+resource "azurerm_role_assignment" "logic_apps_secret_user" {
+  scope                = azurerm_key_vault.key_vault.id
+  role_definition_name = "Key Vault Secrets User"
+  principal_id         = azurerm_logic_app_workflow.logic_app.identity[0].principal_id
   depends_on = [ azurerm_linux_function_app.function_app ]
 }
