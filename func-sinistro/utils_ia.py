@@ -11,7 +11,7 @@ load_dotenv()
 endpoint = os.environ["AISERVICES_ENDPOINT"]
 key = os.environ["AISERVICES_KEY"]
 
-def capture_text_from_pdf(blob_url: str):
+def capture_text_from_pdf_or_image(blob_url: str):
 
     client = DocumentAnalysisClient(
         endpoint=endpoint,
@@ -73,7 +73,7 @@ def capture_text_from_pdf(blob_url: str):
 def capture_text_from_office(blob_url: str):
 
     document_intelligence_client = DocumentIntelligenceClient(
-        endpoint=endpoint, credential=AzureKeyCredential(key)
+        endpoint=endpoint, credential=AzureKeyCredential(key), api_version="2024-02-29-preview"
     )
 
     poller = document_intelligence_client.begin_analyze_document(
