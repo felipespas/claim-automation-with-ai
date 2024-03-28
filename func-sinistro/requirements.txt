@@ -3,6 +3,8 @@
 # Manually managing azure-functions-worker may cause unexpected issues
 
 azure-ai-formrecognizer==3.3.2
+azure-ai-documentintelligence==1.0.0b1
+azure-ai-vision-imageanalysis==1.0.0b2
 azure-functions==1.18.0
 azure-storage-file-datalake==12.14.0
 bs4==0.0.1
@@ -11,4 +13,3 @@ eml-parser==1.17.5
 python-dotenv==1.0.1
 openai==1.13.3
 
-azure-ai-documentintelligence

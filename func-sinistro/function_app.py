@@ -2,10 +2,10 @@ import os
 import azure.functions as func
 import logging
 import json
-from utils_lake import list_files, get_filepath_from_lake, save_json_to_lake, download_content
-from utils_ia import capture_text_from_pdf_or_image, capture_text_from_office
-from utils_text import extract_content_from_eml
-from utils_openai import make_question
+from utils_lake import *
+from utils_ia import *
+from utils_text import *
+from utils_openai import *
 
 storage_account_container_emails = os.environ['STORAGE_ACCOUNT_CONTAINER_EMAILS']
 storage_account_container_jsons = os.environ['STORAGE_ACCOUNT_CONTAINER_JSONS']
@@ -43,20 +43,23 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
 
         logging.info(f'Starting processing: {file}')
 
-        # pdf or jpeg
-        if file.endswith(".pdf") or file.endswith(".jpeg") or file.endswith(".jpg"):
+        # image
+        if file.endswith(".jpeg") or file.endswith(".jpg") or file.endswith(".png"):
             blob_path = get_filepath_from_lake(storage_account_container_emails, file)
-            result = capture_text_from_pdf_or_image(blob_path)
-            
+            result = capture_text_from_image(blob_path)            
+        
         # email
         elif file.endswith(".eml"):
             content = download_content(storage_account_container_emails, file)
             result = extract_content_from_eml(content)
             
+        # pdf
+        elif file.endswith(".pdf"):
+            blob_path = get_filepath_from_lake(storage_account_container_emails, file)
+            result = capture_text_from_pdf_or_image(blob_path)            
+        
         # office files
-        elif file.endswith(".docx") or file.endswith(".xlsx") or file.endswith(".pptx"):
-        # or file.endswith(".doc") or file.endswith(".xls") or file.endswith(".ppt"):
-            
+        elif file.endswith(".docx") or file.endswith(".xlsx") or file.endswith(".pptx"):            
             blob_path = get_filepath_from_lake(storage_account_container_emails, file)
             result = capture_text_from_office(blob_path)          
 

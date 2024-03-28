@@ -1,15 +1,57 @@
 import os
 from dotenv import load_dotenv
-from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
 
+from azure.ai.vision.imageanalysis import ImageAnalysisClient
+from azure.ai.vision.imageanalysis.models import VisualFeatures
+
+from azure.ai.formrecognizer import DocumentAnalysisClient
+
 from azure.ai.documentintelligence import DocumentIntelligenceClient
-from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult, DocumentAnalysisFeature
+from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult
 
 load_dotenv()
 
 endpoint = os.environ["AISERVICES_ENDPOINT"]
 key = os.environ["AISERVICES_KEY"]
+
+def capture_text_from_image(image_url: str):     
+
+    client = ImageAnalysisClient(
+        endpoint=endpoint,
+        credential=AzureKeyCredential(key)
+    )
+
+    try:
+        result = client.analyze_from_url(
+            image_url=image_url,
+            visual_features=[VisualFeatures.CAPTION, VisualFeatures.READ],
+            gender_neutral_caption=True
+        )
+    except Exception as e:
+        if "InvalidImageSize" in str(e):
+            return {"error": "InvalidImageSize"}
+
+    # Capture caption and confidence from the image
+    caption = ""
+    confidence = ""
+    if result.caption is not None:
+        caption = result.caption.text
+        confidence = result.caption.confidence
+
+    # Capture all texts from the image
+    fulltext = ''
+    if result.read is not None:
+        for line in result.read.blocks[0].lines:
+            fulltext += str(line.text) + " "
+
+    result_json = {
+        "caption": caption,
+        "confidence": confidence,
+        "fulltext": fulltext
+    }
+
+    return result_json
 
 def capture_text_from_pdf_or_image(blob_url: str):
 
@@ -88,4 +130,3 @@ def capture_text_from_office(blob_url: str):
     }
 
     return result_json
-    
