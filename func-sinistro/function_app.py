@@ -46,7 +46,7 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
         # image
         if file.endswith(".jpeg") or file.endswith(".jpg") or file.endswith(".png"):
             blob_path = get_filepath_from_lake(storage_account_container_emails, file)
-            result = capture_text_from_image(blob_path)            
+            result = capture_text_from_image(blob_path)
         
         # email
         elif file.endswith(".eml"):
@@ -56,12 +56,12 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
         # pdf
         elif file.endswith(".pdf"):
             blob_path = get_filepath_from_lake(storage_account_container_emails, file)
-            result = capture_text_from_pdf_or_image(blob_path)            
+            result = capture_text_from_pdf(blob_path)
         
         # office files
         elif file.endswith(".docx") or file.endswith(".xlsx") or file.endswith(".pptx"):            
             blob_path = get_filepath_from_lake(storage_account_container_emails, file)
-            result = capture_text_from_office(blob_path)          
+            result = capture_text_from_office(blob_path)
 
         else:
             format_not_supported_files.append(file)
