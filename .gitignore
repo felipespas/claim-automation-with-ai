@@ -4,3 +4,6 @@ __queuestorage*
 terraform/terraform
 terraform/.terraform
 developer-scripts/.env
+promptflow/__pycache__
+promptflow/__pycache__/*.pyc
+
