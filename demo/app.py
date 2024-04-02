@@ -1,10 +1,19 @@
 import json
+import os
+from dotenv import load_dotenv
 from openai import AzureOpenAI
 
+load_dotenv()
+
+endpoint = os.environ["AZURE_OPENAI_ENDPOINT"]
+key = os.environ["AZURE_OPENAI_KEY"]
+deployment = os.environ["AZURE_OPENAI_DEPLOYMENT"]
+api_version = os.environ["AZURE_OPENAI_API_VERSION"]
+
 client = AzureOpenAI(
-    api_version="2023-07-01-preview",
-    azure_endpoint="https://openai1704canadaeast.openai.azure.com/",
-    api_key="9c49d2f8e3d84767bea9c23c2439c38e"
+    api_version=api_version,
+    azure_endpoint=endpoint,
+    api_key=key
 )
 
 # read the file input-cliente.txt and store it in a variable
@@ -49,7 +58,7 @@ conversation = [
     ]
 
 completion = client.chat.completions.create(
-    model="gpt-4-1106",
+    model=deployment,
     messages=conversation
 )
 

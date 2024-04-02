@@ -5,9 +5,9 @@
             "name": "Python Debugger: Demo code",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}\\.old-code\\demo\\app.py",
+            "program": "${workspaceFolder}\\demo\\app.py",
             "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}\\.old-code\\demo",
+            "cwd": "${workspaceFolder}\\demo",
         },
         {
             "name": "Attach to Python Functions",
