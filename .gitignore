@@ -6,3 +6,4 @@ terraform/.terraform
 developer-scripts/.env
 **/__pycache__
 *.pyc
+promptflow/__pycache__/retrieve_emails_content.cpython-311.pyc
