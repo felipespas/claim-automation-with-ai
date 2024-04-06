@@ -23,12 +23,12 @@
     "make_question": {
       "x": 140,
       "y": 310,
-      "index": 0
+      "index": 1
     },
     "retrieve_emails_content": {
       "x": 227.5,
       "y": 176,
-      "index": 1
+      "index": 0
     }
   },
   "orientation": "Vertical"

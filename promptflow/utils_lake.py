@@ -1,10 +1,13 @@
 import os
 from azure.storage.filedatalake import DataLakeServiceClient
 from azure.storage.blob import BlobServiceClient
+from dotenv import load_dotenv
 
-data_lake_url_endpoint = "https://datalake0503mvp.dfs.core.windows.net/"
-storage_account_connection_string = "DefaultEndpointsProtocol=https;AccountName=datalake0503mvp;AccountKey=jLkMtt33S/NxaU8dlCk/NkA7qdIlVPIeFwONiSqMTNjMQtqf8jdQGOpnXPAC5StVBzOmfcVCbfGj+AStGSWfwg==;EndpointSuffix=core.windows.net"
-storage_account_key = "jLkMtt33S/NxaU8dlCk/NkA7qdIlVPIeFwONiSqMTNjMQtqf8jdQGOpnXPAC5StVBzOmfcVCbfGj+AStGSWfwg=="
+load_dotenv()
+
+data_lake_url_endpoint = os.environ["DATA_LAKE_URL_ENDPOINT"]
+storage_account_connection_string = os.environ["STORAGE_ACCOUNT_CONNECTION_STRING"]
+storage_account_key = os.environ["STORAGE_ACCOUNT_KEY"]
 
 # Create a blob client
 blob_service_client = BlobServiceClient.from_connection_string(storage_account_connection_string)

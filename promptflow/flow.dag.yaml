@@ -4,26 +4,12 @@ inputs:
     default: Quantos aparelhos foram comprados?
   directory:
     type: string
-    default: ExampleData
+    default: lab1
 outputs:
   answer:
     type: string
     reference: ${make_question.output}
 nodes:
-- name: make_question
-  type: llm
-  source:
-    type: code
-    path: rewrite_question.jinja2
-  inputs:
-    deployment_name: gpt-4
-    temperature: 0
-    question: ${inputs.question}
-    response_format:
-      type: text
-    context: ${retrieve_emails_content.output}
-  connection: azure-open-ai
-  api: chat
 - name: retrieve_emails_content
   type: python
   source:
@@ -31,3 +17,17 @@ nodes:
     path: retrieve_emails_content.py
   inputs:
     directory: ${inputs.directory}
+- name: make_question
+  type: llm
+  source:
+    type: code
+    path: rewrite_question.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    temperature: 0
+    question: ${inputs.question}
+    response_format:
+      type: text
+    context: ${retrieve_emails_content.output}
+  connection: openai1704canadaeast
+  api: chat

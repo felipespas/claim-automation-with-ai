@@ -1,8 +1,10 @@
-2024-03-19 10:50:30 -0300  149240 execution.flow     INFO     Start executing nodes in thread pool mode.
-2024-03-19 10:50:31 -0300  149240 execution.flow     INFO     Start to run 2 nodes with concurrency level 16.
-2024-03-19 10:50:31 -0300  149240 execution.flow     INFO     Executing node retrieve_emails_content. node run id: 801a4614-b4eb-4c8b-9abf-0e6098aaaa1b_retrieve_emails_content_0
-2024-03-19 10:50:48 -0300  149240 execution.flow     WARNING  Output of retrieve_emails_content is not json serializable, use str to store it.
-2024-03-19 10:50:48 -0300  149240 execution.flow     INFO     Node retrieve_emails_content completes.
-2024-03-19 10:50:48 -0300  149240 execution.flow     INFO     Executing node make_question. node run id: 801a4614-b4eb-4c8b-9abf-0e6098aaaa1b_make_question_0
-2024-03-19 10:50:55 -0300  149240 execution.flow     WARNING  Input 'context' of make_question is not json serializable, use str to store it.
-2024-03-19 10:50:55 -0300  149240 execution.flow     INFO     Node make_question completes.
+2024-04-04 10:25:51 -0300  104028 execution.flow     INFO     Start executing nodes in thread pool mode.
+2024-04-04 10:25:51 -0300  104028 execution.flow     INFO     Start to run 2 nodes with concurrency level 16.
+2024-04-04 10:25:51 -0300  104028 execution.flow     INFO     Executing node retrieve_emails_content. node run id: 94ebaf3e-f701-41df-924b-76b52a69c628_retrieve_emails_content_0
+2024-04-04 10:26:03 -0300  104028 execution.flow     WARNING  Output of retrieve_emails_content is not json serializable, use str to store it.
+2024-04-04 10:26:03 -0300  104028 execution.flow     INFO     Node retrieve_emails_content completes.
+2024-04-04 10:26:03 -0300  104028 execution.flow     INFO     Executing node make_question. node run id: 94ebaf3e-f701-41df-924b-76b52a69c628_make_question_0
+2024-04-04 10:26:04 -0300  104028 execution          WARNING  [make_question in line 0 (index starts from 0)] stderr> Exception occurs: RateLimitError: Error code: 429 - {'error': {'code': '429', 'message': 'Requests to the ChatCompletions_Create Operation under Azure OpenAI API version 2023-07-01-preview have exceeded token rate limit of your current OpenAI S0 pricing tier. Please retry after 8 seconds. Please go here: https://aka.ms/oai/quotaincrease if you would like to further increase the default rate limit.'}}
+2024-04-04 10:26:04 -0300  104028 execution          WARNING  [make_question in line 0 (index starts from 0)] stderr> RateLimitError #0, Retry-After=8, Back off 8.0 seconds for retry.
+2024-04-04 10:26:21 -0300  104028 execution.flow     WARNING  Input 'context' of make_question is not json serializable, use str to store it.
+2024-04-04 10:26:21 -0300  104028 execution.flow     INFO     Node make_question completes.
