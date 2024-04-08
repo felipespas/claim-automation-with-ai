@@ -2,8 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "storageAccountName": {
-            "defaultValue": "datalake0604",
+        "suffix": {
             "type": "String"
         }
     },
@@ -13,22 +12,19 @@
         {
             "type": "Microsoft.Web/connections",
             "apiVersion": "2016-06-01",
-            "name": "[parameters('storageAccountName')]",
+            "name": "[concat('datalake', parameters('suffix'))]",
             "location": "eastus",
             "kind": "V1",
             "properties": {
-                "displayName": "[parameters('storageAccountName')]",
+                "displayName": "[concat('datalake', parameters('suffix'))]",
                 "api": {
                     "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', 'azureblob')]"
                 },
                 "parameterValues": {
-                    "accountName": "[parameters('storageAccountName')]",
-                    "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-06-01').keys[0].value]"
+                    "accountName": "[concat('datalake', parameters('suffix'))]",
+                    "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', concat('datalake', parameters('suffix'))), '2019-06-01').keys[0].value]"
                 }
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-            ]
+            }
         }
     ],
     "outputs": {}
