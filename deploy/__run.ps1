@@ -12,14 +12,7 @@ az account set --subscription "MCAPS-Hybrid-REQ-37753-2022-Fassis"
 
 cd .\pipelines\iac\
 
-# terraform commands
-terraform init -upgrade
 
-terraform init
-
-terraform plan
-
-terraform apply -auto-approve
 
 ############################################################################
 # PERMISSIONS

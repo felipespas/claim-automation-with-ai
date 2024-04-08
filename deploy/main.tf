@@ -15,13 +15,18 @@ provider "azurerm" {
 
 data "azurerm_client_config" "current" {}
 
+variable "suffix" {
+  description = "The name of the resource group"
+  type        = string
+}
+
 resource "azurerm_resource_group" "rg" {
-  name     = "azure-mvp-sinistro"
+  name = "azure-sinistro-${var.suffix}"
   location = "East US"
 }
 
 resource "azurerm_storage_account" "datalake_res" {
-  name                              = "datalake0503mvp"
+  name                              = "datalake${var.suffix}"
   resource_group_name               = azurerm_resource_group.rg.name
   location                          = azurerm_resource_group.rg.location
   account_tier                      = "Standard"
@@ -42,7 +47,7 @@ resource "azurerm_storage_data_lake_gen2_filesystem" "datalake_jsons" {
 }
 
 resource "azurerm_service_plan" "function_plan" {
-  name                = "functionplan0503mvp"
+  name                = "functionplan${var.suffix}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   os_type             = "Linux"
@@ -50,7 +55,7 @@ resource "azurerm_service_plan" "function_plan" {
 }
 
 resource "azurerm_storage_account" "storage_fn" {
-  name                     = "functionstg0503mvp"
+  name                     = "functionstg${var.suffix}"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
@@ -58,7 +63,7 @@ resource "azurerm_storage_account" "storage_fn" {
 }
 
 resource "azurerm_log_analytics_workspace" "log_analytics" {
-  name                = "loganalytics0503mvp"
+  name                = "loganalytics${var.suffix}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   sku                 = "PerGB2018"
@@ -66,7 +71,7 @@ resource "azurerm_log_analytics_workspace" "log_analytics" {
 }
 
 resource "azurerm_application_insights" "app_insights" {
-  name                = "appinsights0503mvp"
+  name                = "appinsights${var.suffix}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   workspace_id        = azurerm_log_analytics_workspace.log_analytics.id
@@ -74,7 +79,7 @@ resource "azurerm_application_insights" "app_insights" {
 }
 
 resource "azurerm_linux_function_app" "function_app" {
-  name                = "functionapp0503mvp"
+  name                = "functionapp${var.suffix}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
 
@@ -95,16 +100,16 @@ resource "azurerm_linux_function_app" "function_app" {
 }
 
 resource "azurerm_cognitive_account" "azure_ai_services" {
-  name                = "aiservices0503mvp"
+  name                = "aiservices${var.suffix}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   kind                = "CognitiveServices"
-  custom_subdomain_name = "aiservices0503mvp"
+  custom_subdomain_name = "aiservices${var.suffix}"
   sku_name = "S0" 
 }
 
 resource "azurerm_logic_app_workflow" "logic_app" {
-  name                = "logicapp0503mvp"
+  name                = "logicapp${var.suffix}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -114,7 +119,7 @@ resource "azurerm_logic_app_workflow" "logic_app" {
 }
 
 resource "azurerm_key_vault" "key_vault" {
-  name                        = "keyvault0503mvp"
+  name                        = "keyvault${var.suffix}"
   location                    = azurerm_resource_group.rg.location
   resource_group_name         = azurerm_resource_group.rg.name
   enabled_for_disk_encryption = true
@@ -122,9 +127,6 @@ resource "azurerm_key_vault" "key_vault" {
   soft_delete_retention_days  = 7
   purge_protection_enabled    = false
   sku_name = "standard"
-  access_policy = {
-    enable_rbac_authorization = true
-  }
 }
 
 resource "azurerm_role_assignment" "logic_app_blob_contributor" {
