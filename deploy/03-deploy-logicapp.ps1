@@ -1,19 +1,24 @@
 # az login
 
 # read the value from suffix.txt file
-$resourcesSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix.txt
+$resourceSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix.txt
 
-$location = "eastus"
+# read the value from suffix.txt file
+$resourceGroupName = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\resourceGroupName.txt
+
+# read the value from suffix.txt file
+$location = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\location.txt
 
 # show the value for functionName variable
-Write-Host "Suffix: $resourcesSuffix"
+Write-Host "Suffix: $resourceSuffix"
 
-$resourceGroupName = "azure-sinistro-$resourcesSuffix"
-
-# show the value for functionName variable
+# show the value
 Write-Host "Resource Group Name: $resourceGroupName"
 
-$json = "{\""suffix\"":{\""value\"":\""$resourcesSuffix\""}, \""location\"":{\""value\"":\""$location\""}}"
+# show the value
+Write-Host "Location: $location"
+
+$json = "{\""suffix\"":{\""value\"":\""$resourceSuffix\""}, \""location\"":{\""value\"":\""$location\""}}"
 
 write-Host "JSON: $json"
 

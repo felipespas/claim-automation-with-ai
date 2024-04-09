@@ -25,9 +25,14 @@ variable "resourceGroupName" {
   type        = string
 }
 
+variable "location" {
+  description = "The location of the resource group"
+  type        = string
+}
+
 resource "azurerm_resource_group" "rg" {
   name = var.resourceGroupName
-  location = "East US"
+  location = var.location
 }
 
 resource "azurerm_storage_account" "datalake_res" {
