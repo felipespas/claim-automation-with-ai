@@ -1,19 +1,12 @@
 __azurite*
 __blobstorage*
 __queuestorage*
-
-terraform/terraform
-terraform/.terraform
-deploy/terraform
-deploy/terraform.*
-deploy/.terraform
-deploy/.terraform.lock.hcl
-
-promptflow/__pycache__
-
-developer-scripts/.env
-
 **/__pycache__
 *.pyc
 *.env
+*.hcl
+*.info
+*.tfstate
+*.tfstate.*
+*.exe
 

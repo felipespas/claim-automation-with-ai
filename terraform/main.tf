@@ -16,12 +16,17 @@ provider "azurerm" {
 data "azurerm_client_config" "current" {}
 
 variable "suffix" {
+  description = "The suffix for the resources"
+  type        = string
+}
+
+variable "resourceGroupName" {
   description = "The name of the resource group"
   type        = string
 }
 
 resource "azurerm_resource_group" "rg" {
-  name = "azure-sinistro-${var.suffix}"
+  name = var.resourceGroupName
   location = "East US"
 }
 
@@ -104,7 +109,6 @@ resource "azurerm_cognitive_account" "azure_ai_services" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   kind                = "CognitiveServices"
-  custom_subdomain_name = "aiservices${var.suffix}"
   sku_name = "S0" 
 }
 
@@ -119,7 +123,7 @@ resource "azurerm_logic_app_workflow" "logic_app" {
 }
 
 resource "azurerm_key_vault" "key_vault" {
-  name                        = "keyvault${var.suffix}"
+  name                        = "keyvault${var.suffix}2"
   location                    = azurerm_resource_group.rg.location
   resource_group_name         = azurerm_resource_group.rg.name
   enabled_for_disk_encryption = true
@@ -140,12 +144,19 @@ resource "azurerm_role_assignment" "function_blob_contributor" {
   scope                = azurerm_storage_account.datalake_res.id
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = azurerm_linux_function_app.function_app.identity[0].principal_id
-  depends_on = [ azurerm_linux_function_app.function_app ]
+  depends_on           = [ azurerm_storage_account.datalake_res, azurerm_linux_function_app.function_app ]
 }
 
 resource "azurerm_role_assignment" "logic_apps_secret_user" {
   scope                = azurerm_key_vault.key_vault.id
   role_definition_name = "Key Vault Secrets User"
   principal_id         = azurerm_logic_app_workflow.logic_app.identity[0].principal_id
-  depends_on = [ azurerm_linux_function_app.function_app ]
+  depends_on           = [ azurerm_logic_app_workflow.logic_app, azurerm_key_vault.key_vault ]
+}
+
+resource "azurerm_role_assignment" "felipe_secret_user" {
+  scope                = azurerm_key_vault.key_vault.id
+  role_definition_name = "Key Vault Secrets Officer"
+  principal_id         = data.azurerm_client_config.current.object_id
+  depends_on           = [ azurerm_key_vault.key_vault ]
 }
