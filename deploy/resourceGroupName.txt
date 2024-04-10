@@ -1,1 +1,1 @@
-azure-sinistro-deploy
+azure-sinistro-auto

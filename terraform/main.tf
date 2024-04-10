@@ -135,7 +135,8 @@ resource "azurerm_key_vault" "key_vault" {
   tenant_id                   = data.azurerm_client_config.current.tenant_id
   soft_delete_retention_days  = 7
   purge_protection_enabled    = false
-  sku_name = "standard"
+  sku_name                    = "standard"
+  enable_rbac_authorization   = true
 }
 
 resource "azurerm_role_assignment" "logic_app_blob_contributor" {
@@ -165,3 +166,4 @@ resource "azurerm_role_assignment" "felipe_secret_user" {
   principal_id         = data.azurerm_client_config.current.object_id
   depends_on           = [ azurerm_key_vault.key_vault ]
 }
+
