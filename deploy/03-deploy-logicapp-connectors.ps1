@@ -18,7 +18,9 @@ Write-Host "Resource Group Name: $resourceGroupName"
 # show the value
 Write-Host "Location: $location"
 
-$json = "{\""suffix\"":{\""value\"":\""$resourceSuffix\""}, \""location\"":{\""value\"":\""$location\""}}"
+# $json = "{\""suffix\"":{\""value\"":\""$resourceSuffix\""}, \""location\"":{\""value\"":\""$location\""}}"
+
+$json = "{\""suffix\"":{\""value\"":\""$resourceSuffix\""}}"
 
 write-Host "JSON: $json"
 
