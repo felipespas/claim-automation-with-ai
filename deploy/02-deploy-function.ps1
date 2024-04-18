@@ -1,6 +1,6 @@
 # az login
 
-cd C:\_Github\ms-poc-sinistro-ai\func-sinistro
+Set-Location C:\_Github\ms-poc-sinistro-ai\func-sinistro
 
 # read the value from suffix.txt file
 $resourcesSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix.txt

@@ -1,6 +1,6 @@
 # az login
 
-cd C:\_Github\ms-poc-sinistro-ai\terraform
+Set-Location C:\_Github\ms-poc-sinistro-ai\terraform
 
 # read the value from suffix.txt file
 $resourceSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix.txt
