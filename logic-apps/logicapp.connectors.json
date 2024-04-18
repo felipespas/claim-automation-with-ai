@@ -4,6 +4,9 @@
     "parameters": {
         "suffix": {
             "type": "String"
+        },
+        "keyvaultSuffix": {
+            "type": "String"
         }
     },
     "functions": [],
@@ -12,7 +15,7 @@
         {
             "type": "Microsoft.Web/connections",
             "apiVersion": "2016-06-01",
-            "name": "[concat('datalake', parameters('suffix'))]",
+            "name": "datalake",
             "location": "[resourceGroup().location]",
             "kind": "V1",
             "properties": {
@@ -21,7 +24,7 @@
                 },
                 "authenticatedUser": {},
                 "customParameterValues": {},
-                "displayName": "[concat('datalake', parameters('suffix'))]",
+                "displayName": "datalake",
                 "parameterValueSet": {
                     "name": "managedIdentityAuth",
                     "values": {}
@@ -31,7 +34,7 @@
         {
             "type": "Microsoft.Web/connections",
             "apiVersion": "2016-06-01",
-            "name": "[concat('keyvault', parameters('suffix'))]",
+            "name": "keyvault",
             "location": "[resourceGroup().location]",
             "kind": "V1",
             "properties": {
@@ -40,12 +43,12 @@
                 },
                 "authenticatedUser": {},
                 "customParameterValues": {},
-                "displayName": "[concat('keyvault', parameters('suffix'))]",
+                "displayName": "keyvault",
                 "parameterValueSet": {
                     "name": "oauthMI",
                     "values": {
                         "vaultName": {
-                            "value": "keyvault0503mvp"
+                            "value": "[concat('keyvault', parameters('suffix'),parameters('keyvaultSuffix'))]"
                         }
                     }
                 }
@@ -54,7 +57,7 @@
         {
             "type": "Microsoft.Web/connections",
             "apiVersion": "2016-06-01",
-            "name": "[concat('office', parameters('suffix'))]",            
+            "name": "office",            
             "location": "[resourceGroup().location]",
             "kind": "V1",
             "properties": {
@@ -67,7 +70,7 @@
                 },
                 "testLinks": [
                     {
-                        "requestUri": "[concat('https://management.azure.com:443/subscriptions/',subscription().id,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Web/connections/office365/extensions/proxy/testconnection?api-version=2018-07-01-preview')]",
+                        "requestUri": "[concat('https://management.azure.com:443/subscriptions/',subscription().id,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Web/connections/office/extensions/proxy/testconnection?api-version=2018-07-01-preview')]",
                         "method": "get"
                     }
                 ],
@@ -79,7 +82,7 @@
                                 "path": "testconnection"
                             }
                         },
-                        "requestUri": "[concat('https://management.azure.com:443/subscriptions/',subscription().id,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Web/connections/office365/dynamicInvoke?api-version=2018-07-01-preview')]",
+                        "requestUri": "[concat('https://management.azure.com:443/subscriptions/',subscription().id,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Web/connections/office/dynamicInvoke?api-version=2018-07-01-preview')]",
                         "method": "POST"
                     }
                 ]

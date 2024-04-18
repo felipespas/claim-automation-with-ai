@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "logic_apps_name": {
+            "value": "logicapp1104n"
+        },
+        "workflows_parameters_$connections": {
+            "value": {
+                "office365": {
+                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-sinistro-auto/providers/Microsoft.Web/connections/office1104n",
+                    "connectionName": "office365",
+                    "id": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/providers/Microsoft.Web/locations/eastus/managedApis/office365"
+                }
+            }
+        }
+    }
+}

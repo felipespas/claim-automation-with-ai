@@ -11,11 +11,17 @@ $resourceGroupName = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\reso
 # concatenate the value from variable $resourceSuffix with the string "mvp"
 $functionAppName = "functionapp" + $resourcesSuffix
 
+# read the value from suffix.txt file
+$keyvaultSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\keyvaultSuffix.txt
+
 # show the value for functionAppName variable
 Write-Host "Function Name: $functionAppName"
 
 # show the value
 Write-Host "Resource Group Name: $resourceGroupName"
+
+# show the value
+Write-Host "Key Vault Suffix: $keyvaultSuffix"
 
 func azure functionapp publish $functionAppName --python
 
@@ -33,7 +39,10 @@ $funcKey = (Invoke-AzResourceAction `
 # show the value
 Write-Host "Function Key: $funcKey"
 
-$keyVaultName = "keyvault" + $resourcesSuffix + "2"
+$keyVaultName = "keyvault" + $resourcesSuffix + $keyvaultSuffix
+
+# show the value of $keyVaultName parameter
+Write-Host "Key Vault Name: $keyVaultName"
 
 $secretName = $funcName + "-key"
 

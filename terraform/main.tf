@@ -20,6 +20,11 @@ variable "suffix" {
   type        = string
 }
 
+variable "keyvaultSuffix" {
+  description = "The suffix for the key vault specifically"
+  type        = string
+}
+
 variable "resourceGroupName" {
   description = "The name of the resource group"
   type        = string
@@ -128,7 +133,7 @@ resource "azurerm_logic_app_workflow" "logic_app" {
 }
 
 resource "azurerm_key_vault" "key_vault" {
-  name                        = "keyvault${var.suffix}2"
+  name                        = "keyvault${var.suffix}${var.keyvaultSuffix}"
   location                    = azurerm_resource_group.rg.location
   resource_group_name         = azurerm_resource_group.rg.name
   enabled_for_disk_encryption = true

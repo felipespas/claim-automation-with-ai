@@ -1,0 +1,78 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "logic_apps_name": {
+            "type": "String"
+        },
+        "workflows_parameters_$connections": {
+            "type": "Object"
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "apiVersion": "2017-07-01",
+            "dependsOn": [],
+            "location": "eastus",
+            "name": "[parameters('logic_apps_name')]",            
+            "properties": {
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "$connections": {
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "When_a_new_email_arrives_(V3)": {
+                            "splitOn": "@triggerBody()?['value']",
+                            "type": "ApiConnectionNotification",
+                            "inputs": {
+                                "fetch": {
+                                    "method": "get",
+                                    "pathTemplate": {
+                                        "template": "/v3/Mail/OnNewEmail"
+                                    },
+                                    "queries": {
+                                        "folderPath": "Inbox",
+                                        "importance": "Any",
+                                        "includeAttachments": true
+                                    }
+                                },
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['office365']['connectionId']"
+                                    }
+                                },
+                                "subscribe": {
+                                    "body": {},
+                                    "method": "post",
+                                    "pathTemplate": {},
+                                    "queries": {
+                                        "folderPath": "Inbox",
+                                        "importance": "Any"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "actions": {},
+                    "outputs": {}
+                },
+                "parameters": {
+                    "$connections": {
+                        "value": "[parameters('workflows_parameters_$connections')]"
+                    }
+                },
+                "state": "Enabled"
+            },
+            "scale": null,
+            "tags": {},
+            "type": "Microsoft.Logic/workflows"
+        }
+    ],
+    "outputs": {}
+}

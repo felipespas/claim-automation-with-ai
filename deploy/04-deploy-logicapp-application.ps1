@@ -1,15 +1,16 @@
 # az login
 
-# read the value from suffix.txt file
-# $resourceSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix.txt
+cd C:\_Github\ms-poc-sinistro-ai\deploy
 
 # read the value from suffix.txt file
-$resourceGroupName = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\resourceGroupName.txt
+$resourceSuffix = Get-Content -Path .\suffix.txt
 
 # read the value from suffix.txt file
-# $location = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\location.txt
+$resourceGroupName = Get-Content -Path .\resourceGroupName.txt
 
-# $logicappsname = "logicapp$resourceSuffix"
+$logicappsname = "logicapp$resourceSuffix"
+
+$datalakename = "datalake$resourceSuffix"
 
 # show the value for functionName variable
 Write-Host "Suffix: $resourceSuffix"
@@ -18,21 +19,31 @@ Write-Host "Suffix: $resourceSuffix"
 Write-Host "Resource Group Name: $resourceGroupName"
 
 # show the value
-# Write-Host "Location: $location"
+Write-Host "Logic App Name: $logicappsname"
 
 # show the value
-# Write-Host "Logic App Name: $logicappsname"
+Write-Host "Data Lake Name: $datalakename"
 
-# $json = "{\""suffix\"":{\""value\"":\""$resourceSuffix\""}, \""location\"":{\""value\"":\""$location\""}}"
+# Define the path to the JSON file
+$defaultParamsFilePath = "C:\_Github\ms-poc-sinistro-ai\logic-apps\logicapp.parameters.json"
+$paramsFilePath = "C:\_Github\ms-poc-sinistro-ai\logic-apps\logicapp-modified.parameters.json"
 
-# $json = "{\""logic_apps_name\"":{\""value\"":\""$logicappsname\""}}"
+# Read the content of the JSON file
+$content = Get-Content $defaultParamsFilePath -Raw
 
-# write-Host "JSON: $json"
+# Replace the string
+$oldString = "__resourceGroupName__"
+$modifiedContent = $content -replace $oldString, $resourceGroupName
+
+# Write the modified content back to the JSON file
+$modifiedContent | Set-Content $paramsFilePath
 
 az deployment group validate --resource-group $resourceGroupName `
     --template-file C:\_Github\ms-poc-sinistro-ai\logic-apps\logicapp.definition.json `
-    --parameters C:\_Github\ms-poc-sinistro-ai\logic-apps\logicapp.parameters.json
+    --parameters $paramsFilePath `
+    --parameters logic_apps_name=$logicappsname workflows_parameters_storageaccount_name=$datalakename
     
 az deployment group create --resource-group $resourceGroupName `
     --template-file C:\_Github\ms-poc-sinistro-ai\logic-apps\logicapp.definition.json `
-    --parameters C:\_Github\ms-poc-sinistro-ai\logic-apps\logicapp.parameters.json
+    --parameters $paramsFilePath `
+    --parameters logic_apps_name=$logicappsname workflows_parameters_storageaccount_name=$datalakename

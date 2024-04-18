@@ -7,6 +7,12 @@
         },
         "workflows_parameters_$connections": {
             "type": "Object"
+        },
+        "workflows_parameters_storageaccount_name": {
+            "type": "String"
+        },
+        "workflows_parameters_docs_container": {
+            "type": "String"
         }
     },
     "functions": [],
@@ -24,6 +30,12 @@
                     "parameters": {
                         "$connections": {
                             "type": "Object"
+                        },
+                        "storageaccount_name": {
+                            "type": "String"
+                        },
+                        "docs_container": {
+                            "type": "String"
                         }
                     },
                     "triggers": {
@@ -48,23 +60,187 @@
                                     }
                                 },
                                 "subscribe": {
-                                    "body": {},
+                                    "body": {
+                                        "NotificationUrl": "@{listCallbackUrl()}"
+                                    },
+                                    "pathTemplate": {
+                                        "template": "/GraphMailSubscriptionPoke/$subscriptions"
+                                    },
                                     "method": "post",
-                                    "pathTemplate": {},
                                     "queries": {
-                                        "folderPath": "Inbox",
-                                        "importance": "Any"
+                                        "importance": "Any",
+                                        "folderPath": "Inbox"
                                     }
                                 }
                             }
                         }
                     },
-                    "actions": {},
+                    "actions": {
+                        "Save_email_message_as_original_format": {
+                            "runAfter": {},
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "body": "@triggerBody()?['body']",
+                                "headers": {
+                                    "ReadFileMetadataFromServer": true
+                                },
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['azureblob']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent(parameters('storageaccount_name')))}/files",
+                                "queries": {
+                                    "folderPath": "@{concat('/',parameters('docs_container'),'/',string(ticks(triggerBody()?['receivedDateTime'])))}",
+                                    "name": "@{triggerBody()?['subject']}.msg",
+                                    "queryParametersSingleEncoded": true
+                                }
+                            },
+                            "runtimeConfiguration": {
+                                "contentTransfer": {
+                                    "transferMode": "Chunked"
+                                }
+                            }
+                        },
+                        "Generate_EML_data_from_email": {
+                            "runAfter": {
+                                "Save_email_message_as_original_format": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['office365']['connectionId']"
+                                    }
+                                },
+                                "method": "get",
+                                "path": "/codeless/beta/me/messages/@{encodeURIComponent(triggerBody()?['id'])}/$value"
+                            }
+                        },
+                        "Save_email_as_EML": {
+                            "runAfter": {
+                                "Generate_EML_data_from_email": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "body": "@body('Generate_EML_data_from_email')",
+                                "headers": {
+                                    "ReadFileMetadataFromServer": true
+                                },
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['azureblob']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent(parameters('storageaccount_name')))}/files",
+                                "queries": {
+                                    "folderPath": "@{concat('/',parameters('docs_container'),'/',string(ticks(triggerBody()?['receivedDateTime'])))}",
+                                    "name": "@{triggerBody()?['subject']}.eml",
+                                    "queryParametersSingleEncoded": true
+                                }
+                            },
+                            "runtimeConfiguration": {
+                                "contentTransfer": {
+                                    "transferMode": "Chunked"
+                                }
+                            }
+                        },
+                        "Condition": {
+                            "actions": {
+                                "For_each": {
+                                    "foreach": "@triggerBody()?['attachments']",
+                                    "actions": {
+                                        "Save_attachment_in_original_format": {
+                                            "runAfter": {},
+                                            "type": "ApiConnection",
+                                            "inputs": {
+                                                "body": "@base64ToBinary(items('For_each')?['contentBytes'])",
+                                                "headers": {
+                                                    "ReadFileMetadataFromServer": true
+                                                },
+                                                "host": {
+                                                    "connection": {
+                                                        "name": "@parameters('$connections')['azureblob']['connectionId']"
+                                                    }
+                                                },
+                                                "method": "post",
+                                                "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent(parameters('storageaccount_name')))}/files",
+                                                "queries": {
+                                                    "folderPath": "@{concat('/',parameters('docs_container'),'/',string(ticks(triggerBody()?['receivedDateTime'])))}",
+                                                    "name": "@items('For_each')?['name']",
+                                                    "queryParametersSingleEncoded": true
+                                                }
+                                            },
+                                            "runtimeConfiguration": {
+                                                "contentTransfer": {
+                                                    "transferMode": "Chunked"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "runAfter": {},
+                                    "type": "Foreach"
+                                }
+                            },
+                            "runAfter": {
+                                "Save_email_as_EML": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "expression": {
+                                "and": [
+                                    {
+                                        "equals": [
+                                            "@triggerBody()?['hasAttachments']",
+                                            true
+                                        ]
+                                    }
+                                ]
+                            },
+                            "type": "If"
+                        },
+                        "Get_secret": {
+                            "runAfter": {
+                                "Condition": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['keyvault']['connectionId']"
+                                    }
+                                },
+                                "method": "get",
+                                "path": "/secrets/@{encodeURIComponent('prepare01-key')}/value"
+                            },
+                            "runtimeConfiguration": {
+                                "secureData": {
+                                    "properties": [
+                                        "outputs"
+                                    ]
+                                }
+                            }
+                        }
+                    },
                     "outputs": {}
                 },
                 "parameters": {
                     "$connections": {
                         "value": "[parameters('workflows_parameters_$connections')]"
+                    },
+                    "storageaccount_name": {
+                        "value": "[parameters('workflows_parameters_storageaccount_name')]"
+                    },
+                    "docs_container": {
+                        "value": "[parameters('workflows_parameters_docs_container')]"
                     }
                 },
                 "state": "Enabled"

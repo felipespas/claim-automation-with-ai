@@ -8,12 +8,12 @@
         "workflows_parameters_$connections": {
             "value": {
                 "office365": {
-                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/__resourceGroupName__/providers/Microsoft.Web/connections/office",
+                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-sinistro-auto5/providers/Microsoft.Web/connections/office",
                     "connectionName": "office",
                     "id": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/providers/Microsoft.Web/locations/eastus/managedApis/office365"
                 },
                 "azureblob": {
-                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/__resourceGroupName__/providers/Microsoft.Web/connections/datalake",
+                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-sinistro-auto5/providers/Microsoft.Web/connections/datalake",
                     "connectionName": "datalake",
                     "connectionProperties": {
                         "authentication": {
@@ -23,7 +23,7 @@
                     "id": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/providers/Microsoft.Web/locations/eastus/managedApis/azureblob"
                 },
                 "keyvault": {
-                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/__resourceGroupName__/providers/Microsoft.Web/connections/keyvault",
+                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-sinistro-auto5/providers/Microsoft.Web/connections/keyvault",
                     "connectionName": "keyvault",
                     "connectionProperties": {
                         "authentication": {
@@ -42,3 +42,4 @@
         }
     }
 }
+
