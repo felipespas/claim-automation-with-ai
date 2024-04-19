@@ -2,8 +2,8 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "logic_apps_name": {
-            "value": "logicapp"
+        "suffix":{
+            "value": "XXXXX"
         },
         "workflows_parameters_$connections": {
             "value": {
@@ -34,11 +34,11 @@
                 }
             }
         },
-        "workflows_parameters_storageaccount_name":{
-            "value": "datalake"
-        },
         "workflows_parameters_docs_container":{
             "value": "emails"
+        },
+        "workflows_parameters_function_endpoint":{
+            "value": "prepare01"
         }
     }
 }

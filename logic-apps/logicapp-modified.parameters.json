@@ -2,18 +2,18 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "logic_apps_name": {
-            "value": "logicapp"
+        "suffix":{
+            "value": "XXXXX"
         },
         "workflows_parameters_$connections": {
             "value": {
                 "office365": {
-                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-sinistro-auto5/providers/Microsoft.Web/connections/office",
+                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-sinistro-auto/providers/Microsoft.Web/connections/office",
                     "connectionName": "office",
                     "id": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/providers/Microsoft.Web/locations/eastus/managedApis/office365"
                 },
                 "azureblob": {
-                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-sinistro-auto5/providers/Microsoft.Web/connections/datalake",
+                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-sinistro-auto/providers/Microsoft.Web/connections/datalake",
                     "connectionName": "datalake",
                     "connectionProperties": {
                         "authentication": {
@@ -23,7 +23,7 @@
                     "id": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/providers/Microsoft.Web/locations/eastus/managedApis/azureblob"
                 },
                 "keyvault": {
-                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-sinistro-auto5/providers/Microsoft.Web/connections/keyvault",
+                    "connectionId": "/subscriptions/2edd29f5-689f-48c5-b93e-93723216ea91/resourceGroups/azure-sinistro-auto/providers/Microsoft.Web/connections/keyvault",
                     "connectionName": "keyvault",
                     "connectionProperties": {
                         "authentication": {
@@ -34,11 +34,11 @@
                 }
             }
         },
-        "workflows_parameters_storageaccount_name":{
-            "value": "datalake"
-        },
         "workflows_parameters_docs_container":{
             "value": "emails"
+        },
+        "workflows_parameters_function_endpoint":{
+            "value": "prepare01"
         }
     }
 }

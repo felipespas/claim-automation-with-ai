@@ -2,18 +2,18 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "logic_apps_name": {
+        "suffix": {
             "type": "String"
         },
         "workflows_parameters_$connections": {
             "type": "Object"
         },
-        "workflows_parameters_storageaccount_name": {
-            "type": "String"
-        },
         "workflows_parameters_docs_container": {
             "type": "String"
-        }
+        },
+        "workflows_parameters_function_endpoint": {
+            "type": "String"
+        }        
     },
     "functions": [],
     "variables": {},
@@ -22,7 +22,7 @@
             "apiVersion": "2017-07-01",
             "dependsOn": [],
             "location": "eastus",
-            "name": "[parameters('logic_apps_name')]",            
+            "name": "[concat('logicapp', parameters('suffix'))]",            
             "properties": {
                 "definition": {
                     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
@@ -35,6 +35,12 @@
                             "type": "String"
                         },
                         "docs_container": {
+                            "type": "String"
+                        },
+                        "function_endpoint": {
+                            "type": "String"
+                        },
+                        "function_name": {
                             "type": "String"
                         }
                     },
@@ -220,13 +226,21 @@
                                 },
                                 "method": "get",
                                 "path": "/secrets/@{encodeURIComponent('prepare01-key')}/value"
+                            }
+                        },
+                        "HTTP": {
+                            "runAfter": {
+                                "Get_secret": [
+                                    "Succeeded"
+                                ]
                             },
-                            "runtimeConfiguration": {
-                                "secureData": {
-                                    "properties": [
-                                        "outputs"
-                                    ]
-                                }
+                            "type": "Http",
+                            "inputs": {
+                                "body": {
+                                    "directory": "@string(ticks(triggerBody()?['receivedDateTime']))"
+                                },
+                                "method": "POST",
+                                "uri": "@{concat('https://',parameters('function_name'),'.azurewebsites.net/api/',parameters('function_endpoint'),'?code=',body('Get_secret')?['value'])}"
                             }
                         }
                     },
@@ -237,10 +251,16 @@
                         "value": "[parameters('workflows_parameters_$connections')]"
                     },
                     "storageaccount_name": {
-                        "value": "[parameters('workflows_parameters_storageaccount_name')]"
+                        "value": "[concat('datalake', parameters('suffix'))]"
                     },
                     "docs_container": {
                         "value": "[parameters('workflows_parameters_docs_container')]"
+                    },
+                    "function_endpoint": {
+                        "value": "[parameters('workflows_parameters_function_endpoint')]"
+                    },
+                    "function_name": {
+                        "value": "[concat('functionapp', parameters('suffix'))]"
                     }
                 },
                 "state": "Enabled"

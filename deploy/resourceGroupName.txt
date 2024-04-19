@@ -1,1 +1,1 @@
-azure-sinistro-auto5
+azure-sinistro-auto
