@@ -1,4 +1,4 @@
-# az login
+# az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
 
 Set-Location C:\_Github\ms-poc-sinistro-ai\terraform
 
@@ -33,3 +33,5 @@ terraform plan -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGr
 terraform apply -auto-approve -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" -var="keyvaultSuffix=$keyvaultSuffix"
 
 # terraform destroy -auto-approve -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" -var="keyvaultSuffix=$keyvaultSuffix"
+
+# az group delete --name $resourceGroupName --yes --no-wait
