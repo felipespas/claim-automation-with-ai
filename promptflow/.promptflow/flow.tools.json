@@ -28,6 +28,17 @@
       },
       "source": "retrieve_emails_content.py",
       "function": "my_python_tool"
+    },
+    "retrieve_number.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "retrieve_number.jinja2"
     }
   }
 }

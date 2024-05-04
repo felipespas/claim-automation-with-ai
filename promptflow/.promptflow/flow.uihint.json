@@ -15,6 +15,28 @@
           "directory": []
         }
       }
+    },
+    "retrieve_number": {
+      "variant_0": {
+        "inputs": {
+          "contexto": [],
+          "input": []
+        }
+      }
+    },
+    "retrieve_emails_content": {
+      "variant_0": {
+        "inputs": {
+          "directory": []
+        }
+      }
+    },
+    "make_questions": {
+      "variant_0": {
+        "inputs": {
+          "question": []
+        }
+      }
     }
   }
 }

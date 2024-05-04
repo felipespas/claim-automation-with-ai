@@ -1,14 +1,16 @@
 inputs:
-  question:
+  perguntas:
     type: string
     default: Quantos aparelhos foram comprados?
-  directory:
+  diretorio:
     type: string
     default: lab1
 outputs:
-  answer:
+  resposta:
     type: string
     reference: ${make_question.output}
+  nro_pedido:
+    type: string
 nodes:
 - name: retrieve_emails_content
   type: python
@@ -16,8 +18,8 @@ nodes:
     type: code
     path: retrieve_emails_content.py
   inputs:
-    directory: ${inputs.directory}
-- name: make_question
+    directory: ${inputs.diretorio}
+- name: make_questions
   type: llm
   source:
     type: code
@@ -25,9 +27,21 @@ nodes:
   inputs:
     deployment_name: gpt-4-1106
     temperature: 0
-    question: ${inputs.question}
+    question: ${inputs.perguntas}
     response_format:
       type: text
     context: ${retrieve_emails_content.output}
+  connection: openai1704canadaeast
+  api: chat
+- name: retrieve_number
+  type: llm
+  source:
+    type: code
+    path: retrieve_number.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    temperature: 0
+    max_tokens: 100
+    input: ${make_questions.output}
   connection: openai1704canadaeast
   api: chat
