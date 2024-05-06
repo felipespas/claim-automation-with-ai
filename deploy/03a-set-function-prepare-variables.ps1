@@ -9,7 +9,7 @@ $resourcesSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix
 $resourceGroupName = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\resourceGroupName.txt
 
 # concatenate the value from variable $resourceSuffix with the string "mvp"
-$functionAppName = "functionapp" + $resourcesSuffix
+$functionAppName = "functionprepapp" + $resourcesSuffix
 
 #######################################################################################################################
 

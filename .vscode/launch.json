@@ -2,19 +2,53 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Prepare Function Debugger",
+            "type": "debugpy",
+            "request": "attach",
+            "preLaunchTask": "prepare function",
+            "connect": {
+                "host": "localhost",
+                "port": 9090
+            },
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "."
+                }
+            ]
+        },
+        {
+            "name": "Wrapper Function Debugger",
+            "type": "debugpy",
+            "request": "attach",
+            "preLaunchTask": "wrapper function",
+            "connect": {
+                "host": "localhost",
+                "port": 9090
+            },
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "."
+                }
+            ]
+        },
+        {
             "name": "Python Debugger: Demo code",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}\\demo\\app.py",
             "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}\\demo",
-        },
+            "cwd": "${workspaceFolder}\\demo"
+        }
+    ],
+    "compounds": [
         {
-            "name": "Attach to Python Functions",
-            "type": "python",
-            "request": "attach",
-            "port": 9090,
-            "preLaunchTask": "func: host start"
+            "name": "All Python Functions",
+            "configurations": [
+                "Prepare Function Debugger",
+                "Wrapper Function Debugger"
+            ]
         }
     ]
 }
