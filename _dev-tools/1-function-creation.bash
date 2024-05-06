@@ -31,3 +31,15 @@ func new --name validate01 --template "HTTP trigger" --authlevel "function"
 func start
 
 ########################################################################################################
+
+func init func-wrapper01 --python
+
+cd func-wrapper01
+
+python3 -m venv .venv-wrapper
+
+.\.venv-wrapper\Scripts\activate
+
+pip install -r .\requirements.txt
+
+func new --name wrapper01 --template "HTTP trigger" --authlevel "function"

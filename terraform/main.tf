@@ -144,6 +144,22 @@ resource "azurerm_key_vault" "key_vault" {
   enable_rbac_authorization   = true
 }
 
+resource "azurerm_eventhub_namespace" "event_hub" {
+  name                = "eventhub${var.suffix}"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  sku                 = "Basic"
+  capacity            = 1
+}
+
+resource "azurerm_eventhub" "example" {
+  name                = "files"
+  namespace_name      = azurerm_eventhub_namespace.event_hub.name
+  resource_group_name = azurerm_resource_group.rg.name
+  partition_count     = 2
+  message_retention   = 1
+}
+
 resource "azurerm_role_assignment" "logic_app_blob_contributor" {
   scope                = azurerm_storage_account.datalake_res.id
   role_definition_name = "Storage Blob Data Contributor"

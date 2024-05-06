@@ -27,7 +27,37 @@ func azure functionapp publish $functionAppName --python
 
 # func azure functionapp list-functions $functionAppName
 
+##############################################################################################
+
 $funcName = "prepare01"
+
+# obtain the endpoint key for the function app
+$funcKey = (Invoke-AzResourceAction `
+    -Action listKeys `
+    -ResourceType 'Microsoft.Web/sites/functions/' `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceName "$functionAppName/$funcName" `
+    -Force).default
+
+# show the value
+Write-Host "Function Key: $funcKey"
+
+$keyVaultName = "keyvault" + $resourcesSuffix + $keyvaultSuffix
+
+# show the value of $keyVaultName parameter
+Write-Host "Key Vault Name: $keyVaultName"
+
+$secretName = $funcName + "-key"
+
+# Power shell to create a secret in the key vault
+$secretValue = ConvertTo-SecureString -String $funcKey -AsPlainText -Force
+
+# Power shell to create a secret in the key vault
+Set-AzKeyVaultSecret -VaultName $keyVaultName -Name $secretName -SecretValue $secretValue
+
+#################################################################################################
+
+$funcName = "wrapper01"
 
 # obtain the endpoint key for the function app
 $funcKey = (Invoke-AzResourceAction `

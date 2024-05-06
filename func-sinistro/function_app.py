@@ -18,10 +18,13 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
 
     req_body = req.get_json()
 
+    logging.info('This was the payload sent: ' + str(req_body))
+
     # check if the request body is string and convert it to json
     try:        
         if isinstance(req_body, str):
             req_body = json.loads(req_body)
+            logging.info('Payload correctly converted to JSON')            
     except:
         logging.info(f'Error when processing the following input: {req_body}')
         return func.HttpResponse(f'\n Error: invalid JSON. Not proceeding with next steps. \n\n', status_code=400)
@@ -76,6 +79,8 @@ def prepare01(req: func.HttpRequest) -> func.HttpResponse:
 
     logging.info('All files saved as json and context obtained.\n')
 
+    logging.info(f'\n Processamento OK! Arquivos processados: {processed_files}. \n\n Arquivos não suportados: {format_not_supported_files}\n')
+
     return func.HttpResponse(f'\n Processamento OK! Arquivos processados: {processed_files}. \n\n Arquivos não suportados: {format_not_supported_files}\n\n', status_code=200)
 
 @app.route(route="validate01", auth_level=func.AuthLevel.FUNCTION)
@@ -85,10 +90,13 @@ def validate01(req: func.HttpRequest) -> func.HttpResponse:
 
     req_body = req.get_json()
 
+    logging.info('This was the payload sent: ' + str(req_body))
+
     # check if the request body is string and convert it to json
     try:        
         if isinstance(req_body, str):
-            req_body = json.loads(req_body)
+            req_body = json.loads(req_body)            
+            logging.info('Payload correctly converted to JSON')
     except:
         logging.info(f'Error when processing the following input: {req_body}')
         return func.HttpResponse(f'\n Error: invalid JSON. Not proceeding with next steps. \n\n', status_code=400)
