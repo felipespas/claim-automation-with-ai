@@ -3,11 +3,12 @@ import json
 
 # Create a dictionary with the data you want to send
 data = {
-    "directory": "638459383340000000"
+    "directory": "638459383340000000",
+    "callbackUrl": "https://www.example.com/callback"
 }
 
 # Define the URL of the Azure Function
-url = 'http://localhost:7071/api/wrapper01'
+url = 'http://localhost:7072/api/wrapper01'
 
 # print the data as a formatted json
 data = json.dumps(data, indent=4)

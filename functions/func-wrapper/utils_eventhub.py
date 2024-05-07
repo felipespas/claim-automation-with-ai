@@ -20,11 +20,14 @@ async def send_event(event_data: str):
         conn_str=event_hub_connection_string, eventhub_name=event_hub_name
     )
     async with producer:
+        
+        event_data_str = str(event_data)
+
         # Create a batch.
         event_data_batch = await producer.create_batch()
 
         # Add events to the batch.
-        event_data_batch.add(EventData(event_data))
+        event_data_batch.add(EventData(event_data_str))
 
         # Send the batch of events to the event hub.
         await producer.send_batch(event_data_batch)

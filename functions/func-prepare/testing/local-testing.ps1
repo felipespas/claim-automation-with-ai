@@ -7,5 +7,3 @@ curl -X POST -d '{"directory": "638464433540000000", "question": "Qual endereço
 curl -X POST -d '{"directory": "ExampleData"}' http://localhost:7071/api/prepare01
 
 curl -X POST -d '{"directory": "lab1"}' http://localhost:7071/api/prepare01
-
-curl -X POST -d '{"directory": "lab1", "callbackUrl": "localhost"}' http://localhost:7071/api/wrapper01
