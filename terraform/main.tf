@@ -189,6 +189,21 @@ resource "azurerm_key_vault" "key_vault" {
 
 # EVENT HUB ################################################################################
 
+resource "azurerm_storage_account" "storage_event_hub_checkpoint" {
+  name                     = "eventhubckpstg${var.suffix}"
+  resource_group_name      = azurerm_resource_group.rg.name
+  location                 = azurerm_resource_group.rg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  is_hns_enabled           = "false" 
+}
+
+resource "azurerm_storage_container" "example" {
+  name                  = "checkpoint"
+  storage_account_name  = azurerm_storage_account.storage_event_hub_checkpoint.name
+  container_access_type = "private"
+}
+
 resource "azurerm_eventhub_namespace" "event_hub_namespace" {
   name                = "eventhub${var.suffix}"
   location            = azurerm_resource_group.rg.location

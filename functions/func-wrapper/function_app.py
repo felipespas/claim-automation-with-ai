@@ -9,7 +9,9 @@ app = func.FunctionApp()
 @app.route(route="wrapper01", auth_level=func.AuthLevel.FUNCTION)
 def wrapper01(req: func.HttpRequest) -> func.HttpResponse:
 
-    req_body = req.get_json()
+    logging.info(f'Starting execution with the following payload: {req.get_json()}.')
+
+    req_body = req.get_json()    
     
     try:
         event_data_json = json.dumps(req_body)    
@@ -19,11 +21,12 @@ def wrapper01(req: func.HttpRequest) -> func.HttpResponse:
         logging.info(f'Error when processing the following input: {req_body}. Error: {str(e)}')
         return func.HttpResponse(f'\n Error: Data provided is not a valid JSON. \n\n', status_code=400)
 
-    try:
-        
+    try:        
         asyncio.run(send_event(event_data_str)) 
     
         logging.info(f'Data sent to partition.')
+
+        logging.info(f'Returning http status 202 to the caller application.')
 
         return func.HttpResponse(
             "This wrapper HTTP triggered function was executed successfully. Returning status code 202.\n",

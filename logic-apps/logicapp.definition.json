@@ -228,20 +228,23 @@
                                 "path": "/secrets/@{encodeURIComponent('wrapper01-key')}/value"
                             }
                         },
-                        "HTTP": {
+                        "HTTP_Webhook": {
                             "runAfter": {
                                 "Get_secret": [
                                     "Succeeded"
                                 ]
                             },
-                            "type": "Http",
+                            "type": "HttpWebhook",
                             "inputs": {
-                                "body": {
-                                    "directory": "@string(ticks(triggerBody()?['receivedDateTime']))"
-                                },
+                            "subscribe": {
                                 "method": "POST",
-                                "uri": "@{concat('https://',parameters('function_name'),'.azurewebsites.net/api/',parameters('function_endpoint'),'?code=',body('Get_secret')?['value'])}"
-                            }
+                                "uri": "@concat('https://',parameters('function_name'),'.azurewebsites.net/api/',parameters('function_endpoint'),'?code=',body('Get_secret')?['value'])",
+                                "body": {
+                                    "directory": "@string(ticks(triggerBody()?['receivedDateTime']))",
+                                    "callbackUrl": "@listCallbackUrl()"
+                                    }
+                                }
+                            }                            
                         }
                     },
                     "outputs": {}

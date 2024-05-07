@@ -5,10 +5,10 @@ from azure.eventhub.extensions.checkpointstoreblobaio import (
     BlobCheckpointStore,
 )
 
-BLOB_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=wrapper050624;AccountKey=DJRlDTXMYsPxSIOqfYfFyEdqFE9h7eGLj33QrOdyUX3vVG6cIc6jQAEc8xwLm95uERy5QAR3SLRR+AStqbqw1Q==;EndpointSuffix=core.windows.net"
+BLOB_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=eventhubckpstg060524;AccountKey=Sm2dc9JZSTdYEt8OOwIv+zlaz4yK4E6kOJpckYJh5J980btPfM4Zz3xZxjKDSE4KYn9GPa01eZkf+ASt5ZoIBg==;EndpointSuffix=core.windows.net"
 BLOB_CONTAINER_NAME = "checkpoint"
-EVENT_HUB_CONNECTION_STR="Endpoint=sb://eventhub050324.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=11qbvtwhEibsZIQ8pWBKDh+Hj7aNaAvGK+AEhCXWpZA="
-EVENT_HUB_NAME="files"
+EVENT_HUB_CONNECTION_STR="Endpoint=sb://eventhub060524.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=+2mDUHWkqdn9SnjhP2OwFZtpZhNg1muwv+AEhE5qgUQ="
+EVENT_HUB_NAME="incoming"
 
 async def on_event(partition_context, event):
     # Print the event data.
