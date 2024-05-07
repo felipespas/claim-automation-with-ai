@@ -12,9 +12,8 @@ def wrapper01(req: func.HttpRequest) -> func.HttpResponse:
     req_body = req.get_json()
     
     try:
-        data = str(req_body)
         
-        asyncio.run(send_event(data)) 
+        asyncio.run(send_event(req_body)) 
         
         logging.info(f'Data sent to partition.')
 
