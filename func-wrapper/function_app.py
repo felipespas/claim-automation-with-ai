@@ -23,7 +23,11 @@ def wrapper01(req: func.HttpRequest) -> func.HttpResponse:
             status_code=202
         )    
     
-    except:
+    except Exception as e:
         
-        logging.info(f'Error when processing the following input: {req_body}')
-        return func.HttpResponse(f'\n Error: Not proceeding with next steps. \n\n', status_code=400)
+        # show the raw error message
+        logging.info(f'Error when processing the following input: {req_body}. Error: {str(e)}')
+        
+
+    #     logging.info(f'Error when processing the following input: {req_body}')
+    #     return func.HttpResponse(f'\n Error: Not proceeding with next steps. \n\n', status_code=400)

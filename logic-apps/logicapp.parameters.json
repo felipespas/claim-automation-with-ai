@@ -38,7 +38,7 @@
             "value": "emails"
         },
         "workflows_parameters_function_endpoint":{
-            "value": "prepare01"
+            "value": "wrapper01"
         }
     }
 }

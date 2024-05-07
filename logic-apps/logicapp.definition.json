@@ -225,7 +225,7 @@
                                     }
                                 },
                                 "method": "get",
-                                "path": "/secrets/@{encodeURIComponent('prepare01-key')}/value"
+                                "path": "/secrets/@{encodeURIComponent('wrapper01-key')}/value"
                             }
                         },
                         "HTTP": {
@@ -260,7 +260,7 @@
                         "value": "[parameters('workflows_parameters_function_endpoint')]"
                     },
                     "function_name": {
-                        "value": "[concat('functionapp', parameters('suffix'))]"
+                        "value": "[concat('functionwrapapp', parameters('suffix'))]"
                     }
                 },
                 "state": "Enabled"

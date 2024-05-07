@@ -1,6 +1,6 @@
 # az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
 
-Set-Location C:\_Github\ms-poc-sinistro-ai\func-sinistro
+Set-Location C:\_Github\ms-poc-sinistro-ai\func-prepare
 
 # read the value from suffix.txt file
 $resourcesSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix.txt

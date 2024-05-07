@@ -3,28 +3,9 @@
 	"tasks": [
 		{
 			"type": "func",
-			"label": "prepare function",
+			"label": "func: host start - w",
 			"command": "host start --port 7071",
-			"isBackground": true,
-			"dependsOn": "prepare pip install",
-			"options": {
-				"cwd": "${workspaceFolder}/func-prepare"
-			}
-		},
-		{
-			"label": "prepare pip install",
-			"type": "shell",			
-			"windows": {
-				"command": "${config:azureFunctions.pythonVenv}\\Scripts\\python -m pip install -r requirements.txt"
-			},			
-			"options": {
-				"cwd": "${workspaceFolder}/func-prepare"
-			}
-		},
-		{
-			"type": "func",
-			"label": "wrapper function",
-			"command": "host start --port 7072",
+			"problemMatcher": "$func-python-watch",
 			"isBackground": true,
 			"dependsOn": "wrapper pip install",
 			"options": {
@@ -33,12 +14,33 @@
 		},
 		{
 			"label": "wrapper pip install",
-			"type": "shell",			
+			"type": "shell",
 			"windows": {
 				"command": "${config:azureFunctions.pythonVenv}\\Scripts\\python -m pip install -r requirements.txt"
 			},			
 			"options": {
 				"cwd": "${workspaceFolder}/func-wrapper"
+			}
+		},
+		{
+			"type": "func",
+			"label": "func: host start - p",
+			"command": "host start --port 7071",
+			"problemMatcher": "$func-python-watch",
+			"isBackground": true,
+			"dependsOn": "prepare pip install",
+			"options": {
+				"cwd": "${workspaceFolder}/func-prepare"
+			}
+		},
+		{
+			"label": "prepare pip install",
+			"type": "shell",
+			"windows": {
+				"command": "${config:azureFunctions.pythonVenv}\\Scripts\\python -m pip install -r requirements.txt"
+			},			
+			"options": {
+				"cwd": "${workspaceFolder}/func-prepare"
 			}
 		}
 	]
