@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "func-wrapper"
+		},
+		{
+			"path": "func-receive"
 		}
 	],
 	"settings": {
@@ -17,7 +20,8 @@
 				"name": "Attach to both apps",
 				"configurations": [
 					"Function - Prepare",
-					"Function - Wrapper"
+					"Function - Wrapper",
+					"Function - Receive"
 				]
 			}
 		]

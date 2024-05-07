@@ -241,7 +241,8 @@
                                 "uri": "@concat('https://',parameters('function_name'),'.azurewebsites.net/api/',parameters('function_endpoint'),'?code=',body('Get_secret')?['value'])",
                                 "body": {
                                     "directory": "@string(ticks(triggerBody()?['receivedDateTime']))",
-                                    "callbackUrl": "@listCallbackUrl()"
+                                    "callbackUrl": "@listCallbackUrl()",
+                                    "emailSubject": "@triggerBody()?['subject']"
                                     }
                                 }
                             }                            
