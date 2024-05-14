@@ -17,7 +17,7 @@
 		"configurations": [],
 		"compounds": [
 			{
-				"name": "Attach to both apps",
+				"name": "Attach to all apps",
 				"configurations": [
 					"Function - Prepare",
 					"Function - Wrapper",

@@ -18,7 +18,7 @@ async def run():
         event_data_batch = await producer.create_batch()
 
         # Add events to the batch.
-        event_data_batch.add(EventData("{\"text\": \"First event\"}"))
+        event_data_batch.add(EventData("{\"directory\": \"001\"}"))
         # event_data_batch.add(EventData("Second event"))
         # event_data_batch.add(EventData("Third event"))
 

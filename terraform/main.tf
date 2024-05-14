@@ -198,7 +198,7 @@ resource "azurerm_storage_account" "storage_event_hub_checkpoint" {
   is_hns_enabled           = "false" 
 }
 
-resource "azurerm_storage_container" "example" {
+resource "azurerm_storage_container" "container_event_hub_checkpoint" {
   name                  = "checkpoint"
   storage_account_name  = azurerm_storage_account.storage_event_hub_checkpoint.name
   container_access_type = "private"
