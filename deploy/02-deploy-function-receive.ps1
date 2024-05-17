@@ -1,6 +1,6 @@
 # az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
 
-Set-Location C:\_Github\ms-poc-sinistro-ai\functions\func-wrapper
+Set-Location C:\_Github\ms-poc-sinistro-ai\functions\func-receive
 
 # read the value from suffix.txt file
 $resourcesSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix.txt
@@ -9,7 +9,7 @@ $resourcesSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix
 $resourceGroupName = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\resourceGroupName.txt
 
 # concatenate the value from variable $resourceSuffix with the string "mvp"
-$functionAppName = "functionwrapapp" + $resourcesSuffix
+$functionAppName = "fnreceiveapp" + $resourcesSuffix
 
 # read the value from suffix.txt file
 $keyvaultSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\keyvaultSuffix.txt
@@ -29,7 +29,7 @@ func azure functionapp publish $functionAppName --python
 
 ##############################################################################################
 
-$funcName = "wrapper01"
+$funcName = "receive01"
 
 # obtain the endpoint key for the function app
 $funcKey = (Invoke-AzResourceAction `

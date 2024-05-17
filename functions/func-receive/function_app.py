@@ -2,78 +2,37 @@ import azure.functions as func
 import datetime
 import json
 import logging
-from utils_lake import *
-from utils_ia import *
-from utils_text import *
-
-storage_account_container_emails = os.environ['STORAGE_ACCOUNT_CONTAINER_EMAILS']
-storage_account_container_jsons = os.environ['STORAGE_ACCOUNT_CONTAINER_JSONS']
-event_hub_name = os.environ['EVENT_HUB_NAME']
+from utils_eventhub import *
 
 app = func.FunctionApp()
 
-@app.event_hub_message_trigger(arg_name="azeventhub", event_hub_name=event_hub_name,
-                               connection="EVENT_HUB_CONN_STR") 
-def receive01(azeventhub: func.EventHubEvent):
-    logging.info('Python EventHub trigger processed an event: %s',
-                azeventhub.get_body().decode('utf-8'))
+@app.route(route="receive01", auth_level=func.AuthLevel.FUNCTION)
+def receive01(req: func.HttpRequest) -> func.HttpResponse:
+
+    logging.info(f'Starting execution with the following payload: {req.get_json()}.')
+
+    req_body = req.get_json()    
     
-    message = azeventhub.get_body().decode('utf-8')
-
-    try:       
-        message_json = json.loads(message)
-
-        directory = message_json.get('directory')
-
-        if directory is None:
-            return func.HttpResponse(f'\n Error: Blank directory. Not proceeding with next steps. \n\n', status_code=400)
-
-        data = json.dumps(message_json, indent=4)
-
-        print(data)
-
-        email_files = list_files(storage_account_container_emails, directory)
-
-        logging.info(f'Files listed: {email_files}')
-
-        print(f'Files listed: {email_files}')
-
-        processed_files = []
-        format_not_supported_files = []
-
-        for file in email_files:
-
-            logging.info(f'Starting processing: {file}')
-
-            # image
-            if file.endswith(".jpeg") or file.endswith(".jpg") or file.endswith(".png"):
-                blob_path = get_filepath_from_lake(storage_account_container_emails, file)
-                result = capture_text_from_image(blob_path)
-
-            # email
-            elif file.endswith(".eml"):
-                content = download_content(storage_account_container_emails, file)
-                result = extract_content_from_eml(content)
-                
-            # pdf
-            elif file.endswith(".pdf"):
-                blob_path = get_filepath_from_lake(storage_account_container_emails, file)
-                result = capture_text_from_pdf(blob_path)
-
-            save_json_to_lake(storage_account_container_jsons, file, result)
-
-            logging.info(f'File processed: {file}')
-
-            print(f'File processed: {file}')
-
-            # append file to processed_files
-            processed_files.append(file)
-
-        logging.info('All files saved as json and context obtained.\n')
-
-        logging.info(f'\n Processing complete! Files processed: {processed_files}. \n\n Not supported (skipped) files: {format_not_supported_files}\n')
+    try:
+        event_data_json = json.dumps(req_body)    
+        event_data_str = str(event_data_json)
 
     except Exception as e:
-        logging.info("Error: " + str(e))
+        logging.info(f'Error when processing the following input: {req_body}. Error: {str(e)}')
+        return func.HttpResponse(f'\n Error: Data provided is not a valid JSON. \n\n', status_code=400)
 
+    try:        
+        asyncio.run(send_event(event_data_str)) 
     
+        logging.info(f'Data sent to partition: {event_data_str}.')
+
+        logging.info(f'Returning http status 202 to the caller application.')
+
+        return func.HttpResponse(
+            "This wrapper HTTP triggered function was executed successfully. Returning status code 202.\n",
+            status_code=202
+        )    
+    
+    except Exception as e:
+        logging.info(f'Error when processing the following input: {req_body}. Error: {str(e)}')
+        return func.HttpResponse(f'\n Error: Error when sending data to Event Hub. \n\n', status_code=400)

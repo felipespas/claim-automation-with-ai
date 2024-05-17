@@ -1,1 +1,0 @@
-curl -X POST -d '{"directory": "lab1", "callbackUrl": "localhost"}' http://localhost:7072/api/wrapper01

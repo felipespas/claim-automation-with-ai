@@ -89,23 +89,23 @@ resource "azurerm_application_insights" "app_insights" {
   application_type    = "other"
 }
 
-# FUNCTION PREPARE ################################################################################
+# FUNCTION PROCESS ################################################################################
 
-resource "azurerm_storage_account" "storage_prepare_fn" {
-  name                     = "functionprepstg${var.suffix}"
+resource "azurerm_storage_account" "storage_process_fn" {
+  name                     = "fnprocessstg${var.suffix}"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
-resource "azurerm_linux_function_app" "function_prepare_app" {
-  name                = "functionprepapp${var.suffix}"
+resource "azurerm_linux_function_app" "function_process_app" {
+  name                = "fnprocessapp${var.suffix}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
 
-  storage_account_name       = azurerm_storage_account.storage_prepare_fn.name
-  storage_account_access_key = azurerm_storage_account.storage_prepare_fn.primary_access_key
+  storage_account_name       = azurerm_storage_account.storage_process_fn.name
+  storage_account_access_key = azurerm_storage_account.storage_process_fn.primary_access_key
   service_plan_id            = azurerm_service_plan.function_plan.id
 
   site_config {
@@ -120,23 +120,54 @@ resource "azurerm_linux_function_app" "function_prepare_app" {
   }
 }
 
-# FUNCTION WRAPPER ################################################################################
+# FUNCTION QUESTION ################################################################################
 
-resource "azurerm_storage_account" "storage_wrapper_fn" {
-  name                     = "functionwrapstg${var.suffix}"
+resource "azurerm_storage_account" "storage_question_fn" {
+  name                     = "fnquestionstg${var.suffix}"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
-resource "azurerm_linux_function_app" "function_wrapper_app" {
-  name                = "functionwrapapp${var.suffix}"
+resource "azurerm_linux_function_app" "function_question_app" {
+  name                = "fnquestionapp${var.suffix}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
 
-  storage_account_name       = azurerm_storage_account.storage_wrapper_fn.name
-  storage_account_access_key = azurerm_storage_account.storage_wrapper_fn.primary_access_key
+  storage_account_name       = azurerm_storage_account.storage_question_fn.name
+  storage_account_access_key = azurerm_storage_account.storage_question_fn.primary_access_key
+  service_plan_id            = azurerm_service_plan.function_plan.id
+
+  site_config {
+    application_stack {
+      python_version = "3.11"
+    }
+    application_insights_key = azurerm_application_insights.app_insights.instrumentation_key
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
+
+# FUNCTION RECEIVE ################################################################################
+
+resource "azurerm_storage_account" "storage_receive_fn" {
+  name                     = "fnreceivestg${var.suffix}"
+  resource_group_name      = azurerm_resource_group.rg.name
+  location                 = azurerm_resource_group.rg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+resource "azurerm_linux_function_app" "function_receive_app" {
+  name                = "fnreceiveapp${var.suffix}"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+
+  storage_account_name       = azurerm_storage_account.storage_receive_fn.name
+  storage_account_access_key = azurerm_storage_account.storage_receive_fn.primary_access_key
   service_plan_id            = azurerm_service_plan.function_plan.id
 
   site_config {
@@ -229,11 +260,11 @@ resource "azurerm_role_assignment" "logic_app_blob_contributor" {
   depends_on = [ azurerm_logic_app_workflow.logic_app ]
 }
 
-resource "azurerm_role_assignment" "function_prep_blob_contributor" {
+resource "azurerm_role_assignment" "function_process_blob_contributor" {
   scope                = azurerm_storage_account.datalake_res.id
   role_definition_name = "Storage Blob Data Contributor"
-  principal_id         = azurerm_linux_function_app.function_prepare_app.identity[0].principal_id
-  depends_on           = [ azurerm_storage_account.datalake_res, azurerm_linux_function_app.function_prepare_app ]
+  principal_id         = azurerm_linux_function_app.function_process_app.identity[0].principal_id
+  depends_on           = [ azurerm_storage_account.datalake_res, azurerm_linux_function_app.function_process_app ]
 }
 
 resource "azurerm_role_assignment" "logic_apps_secret_user" {

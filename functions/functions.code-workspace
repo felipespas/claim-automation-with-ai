@@ -1,11 +1,11 @@
 {
 	"folders": [
 		{
-			"path": "func-prepare"
+			"path": "func-process"
 		},
 		{
-			"path": "func-wrapper"
-		},
+			"path": "func-question"
+		},		
 		{
 			"path": "func-receive"
 		}
@@ -19,8 +19,8 @@
 			{
 				"name": "Attach to all apps",
 				"configurations": [
-					"Function - Prepare",
-					"Function - Wrapper",
+					"Function - Process",
+					"Function - Question",
 					"Function - Receive"
 				]
 			}

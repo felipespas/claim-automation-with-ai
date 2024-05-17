@@ -1,0 +1,1 @@
+curl -X POST -d '{"directory": "001", "callbackUrl": "localhost"}' http://localhost:7072/api/receive01

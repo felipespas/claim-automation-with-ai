@@ -7,9 +7,11 @@ from azure.storage.blob import BlobServiceClient, BlobSasPermissions, generate_b
 
 load_dotenv()
 
-data_lake_url_endpoint = os.environ["DATA_LAKE_URL_ENDPOINT"]
-storage_account_connection_string = os.environ["STORAGE_ACCOUNT_CONNECTION_STRING"]
-storage_account_key = os.environ["STORAGE_ACCOUNT_KEY"]
+data_lake_name = os.environ["DATA_LAKE_NAME"]
+data_lake_key = os.environ["DATA_LAKE_KEY"]
+
+data_lake_url_endpoint = f"https://{data_lake_name}.dfs.core.windows.net/"
+storage_account_connection_string = f"DefaultEndpointsProtocol=https;AccountName={data_lake_name};AccountKey={data_lake_key};EndpointSuffix=core.windows.net"
 
 # Create a blob client
 blob_service_client = BlobServiceClient.from_connection_string(storage_account_connection_string)
@@ -17,7 +19,7 @@ blob_service_client = BlobServiceClient.from_connection_string(storage_account_c
 def list_files(container_name, dir_path):
     
     # Create a DataLakeServiceClient object
-    service_client = DataLakeServiceClient(account_url=data_lake_url_endpoint, credential=storage_account_key)
+    service_client = DataLakeServiceClient(account_url=data_lake_url_endpoint, credential=data_lake_key)
 
     # Get the file system client
     file_system_client = service_client.get_file_system_client(container_name)
@@ -72,7 +74,7 @@ def save_json_to_lake(container_name, file_path, json_data):
 def download_content(container, file_path):
     
     # Create a DataLakeServiceClient object
-    service_client = DataLakeServiceClient(account_url=data_lake_url_endpoint, credential=storage_account_key)
+    service_client = DataLakeServiceClient(account_url=data_lake_url_endpoint, credential=data_lake_key)
 
     # Get the file system client
     file_system_client = service_client.get_file_system_client(container)

@@ -2,6 +2,7 @@
 # The Python Worker is managed by the Azure Functions platform
 # Manually managing azure-functions-worker may cause unexpected issues
 
-azure-functions
-azure-eventhub
+azure-functions==1.18.0
+azure-storage-file-datalake==12.14.0
 python-dotenv==1.0.1
+openai==1.13.3

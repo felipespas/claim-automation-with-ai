@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Function - Wrapper",
+            "name": "Function - Process",
             "type": "python",
             "request": "attach",
-            "port": 9092,
+            "port": 9093,
             "preLaunchTask": "func: host start"
         }
     ]

@@ -2,18 +2,18 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "func",			
+			"type": "func",
 			"label": "func: host start",
-			"command": "host start --port 7072",
+			"command": "host start --port 7073",
 			"problemMatcher": "$func-python-watch",
 			"isBackground": true,
-			"dependsOn": "wrapper pip install",
+			"dependsOn": "prepare pip install",
 			"options": {
 				"cwd": "${workspaceFolder}"
 			}
 		},
 		{
-			"label": "wrapper pip install",
+			"label": "prepare pip install",
 			"type": "shell",
 			"windows": {
 				"command": "${config:azureFunctions.pythonVenv}\\Scripts\\python -m pip install -r requirements.txt"

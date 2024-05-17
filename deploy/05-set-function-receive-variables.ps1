@@ -1,6 +1,6 @@
 # az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
 
-Set-Location C:\_Github\ms-poc-sinistro-ai\func-wrapper
+Set-Location C:\_Github\ms-poc-sinistro-ai\functions\func-receive
 
 # read the value from suffix.txt file
 $resourcesSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix.txt
@@ -9,15 +9,23 @@ $resourcesSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix
 $resourceGroupName = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\resourceGroupName.txt
 
 # concatenate the value from variable $resourceSuffix with the string "mvp"
-$functionAppName = "functionwrapapp" + $resourcesSuffix
+$functionAppName = "fnreceiveapp" + $resourcesSuffix
 
 #######################################################################################################################
 
 # FUNCTION APP SETTINGS:
 
+Write-Host "Resource Group Name: $resourceGroupName"
+
 $eventHubNamespace = "eventhub$resourcesSuffix"
 
-$eventHubConnectionString = (Get-AzEventHubNamespace -ResourceGroupName $resourceGroupName -Name $eventHubNamespace).PrimaryConnectionString
+Write-Host "Event Hub Namespace: $eventHubNamespace"
+
+$eventHubKey = Get-AzEventHubKey -ResourceGroupName $resourceGroupName -NamespaceName $eventHubNamespace -Name RootManageSharedAccessKey
+
+$eventHubConnectionString = $eventHubKey.PrimaryConnectionString
+
+Write-Host "Event Hub Connection String: $eventHubConnectionString"
 
 az functionapp config appsettings set --name $functionAppName --resource-group $resourceGroupName --settings "EVENT_HUB_CONNECTION_STR=$eventHubConnectionString"
 
