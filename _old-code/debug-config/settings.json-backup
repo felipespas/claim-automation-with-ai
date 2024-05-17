@@ -1,0 +1,10 @@
+{
+    "azureFunctions.deploySubpath": "func-prepare",
+    "azureFunctions.scmDoBuildDuringDeployment": true,
+    "azureFunctions.pythonVenv": ".venv-w",
+    "azureFunctions.projectLanguage": "Python",
+    "azureFunctions.projectRuntime": "~4",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.projectLanguageModel": 2,
+    "python.terminal.activateEnvironment": true
+}

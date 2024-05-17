@@ -37,8 +37,11 @@
         "workflows_parameters_docs_container":{
             "value": "emails"
         },
+        "workflows_parameters_function_app_name":{
+            "value": "fnreceiveapp"
+        },
         "workflows_parameters_function_endpoint":{
-            "value": "prepare01"
+            "value": "receive01"
         }
     }
 }

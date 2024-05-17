@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "func-process"
+		},
+		{
+			"path": "func-question"
+		},		
+		{
+			"path": "func-receive"
+		}
+	],
+	"settings": {
+		"debug.internalConsoleOptions": "neverOpen"
+	},
+	"launch": {
+		"configurations": [],
+		"compounds": [
+			{
+				"name": "Attach to all apps",
+				"configurations": [
+					"Function - Process",
+					"Function - Question",
+					"Function - Receive"
+				]
+			}
+		]
+	}
+}

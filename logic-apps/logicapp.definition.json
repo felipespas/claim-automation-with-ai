@@ -11,6 +11,9 @@
         "workflows_parameters_docs_container": {
             "type": "String"
         },
+        "workflows_parameters_function_app_name": {
+            "type": "String"
+        },
         "workflows_parameters_function_endpoint": {
             "type": "String"
         }        
@@ -37,10 +40,13 @@
                         "docs_container": {
                             "type": "String"
                         },
+                        "function_app_name": {
+                            "type": "String"
+                        },
                         "function_endpoint": {
                             "type": "String"
                         },
-                        "function_name": {
+                        "function_endpoint_key": {
                             "type": "String"
                         }
                     },
@@ -225,23 +231,27 @@
                                     }
                                 },
                                 "method": "get",
-                                "path": "/secrets/@{encodeURIComponent('prepare01-key')}/value"
+                                "path": "/secrets/@{encodeURIComponent(parameters('function_endpoint_key'))}/value"
                             }
                         },
-                        "HTTP": {
+                        "HTTP_Webhook": {
                             "runAfter": {
                                 "Get_secret": [
                                     "Succeeded"
                                 ]
                             },
-                            "type": "Http",
+                            "type": "HttpWebhook",
                             "inputs": {
-                                "body": {
-                                    "directory": "@string(ticks(triggerBody()?['receivedDateTime']))"
-                                },
+                            "subscribe": {
                                 "method": "POST",
-                                "uri": "@{concat('https://',parameters('function_name'),'.azurewebsites.net/api/',parameters('function_endpoint'),'?code=',body('Get_secret')?['value'])}"
-                            }
+                                "uri": "@concat('https://',parameters('function_app_name'),'.azurewebsites.net/api/',parameters('function_endpoint'),'?code=',body('Get_secret')?['value'])",
+                                "body": {
+                                    "directory": "@string(ticks(triggerBody()?['receivedDateTime']))",
+                                    "callbackUrl": "@listCallbackUrl()",
+                                    "emailSubject": "@triggerBody()?['subject']"
+                                    }
+                                }
+                            }                            
                         }
                     },
                     "outputs": {}
@@ -256,11 +266,14 @@
                     "docs_container": {
                         "value": "[parameters('workflows_parameters_docs_container')]"
                     },
+                    "function_app_name": {
+                        "value": "[concat(parameters('workflows_parameters_function_app_name'), parameters('suffix'))]"
+                    },
                     "function_endpoint": {
                         "value": "[parameters('workflows_parameters_function_endpoint')]"
                     },
-                    "function_name": {
-                        "value": "[concat('functionapp', parameters('suffix'))]"
+                    "function_endpoint_key": {
+                        "value": "[concat(parameters('workflows_parameters_function_endpoint'), '-key')]"
                     }
                 },
                 "state": "Enabled"
