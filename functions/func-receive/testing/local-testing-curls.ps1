@@ -1,1 +1,1 @@
-curl -X POST -d '{"directory": "001", "callbackUrl": "localhost"}' http://localhost:7072/api/receive01
+curl -X POST -d '{"directory": "638518876110000000", "callbackUrl": "localhost", "emailSubject": "teste"}' http://localhost:7072/api/receive01

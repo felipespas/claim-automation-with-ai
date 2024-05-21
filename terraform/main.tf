@@ -35,6 +35,16 @@ variable "location" {
   type        = string
 }
 
+variable "sqlPassword" {
+  description = "The password for SQL Server login"
+  type        = string
+}
+
+variable "myIpAddress"{
+  description = "The IP address of the machine"
+  type        = string
+}
+
 resource "azurerm_resource_group" "rg" {
   name = var.resourceGroupName
   location = var.location
@@ -220,20 +230,20 @@ resource "azurerm_key_vault" "key_vault" {
 
 # EVENT HUB ################################################################################
 
-resource "azurerm_storage_account" "storage_event_hub_checkpoint" {
-  name                     = "eventhubckpstg${var.suffix}"
-  resource_group_name      = azurerm_resource_group.rg.name
-  location                 = azurerm_resource_group.rg.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  is_hns_enabled           = "false" 
-}
+# resource "azurerm_storage_account" "storage_event_hub_checkpoint" {
+#   name                     = "eventhubckpstg${var.suffix}"
+#   resource_group_name      = azurerm_resource_group.rg.name
+#   location                 = azurerm_resource_group.rg.location
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
+#   is_hns_enabled           = "false" 
+# }
 
-resource "azurerm_storage_container" "container_event_hub_checkpoint" {
-  name                  = "checkpoint"
-  storage_account_name  = azurerm_storage_account.storage_event_hub_checkpoint.name
-  container_access_type = "private"
-}
+# resource "azurerm_storage_container" "container_event_hub_checkpoint" {
+#   name                  = "checkpoint"
+#   storage_account_name  = azurerm_storage_account.storage_event_hub_checkpoint.name
+#   container_access_type = "private"
+# }
 
 resource "azurerm_eventhub_namespace" "event_hub_namespace" {
   name                = "eventhub${var.suffix}"
@@ -250,6 +260,51 @@ resource "azurerm_eventhub" "event_hub" {
   partition_count     = 1
   message_retention   = 1
 }
+
+# SQL SERVER #################################################################################
+
+resource "azurerm_mssql_server" "sqlserver_logical_server" {
+  name                         = "mssqlserver${var.suffix}"
+  resource_group_name          = azurerm_resource_group.rg.name
+  location                     = azurerm_resource_group.rg.location
+  version                      = "12.0"
+  administrator_login          = "Felipe"
+  administrator_login_password = var.sqlPassword
+  minimum_tls_version          = "1.2"
+
+  azuread_administrator {
+    login_username = "AzureAD Admin"
+    object_id      = data.azurerm_client_config.current.object_id
+  }
+
+  tags = {
+    environment = "production"
+  }
+}
+
+resource "azurerm_mssql_database" "sample_database" {
+  name           = "sample"
+  server_id      = azurerm_mssql_server.sqlserver_logical_server.id
+  collation      = "SQL_Latin1_General_CP1_CI_AS"
+  license_type   = "LicenseIncluded"
+  sku_name       = "Basic"
+  sample_name    = "AdventureWorksLT"
+}
+
+resource "azurerm_mssql_firewall_rule" "trusted_services_rule" {
+  name             = "trusted_services_rule"
+  server_id        = azurerm_mssql_server.sqlserver_logical_server.id
+  start_ip_address = "0.0.0.0"
+  end_ip_address   = "0.0.0.0"
+}
+
+resource "azurerm_mssql_firewall_rule" "my_machine_ip_address_rule" {
+  name             = "my_machine_rule"
+  server_id        = azurerm_mssql_server.sqlserver_logical_server.id
+  start_ip_address = var.myIpAddress
+  end_ip_address   = var.myIpAddress
+}
+
 
 # PERMISSIONS ################################################################################
 

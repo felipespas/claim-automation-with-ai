@@ -1,3 +1,4 @@
 {
-    "azureFunctions.projectSubpath": "functions\\func-wrapper"
+    "azureFunctions.projectSubpath": "functions\\func-wrapper",
+    "python.terminal.activateEnvironment": true
 }

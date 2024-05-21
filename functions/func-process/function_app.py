@@ -70,6 +70,11 @@ def process01(azeventhub: func.EventHubEvent):
                 blob_path = get_filepath_from_lake(container_name_for_emails, file)
                 result = capture_text_from_pdf(blob_path)
 
+            # office files
+            elif file.endswith(".docx") or file.endswith(".xlsx") or file.endswith(".pptx"):
+                blob_path = get_filepath_from_lake(container_name_for_emails, file)
+                result = capture_text_from_office(blob_path)
+            
             else:
                 format_not_supported_files.append(file)
                 logging.info(f'File format not supported: {file}')
@@ -91,9 +96,10 @@ def process01(azeventhub: func.EventHubEvent):
 
         # callback routine
 
-        response = requests.post(callbackUrl)
+        if callbackUrl != "localhost":
+            response = requests.post(callbackUrl)
 
-        logging.info(f'Callback API response: {response}')
+            logging.info(f'Callback API response: {response}')
 
     except Exception as e:
         logging.info("Error: " + str(e))

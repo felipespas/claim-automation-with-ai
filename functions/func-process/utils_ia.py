@@ -6,7 +6,7 @@ from azure.ai.vision.imageanalysis import ImageAnalysisClient
 from azure.ai.vision.imageanalysis.models import VisualFeatures
 
 from azure.ai.documentintelligence import DocumentIntelligenceClient
-from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult
+from azure.ai.documentintelligence.models import AnalyzeDocumentRequest, AnalyzeResult, DocumentAnalysisFeature
 
 load_dotenv()
 
@@ -124,8 +124,7 @@ def capture_text_from_office(blob_url: str):
 
     poller = document_intelligence_client.begin_analyze_document(
         "prebuilt-layout", 
-        AnalyzeDocumentRequest(url_source=blob_url),
-        features=["keyValuePairs"]
+        AnalyzeDocumentRequest(url_source=blob_url)
     )
 
     result: AnalyzeResult = poller.result()

@@ -39,6 +39,17 @@
         }
       },
       "source": "retrieve_number.jinja2"
+    },
+    "get_order_id.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "get_order_id.jinja2"
     }
   }
 }
