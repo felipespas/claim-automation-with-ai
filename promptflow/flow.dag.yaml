@@ -6,9 +6,12 @@ inputs:
     type: string
     default: "638518876110000000"
 outputs:
-  resposta:
+  answer:
     type: string
     reference: ${make_questions.output}
+  validation:
+    type: string
+    reference: ${validate_product_claim.output}
 nodes:
 - name: retrieve_emails_content
   type: python
@@ -40,5 +43,23 @@ nodes:
     deployment_name: gpt-4-1106
     temperature: 0
     input: ${retrieve_emails_content.output}
+  connection: openai1704canadaeast
+  api: chat
+- name: retrieve_products_list
+  type: python
+  source:
+    type: code
+    path: retrieve_products_list.py
+  inputs:
+    order_id: ${get_order_id.output}
+- name: validate_product_claim
+  type: llm
+  source:
+    type: code
+    path: validate_product_claim.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    products: ${retrieve_products_list.output}
+    context: ${retrieve_emails_content.output}
   connection: openai1704canadaeast
   api: chat

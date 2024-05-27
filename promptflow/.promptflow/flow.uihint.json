@@ -44,6 +44,22 @@
           "input": []
         }
       }
+    },
+    "query_database": {
+      "variant_0": {
+        "inputs": {
+          "input1": [],
+          "order_id": []
+        }
+      }
+    },
+    "confirm_product_claim": {
+      "variant_0": {
+        "inputs": {
+          "products": [],
+          "context": []
+        }
+      }
     }
   }
 }

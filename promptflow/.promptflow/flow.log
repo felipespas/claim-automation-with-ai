@@ -1,11 +1,16 @@
-2024-05-21 08:31:57 -0300  421252 execution.flow     INFO     Start executing nodes in thread pool mode.
-2024-05-21 08:31:57 -0300  421252 execution.flow     INFO     Start to run 3 nodes with concurrency level 16.
-2024-05-21 08:31:57 -0300  421252 execution.flow     INFO     Executing node retrieve_emails_content. node run id: 2144366f-e2f5-4c51-9657-0abc609193c1_retrieve_emails_content_0
-2024-05-21 08:31:58 -0300  421252 execution.flow     WARNING  Output of retrieve_emails_content is not json serializable, use str to store it.
-2024-05-21 08:31:58 -0300  421252 execution.flow     INFO     Node retrieve_emails_content completes.
-2024-05-21 08:31:58 -0300  421252 execution.flow     INFO     Executing node make_questions. node run id: 2144366f-e2f5-4c51-9657-0abc609193c1_make_questions_0
-2024-05-21 08:31:58 -0300  421252 execution.flow     INFO     Executing node get_order_id. node run id: 2144366f-e2f5-4c51-9657-0abc609193c1_get_order_id_0
-2024-05-21 08:32:00 -0300  421252 execution.flow     WARNING  Input 'input' of get_order_id is not json serializable, use str to store it.
-2024-05-21 08:32:00 -0300  421252 execution.flow     INFO     Node get_order_id completes.
-2024-05-21 08:32:16 -0300  421252 execution.flow     WARNING  Input 'context' of make_questions is not json serializable, use str to store it.
-2024-05-21 08:32:16 -0300  421252 execution.flow     INFO     Node make_questions completes.
+2024-05-27 15:27:35 -0300    7288 execution.flow     INFO     Start executing nodes in thread pool mode.
+2024-05-27 15:27:35 -0300    7288 execution.flow     INFO     Start to run 5 nodes with concurrency level 16.
+2024-05-27 15:27:35 -0300    7288 execution.flow     INFO     Executing node retrieve_emails_content. node run id: 4119cd6d-5b00-4cbc-930e-05ea72116fea_retrieve_emails_content_0
+2024-05-27 15:27:37 -0300    7288 execution.flow     WARNING  Output of retrieve_emails_content is not json serializable, use str to store it.
+2024-05-27 15:27:37 -0300    7288 execution.flow     INFO     Node retrieve_emails_content completes.
+2024-05-27 15:27:37 -0300    7288 execution.flow     INFO     Executing node make_questions. node run id: 4119cd6d-5b00-4cbc-930e-05ea72116fea_make_questions_0
+2024-05-27 15:27:37 -0300    7288 execution.flow     INFO     Executing node get_order_id. node run id: 4119cd6d-5b00-4cbc-930e-05ea72116fea_get_order_id_0
+2024-05-27 15:27:40 -0300    7288 execution.flow     WARNING  Input 'input' of get_order_id is not json serializable, use str to store it.
+2024-05-27 15:27:40 -0300    7288 execution.flow     INFO     Node get_order_id completes.
+2024-05-27 15:27:40 -0300    7288 execution.flow     INFO     Executing node retrieve_products_list. node run id: 4119cd6d-5b00-4cbc-930e-05ea72116fea_retrieve_products_list_0
+2024-05-27 15:27:42 -0300    7288 execution.flow     INFO     Node retrieve_products_list completes.
+2024-05-27 15:27:42 -0300    7288 execution.flow     INFO     Executing node validate_product_claim. node run id: 4119cd6d-5b00-4cbc-930e-05ea72116fea_validate_product_claim_0
+2024-05-27 15:27:43 -0300    7288 execution.flow     WARNING  Input 'context' of validate_product_claim is not json serializable, use str to store it.
+2024-05-27 15:27:43 -0300    7288 execution.flow     INFO     Node validate_product_claim completes.
+2024-05-27 15:28:14 -0300    7288 execution.flow     WARNING  Input 'context' of make_questions is not json serializable, use str to store it.
+2024-05-27 15:28:14 -0300    7288 execution.flow     INFO     Node make_questions completes.

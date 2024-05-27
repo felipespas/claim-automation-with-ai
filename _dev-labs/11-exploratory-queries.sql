@@ -19,8 +19,7 @@ SELECT
     P.Color,
     SOD.OrderQty, 
     SOD.UnitPrice, 
-    SOD.LineTotal,
-    A.*
+    SOD.LineTotal
 FROM SalesLT.SalesOrderHeader SOH
 INNER JOIN SalesLT.Customer C
 ON SOH.CustomerID = C.CustomerID

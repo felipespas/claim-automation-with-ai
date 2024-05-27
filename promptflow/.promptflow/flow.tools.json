@@ -50,6 +50,62 @@
         }
       },
       "source": "get_order_id.jinja2"
+    },
+    "query_database.py": {
+      "type": "python",
+      "inputs": {
+        "order_id": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "query_database.py",
+      "function": "my_python_tool"
+    },
+    "confirm_product_claim.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "products": {
+          "type": [
+            "string"
+          ]
+        },
+        "context": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "confirm_product_claim.jinja2"
+    },
+    "retrieve_products_list.py": {
+      "type": "python",
+      "inputs": {
+        "order_id": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "retrieve_products_list.py",
+      "function": "my_python_tool"
+    },
+    "validate_product_claim.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "products": {
+          "type": [
+            "string"
+          ]
+        },
+        "context": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "validate_product_claim.jinja2"
     }
   }
 }

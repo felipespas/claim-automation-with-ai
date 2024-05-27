@@ -1,5 +1,5 @@
 import os
-from promptflow import tool
+from promptflow.core import tool
 from utils_lake import *
 
 # read from environment variables

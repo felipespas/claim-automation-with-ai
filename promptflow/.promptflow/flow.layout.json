@@ -6,8 +6,8 @@
       "index": -1
     },
     "outputs": {
-      "x": 220,
-      "y": 444,
+      "x": 472.5,
+      "y": 712,
       "index": -1
     },
     "obtem_infomacao_inicial": {
@@ -26,7 +26,7 @@
       "index": 1
     },
     "retrieve_emails_content": {
-      "x": 460,
+      "x": 470,
       "y": 176,
       "index": 0
     },
@@ -34,6 +34,26 @@
       "x": 470,
       "y": 310,
       "index": 2
+    },
+    "query_database": {
+      "x": 470,
+      "y": 444,
+      "index": -1
+    },
+    "confirm_product_claim": {
+      "x": 557.5,
+      "y": 578,
+      "index": -1
+    },
+    "retrieve_products_list": {
+      "x": 470,
+      "y": 444,
+      "index": 3
+    },
+    "validate_product_claim": {
+      "x": 557.5,
+      "y": 578,
+      "index": 4
     }
   },
   "orientation": "Vertical"

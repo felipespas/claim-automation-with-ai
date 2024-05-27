@@ -1,7 +1,7 @@
 {
   "flow_runs": [
     {
-      "run_id": "2144366f-e2f5-4c51-9657-0abc609193c1_0",
+      "run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_0",
       "status": "Completed",
       "error": null,
       "inputs": {
@@ -9,24 +9,25 @@
         "directory": "638518876110000000"
       },
       "output": {
-        "resposta": "Felipe De Assis enviou um e-mail para a equipe de suporte ao cliente relatando um problema com um produto defeituoso, o Mountain-500 Silver, tamanho 42, comprado em 1º de junho de 2008, com o ID de pedido 71780. Apesar de seguir todas as etapas recomendadas de solução de problemas, o produto continua apresentando problemas. Felipe acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver a questão, além de pedir suporte para uma resolução rápida. Ele destaca a importância do produto em suas atividades diárias e aguarda uma resposta pronta da equipe de suporte."
+        "answer": "O primeiro arquivo é um recibo de uma compra feita em 1º de junho de 2008 pelo cliente Raja D. Venugopal. A compra incluiu vários itens relacionados a bicicletas, como quadros, pedais, shorts e uma mochila de hidratação, totalizando um valor de $42,452.65 após impostos. A entrega foi feita pela CARGO TRANSPORT 5 para um endereço em Burgess Hill, West Sussex, Inglaterra. A Adventure Works agradece ao cliente e espera atendê-lo novamente no futuro.\n\nO segundo arquivo é um e-mail de suporte enviado por Felipe De Assis, usando o mesmo endereço de e-mail para enviar e receber, referente a um problema com um produto defeituoso da compra mencionada acima. O produto em questão é uma bicicleta Mountain-500 Silver, tamanho 42, do pedido 71780. Raja D. Venugopal, que parece ser o cliente e também o remetente do e-mail, relata que a bicicleta não está funcionando conforme esperado, mesmo após seguir todas as etapas de solução de problemas recomendadas. Ele acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver o problema rapidamente.",
+        "validation": "1"
       },
       "metrics": null,
       "request": null,
-      "parent_run_id": "2144366f-e2f5-4c51-9657-0abc609193c1",
-      "root_run_id": "2144366f-e2f5-4c51-9657-0abc609193c1",
+      "parent_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea",
+      "root_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea",
       "source_run_id": null,
       "flow_id": "default_flow_id",
-      "start_time": "2024-05-21T11:31:57.026121Z",
-      "end_time": "2024-05-21T11:32:16.479764Z",
+      "start_time": "2024-05-27T18:27:35.458149Z",
+      "end_time": "2024-05-27T18:28:14.971528Z",
       "index": 0,
       "api_calls": [
         {
           "name": "flow",
           "node_name": "flow",
           "type": "Flow",
-          "start_time": 1716301917.026121,
-          "end_time": 1716301936.479764,
+          "start_time": 1716845255.458149,
+          "end_time": 1716845294.971528,
           "children": [
             {
               "name": "my_python_tool",
@@ -34,14 +35,14 @@
               "inputs": {
                 "directory": "638518876110000000"
               },
-              "output": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
-              "start_time": 1716301917.029466,
-              "end_time": 1716301918.908297,
+              "output": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
+              "start_time": 1716845255.461239,
+              "end_time": 1716845257.113728,
               "error": null,
               "children": [],
               "node_name": "retrieve_emails_content",
               "parent_id": "",
-              "id": "74219914-7307-41fb-abd0-bf117afba805",
+              "id": "73004a8d-bcb5-43ea-98bc-50b53f860769",
               "function": "my_python_tool",
               "system_metrics": {}
             },
@@ -56,15 +57,15 @@
                 "response_format": {
                   "type": "text"
                 },
-                "context": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
+                "context": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
                 "_inputs_to_escape": [
                   "question"
                 ],
                 "stream": false
               },
-              "output": "Felipe De Assis enviou um e-mail para a equipe de suporte ao cliente relatando um problema com um produto defeituoso, o Mountain-500 Silver, tamanho 42, comprado em 1º de junho de 2008, com o ID de pedido 71780. Apesar de seguir todas as etapas recomendadas de solução de problemas, o produto continua apresentando problemas. Felipe acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver a questão, além de pedir suporte para uma resolução rápida. Ele destaca a importância do produto em suas atividades diárias e aguarda uma resposta pronta da equipe de suporte.",
-              "start_time": 1716301918.911886,
-              "end_time": 1716301936.476556,
+              "output": "O primeiro arquivo é um recibo de uma compra feita em 1º de junho de 2008 pelo cliente Raja D. Venugopal. A compra incluiu vários itens relacionados a bicicletas, como quadros, pedais, shorts e uma mochila de hidratação, totalizando um valor de $42,452.65 após impostos. A entrega foi feita pela CARGO TRANSPORT 5 para um endereço em Burgess Hill, West Sussex, Inglaterra. A Adventure Works agradece ao cliente e espera atendê-lo novamente no futuro.\n\nO segundo arquivo é um e-mail de suporte enviado por Felipe De Assis, usando o mesmo endereço de e-mail para enviar e receber, referente a um problema com um produto defeituoso da compra mencionada acima. O produto em questão é uma bicicleta Mountain-500 Silver, tamanho 42, do pedido 71780. Raja D. Venugopal, que parece ser o cliente e também o remetente do e-mail, relata que a bicicleta não está funcionando conforme esperado, mesmo após seguir todas as etapas de solução de problemas recomendadas. Ele acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver o problema rapidamente.",
+              "start_time": 1716845257.116209,
+              "end_time": 1716845294.968529,
               "error": null,
               "children": [
                 {
@@ -75,7 +76,7 @@
                     "messages": [
                       {
                         "role": "system",
-                        "content": "Você é um auxiliar que responderá a perguntas baseadas no contexto fornecido logo abaixo.\n\nCONTEXTO:\n[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
+                        "content": "Você é um auxiliar que responderá a perguntas baseadas no contexto fornecido logo abaixo.\n\nCONTEXTO:\n[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
                       },
                       {
                         "role": "user",
@@ -94,13 +95,14 @@
                     }
                   },
                   "output": {
-                    "id": "chatcmpl-9RI0rEBN64AmWuJQVEkv7Cg3sYd5h",
+                    "id": "chatcmpl-9TZMN1EH1S1I2rlijAFrQ6k3ZN3Mv",
                     "choices": [
                       {
                         "finish_reason": "stop",
                         "index": 0,
+                        "logprobs": null,
                         "message": {
-                          "content": "Felipe De Assis enviou um e-mail para a equipe de suporte ao cliente relatando um problema com um produto defeituoso, o Mountain-500 Silver, tamanho 42, comprado em 1º de junho de 2008, com o ID de pedido 71780. Apesar de seguir todas as etapas recomendadas de solução de problemas, o produto continua apresentando problemas. Felipe acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver a questão, além de pedir suporte para uma resolução rápida. Ele destaca a importância do produto em suas atividades diárias e aguarda uma resposta pronta da equipe de suporte.",
+                          "content": "O primeiro arquivo é um recibo de uma compra feita em 1º de junho de 2008 pelo cliente Raja D. Venugopal. A compra incluiu vários itens relacionados a bicicletas, como quadros, pedais, shorts e uma mochila de hidratação, totalizando um valor de $42,452.65 após impostos. A entrega foi feita pela CARGO TRANSPORT 5 para um endereço em Burgess Hill, West Sussex, Inglaterra. A Adventure Works agradece ao cliente e espera atendê-lo novamente no futuro.\n\nO segundo arquivo é um e-mail de suporte enviado por Felipe De Assis, usando o mesmo endereço de e-mail para enviar e receber, referente a um problema com um produto defeituoso da compra mencionada acima. O produto em questão é uma bicicleta Mountain-500 Silver, tamanho 42, do pedido 71780. Raja D. Venugopal, que parece ser o cliente e também o remetente do e-mail, relata que a bicicleta não está funcionando conforme esperado, mesmo após seguir todas as etapas de solução de problemas recomendadas. Ele acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver o problema rapidamente.",
                           "role": "assistant",
                           "function_call": null,
                           "tool_calls": null
@@ -125,14 +127,14 @@
                         }
                       }
                     ],
-                    "created": 1716291125,
+                    "created": 1716834463,
                     "model": "gpt-4",
                     "object": "chat.completion",
                     "system_fingerprint": "fp_2f57f81c11",
                     "usage": {
-                      "completion_tokens": 172,
-                      "prompt_tokens": 320,
-                      "total_tokens": 492
+                      "completion_tokens": 301,
+                      "prompt_tokens": 1036,
+                      "total_tokens": 1337
                     },
                     "prompt_filter_results": [
                       {
@@ -158,29 +160,29 @@
                       }
                     ]
                   },
-                  "start_time": 1716301918.915166,
-                  "end_time": 1716301936.476556,
+                  "start_time": 1716845257.119208,
+                  "end_time": 1716845294.968529,
                   "error": null,
                   "children": [],
                   "node_name": null,
-                  "parent_id": "024c69fa-33fc-422f-b917-c8b4cbe2ed9e",
-                  "id": "f2549b61-c059-402f-a214-5370669bf054",
+                  "parent_id": "c8cca0c4-5283-4b5f-b9d7-4aad2735fbac",
+                  "id": "b0cfc590-cda4-4ea4-ac45-72c17986abc2",
                   "function": "openai.resources.chat.completions.Completions.create",
                   "system_metrics": {
-                    "completion_tokens": 172,
-                    "prompt_tokens": 320,
-                    "total_tokens": 492
+                    "completion_tokens": 301,
+                    "prompt_tokens": 1036,
+                    "total_tokens": 1337
                   }
                 }
               ],
               "node_name": "make_questions",
               "parent_id": "",
-              "id": "024c69fa-33fc-422f-b917-c8b4cbe2ed9e",
+              "id": "c8cca0c4-5283-4b5f-b9d7-4aad2735fbac",
               "function": "AzureOpenAI.chat",
               "system_metrics": {
-                "completion_tokens": 172,
-                "prompt_tokens": 320,
-                "total_tokens": 492
+                "completion_tokens": 301,
+                "prompt_tokens": 1036,
+                "total_tokens": 1337
               }
             },
             {
@@ -190,11 +192,11 @@
                 "prompt": "system:\nYou are responsible for extracting the order number from the provided text.\nThe order number is composed of, at minumum, 5 numeric digits. \nAvoid returning any additional detail, return only the order number. \nIf there is no order number in the text, return \"-1\".\n\n# EXAMPLES\nUser: My order number is 12345\nAssistant: 12345\nUser: I'd like to receive an update about my order, which is number 76222.\nAssistant: 76222\nUser: Order number: 33581 Name: Michael Stevens \nAssistant: 33581\nUser: My name is John and I'd like to know more about my order.\nAssistant: -1\n\nuser: \n{{input}}\nassistant:\n",
                 "deployment_name": "gpt-4-1106",
                 "temperature": 0.0,
-                "input": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
+                "input": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
               },
               "output": "71780",
-              "start_time": 1716301918.922761,
-              "end_time": 1716301920.332186,
+              "start_time": 1716845257.125208,
+              "end_time": 1716845260.247057,
               "error": null,
               "children": [
                 {
@@ -209,7 +211,7 @@
                       },
                       {
                         "role": "user",
-                        "content": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
+                        "content": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
                       },
                       {
                         "role": "assistant",
@@ -225,11 +227,12 @@
                     "user": ""
                   },
                   "output": {
-                    "id": "chatcmpl-9RI0rUSlEDYRRnA9r07wKqnF2Ied8",
+                    "id": "chatcmpl-9TZMNWh2ViGT5suFqRILlsqRD4CJo",
                     "choices": [
                       {
                         "finish_reason": "stop",
                         "index": 0,
+                        "logprobs": null,
                         "message": {
                           "content": "71780",
                           "role": "assistant",
@@ -256,14 +259,14 @@
                         }
                       }
                     ],
-                    "created": 1716291125,
+                    "created": 1716834463,
                     "model": "gpt-4",
                     "object": "chat.completion",
                     "system_fingerprint": "fp_2f57f81c11",
                     "usage": {
                       "completion_tokens": 2,
-                      "prompt_tokens": 432,
-                      "total_tokens": 434
+                      "prompt_tokens": 1148,
+                      "total_tokens": 1150
                     },
                     "prompt_filter_results": [
                       {
@@ -289,44 +292,187 @@
                       }
                     ]
                   },
-                  "start_time": 1716301918.92676,
-                  "end_time": 1716301920.332186,
+                  "start_time": 1716845257.129433,
+                  "end_time": 1716845260.247057,
                   "error": null,
                   "children": [],
                   "node_name": null,
-                  "parent_id": "6792cc85-35a6-4359-abd3-8f724d43b89a",
-                  "id": "4ac0ff8d-0293-433e-906c-b65bd93a4a98",
+                  "parent_id": "877ecd04-19ec-4198-afc9-14ad55904fa9",
+                  "id": "153ad8ba-e747-4acd-bec0-47050b2989b9",
                   "function": "openai.resources.chat.completions.Completions.create",
                   "system_metrics": {
                     "completion_tokens": 2,
-                    "prompt_tokens": 432,
-                    "total_tokens": 434
+                    "prompt_tokens": 1148,
+                    "total_tokens": 1150
                   }
                 }
               ],
               "node_name": "get_order_id",
               "parent_id": "",
-              "id": "6792cc85-35a6-4359-abd3-8f724d43b89a",
+              "id": "877ecd04-19ec-4198-afc9-14ad55904fa9",
               "function": "AzureOpenAI.chat",
               "system_metrics": {
                 "completion_tokens": 2,
-                "prompt_tokens": 432,
-                "total_tokens": 434
+                "prompt_tokens": 1148,
+                "total_tokens": 1150
+              }
+            },
+            {
+              "name": "my_python_tool",
+              "type": "Function",
+              "inputs": {
+                "order_id": "71780"
+              },
+              "output": "[{'ProductName': 'HL Mountain Frame - Black, 42'}, {'ProductName': 'HL Mountain Frame - Silver, 38'}, {'ProductName': 'HL Mountain Handlebars'}, {'ProductName': 'HL Mountain Pedal'}, {'ProductName': 'Hydration Pack - 70 oz.'}, {'ProductName': 'LL Mountain Frame - Black, 44'}, {'ProductName': 'LL Mountain Frame - Black, 48'}, {'ProductName': 'LL Mountain Frame - Silver, 44'}, {'ProductName': 'LL Mountain Pedal'}, {'ProductName': 'ML Mountain Frame-W - Silver, 42'}, {'ProductName': 'ML Mountain Handlebars'}, {'ProductName': 'Mountain-200 Black, 38'}, {'ProductName': 'Mountain-200 Black, 42'}, {'ProductName': 'Mountain-200 Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 40'}, {'ProductName': 'Mountain-400-W Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 46'}, {'ProductName': 'Mountain-500 Black, 40'}, {'ProductName': 'Mountain-500 Black, 42'}, {'ProductName': 'Mountain-500 Black, 44'}, {'ProductName': 'Mountain-500 Black, 48'}, {'ProductName': 'Mountain-500 Black, 52'}, {'ProductName': 'Mountain-500 Silver, 40'}, {'ProductName': 'Mountain-500 Silver, 42'}, {'ProductName': 'Mountain-500 Silver, 44'}, {'ProductName': 'Mountain-500 Silver, 48'}, {'ProductName': 'Mountain-500 Silver, 52'}, {'ProductName': \"Women's Mountain Shorts, L\"}, {'ProductName': \"Women's Mountain Shorts, S\"}]",
+              "start_time": 1716845260.25016,
+              "end_time": 1716845262.212346,
+              "error": null,
+              "children": [],
+              "node_name": "retrieve_products_list",
+              "parent_id": "",
+              "id": "82712560-711c-4dc7-9217-b10e52e56430",
+              "function": "my_python_tool",
+              "system_metrics": {}
+            },
+            {
+              "name": "AzureOpenAI.chat",
+              "type": "Function",
+              "inputs": {
+                "prompt": "\nsystem:\nYour job is to validate if the customer mentioned a valid product name in accordance with the products purchased by him.\nIf the product mentioned by the customer is valid, return 1. Otherwise return 0.\nAvoid returning anything else except the 1 or 0, as requested above. \n\n# CUSTOMER CLAIM:\n{{context}}\n\n# PRODUCTS PURCHASED:\n{{products}}",
+                "deployment_name": "gpt-4-1106",
+                "products": "[{'ProductName': 'HL Mountain Frame - Black, 42'}, {'ProductName': 'HL Mountain Frame - Silver, 38'}, {'ProductName': 'HL Mountain Handlebars'}, {'ProductName': 'HL Mountain Pedal'}, {'ProductName': 'Hydration Pack - 70 oz.'}, {'ProductName': 'LL Mountain Frame - Black, 44'}, {'ProductName': 'LL Mountain Frame - Black, 48'}, {'ProductName': 'LL Mountain Frame - Silver, 44'}, {'ProductName': 'LL Mountain Pedal'}, {'ProductName': 'ML Mountain Frame-W - Silver, 42'}, {'ProductName': 'ML Mountain Handlebars'}, {'ProductName': 'Mountain-200 Black, 38'}, {'ProductName': 'Mountain-200 Black, 42'}, {'ProductName': 'Mountain-200 Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 40'}, {'ProductName': 'Mountain-400-W Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 46'}, {'ProductName': 'Mountain-500 Black, 40'}, {'ProductName': 'Mountain-500 Black, 42'}, {'ProductName': 'Mountain-500 Black, 44'}, {'ProductName': 'Mountain-500 Black, 48'}, {'ProductName': 'Mountain-500 Black, 52'}, {'ProductName': 'Mountain-500 Silver, 40'}, {'ProductName': 'Mountain-500 Silver, 42'}, {'ProductName': 'Mountain-500 Silver, 44'}, {'ProductName': 'Mountain-500 Silver, 48'}, {'ProductName': 'Mountain-500 Silver, 52'}, {'ProductName': \"Women's Mountain Shorts, L\"}, {'ProductName': \"Women's Mountain Shorts, S\"}]",
+                "context": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
+                "stream": false
+              },
+              "output": "1",
+              "start_time": 1716845262.214651,
+              "end_time": 1716845263.573963,
+              "error": null,
+              "children": [
+                {
+                  "name": "openai_chat",
+                  "type": "LLM",
+                  "inputs": {
+                    "model": "gpt-4-1106",
+                    "messages": [
+                      {
+                        "role": "system",
+                        "content": "Your job is to validate if the customer mentioned a valid product name in accordance with the products purchased by him.\nIf the product mentioned by the customer is valid, return 1. Otherwise return 0.\nAvoid returning anything else except the 1 or 0, as requested above. \n\n# CUSTOMER CLAIM:\n[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']\n\n# PRODUCTS PURCHASED:\n[{'ProductName': 'HL Mountain Frame - Black, 42'}, {'ProductName': 'HL Mountain Frame - Silver, 38'}, {'ProductName': 'HL Mountain Handlebars'}, {'ProductName': 'HL Mountain Pedal'}, {'ProductName': 'Hydration Pack - 70 oz.'}, {'ProductName': 'LL Mountain Frame - Black, 44'}, {'ProductName': 'LL Mountain Frame - Black, 48'}, {'ProductName': 'LL Mountain Frame - Silver, 44'}, {'ProductName': 'LL Mountain Pedal'}, {'ProductName': 'ML Mountain Frame-W - Silver, 42'}, {'ProductName': 'ML Mountain Handlebars'}, {'ProductName': 'Mountain-200 Black, 38'}, {'ProductName': 'Mountain-200 Black, 42'}, {'ProductName': 'Mountain-200 Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 40'}, {'ProductName': 'Mountain-400-W Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 46'}, {'ProductName': 'Mountain-500 Black, 40'}, {'ProductName': 'Mountain-500 Black, 42'}, {'ProductName': 'Mountain-500 Black, 44'}, {'ProductName': 'Mountain-500 Black, 48'}, {'ProductName': 'Mountain-500 Black, 52'}, {'ProductName': 'Mountain-500 Silver, 40'}, {'ProductName': 'Mountain-500 Silver, 42'}, {'ProductName': 'Mountain-500 Silver, 44'}, {'ProductName': 'Mountain-500 Silver, 48'}, {'ProductName': 'Mountain-500 Silver, 52'}, {'ProductName': \"Women's Mountain Shorts, L\"}, {'ProductName': \"Women's Mountain Shorts, S\"}]"
+                      }
+                    ],
+                    "temperature": 1.0,
+                    "top_p": 1.0,
+                    "n": 1,
+                    "stream": false,
+                    "presence_penalty": 0.0,
+                    "frequency_penalty": 0.0,
+                    "user": ""
+                  },
+                  "output": {
+                    "id": "chatcmpl-9TZMSNmFvuVJA4ld0qzWPrxe8R8dm",
+                    "choices": [
+                      {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                          "content": "1",
+                          "role": "assistant",
+                          "function_call": null,
+                          "tool_calls": null
+                        },
+                        "content_filter_results": {
+                          "hate": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "sexual": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": false,
+                            "severity": "safe"
+                          }
+                        }
+                      }
+                    ],
+                    "created": 1716834468,
+                    "model": "gpt-4",
+                    "object": "chat.completion",
+                    "system_fingerprint": "fp_2f57f81c11",
+                    "usage": {
+                      "completion_tokens": 1,
+                      "prompt_tokens": 1412,
+                      "total_tokens": 1413
+                    },
+                    "prompt_filter_results": [
+                      {
+                        "prompt_index": 0,
+                        "content_filter_results": {
+                          "hate": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "self_harm": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "sexual": {
+                            "filtered": false,
+                            "severity": "safe"
+                          },
+                          "violence": {
+                            "filtered": false,
+                            "severity": "safe"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "start_time": 1716845262.216312,
+                  "end_time": 1716845263.573963,
+                  "error": null,
+                  "children": [],
+                  "node_name": null,
+                  "parent_id": "a1b18145-7f33-4eac-9432-f0a65d3155da",
+                  "id": "2c27c1dc-d297-48c1-b1cf-2d3e0b875162",
+                  "function": "openai.resources.chat.completions.Completions.create",
+                  "system_metrics": {
+                    "completion_tokens": 1,
+                    "prompt_tokens": 1412,
+                    "total_tokens": 1413
+                  }
+                }
+              ],
+              "node_name": "validate_product_claim",
+              "parent_id": "",
+              "id": "a1b18145-7f33-4eac-9432-f0a65d3155da",
+              "function": "AzureOpenAI.chat",
+              "system_metrics": {
+                "completion_tokens": 1,
+                "prompt_tokens": 1412,
+                "total_tokens": 1413
               }
             }
           ],
           "system_metrics": {
-            "duration": 19.453643,
-            "prompt_tokens": 752,
-            "completion_tokens": 174,
-            "total_tokens": 926
+            "duration": 39.513379,
+            "prompt_tokens": 3596,
+            "completion_tokens": 304,
+            "total_tokens": 3900
           },
           "inputs": {
             "questions": "Resuma o conteúdo dos arquivos fornecidos",
             "directory": "638518876110000000"
           },
           "output": {
-            "resposta": "Felipe De Assis enviou um e-mail para a equipe de suporte ao cliente relatando um problema com um produto defeituoso, o Mountain-500 Silver, tamanho 42, comprado em 1º de junho de 2008, com o ID de pedido 71780. Apesar de seguir todas as etapas recomendadas de solução de problemas, o produto continua apresentando problemas. Felipe acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver a questão, além de pedir suporte para uma resolução rápida. Ele destaca a importância do produto em suas atividades diárias e aguarda uma resposta pronta da equipe de suporte."
+            "answer": "O primeiro arquivo é um recibo de uma compra feita em 1º de junho de 2008 pelo cliente Raja D. Venugopal. A compra incluiu vários itens relacionados a bicicletas, como quadros, pedais, shorts e uma mochila de hidratação, totalizando um valor de $42,452.65 após impostos. A entrega foi feita pela CARGO TRANSPORT 5 para um endereço em Burgess Hill, West Sussex, Inglaterra. A Adventure Works agradece ao cliente e espera atendê-lo novamente no futuro.\n\nO segundo arquivo é um e-mail de suporte enviado por Felipe De Assis, usando o mesmo endereço de e-mail para enviar e receber, referente a um problema com um produto defeituoso da compra mencionada acima. O produto em questão é uma bicicleta Mountain-500 Silver, tamanho 42, do pedido 71780. Raja D. Venugopal, que parece ser o cliente e também o remetente do e-mail, relata que a bicicleta não está funcionando conforme esperado, mesmo após seguir todas as etapas de solução de problemas recomendadas. Ele acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver o problema rapidamente.",
+            "validation": "1"
           },
           "error": null
         }
@@ -335,34 +481,35 @@
       "description": "",
       "tags": null,
       "system_metrics": {
-        "duration": 19.453643,
-        "prompt_tokens": 752,
-        "completion_tokens": 174,
-        "total_tokens": 926
+        "duration": 39.513379,
+        "prompt_tokens": 3596,
+        "completion_tokens": 304,
+        "total_tokens": 3900
       },
       "result": {
-        "resposta": "Felipe De Assis enviou um e-mail para a equipe de suporte ao cliente relatando um problema com um produto defeituoso, o Mountain-500 Silver, tamanho 42, comprado em 1º de junho de 2008, com o ID de pedido 71780. Apesar de seguir todas as etapas recomendadas de solução de problemas, o produto continua apresentando problemas. Felipe acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver a questão, além de pedir suporte para uma resolução rápida. Ele destaca a importância do produto em suas atividades diárias e aguarda uma resposta pronta da equipe de suporte."
+        "answer": "O primeiro arquivo é um recibo de uma compra feita em 1º de junho de 2008 pelo cliente Raja D. Venugopal. A compra incluiu vários itens relacionados a bicicletas, como quadros, pedais, shorts e uma mochila de hidratação, totalizando um valor de $42,452.65 após impostos. A entrega foi feita pela CARGO TRANSPORT 5 para um endereço em Burgess Hill, West Sussex, Inglaterra. A Adventure Works agradece ao cliente e espera atendê-lo novamente no futuro.\n\nO segundo arquivo é um e-mail de suporte enviado por Felipe De Assis, usando o mesmo endereço de e-mail para enviar e receber, referente a um problema com um produto defeituoso da compra mencionada acima. O produto em questão é uma bicicleta Mountain-500 Silver, tamanho 42, do pedido 71780. Raja D. Venugopal, que parece ser o cliente e também o remetente do e-mail, relata que a bicicleta não está funcionando conforme esperado, mesmo após seguir todas as etapas de solução de problemas recomendadas. Ele acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver o problema rapidamente.",
+        "validation": "1"
       },
       "upload_metrics": false,
-      "otel_trace_id": "0xfb29f16226ecab45e3381baef768bfaa",
+      "otel_trace_id": "0x2d8634a8cd77aca7ee7d284787887388",
       "message_format": "basic"
     }
   ],
   "node_runs": [
     {
       "node": "retrieve_emails_content",
-      "flow_run_id": "2144366f-e2f5-4c51-9657-0abc609193c1",
-      "run_id": "2144366f-e2f5-4c51-9657-0abc609193c1_retrieve_emails_content_0",
+      "flow_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea",
+      "run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_retrieve_emails_content_0",
       "status": "Completed",
       "inputs": {
         "directory": "638518876110000000"
       },
-      "output": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
+      "output": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
       "metrics": null,
       "error": null,
-      "parent_run_id": "2144366f-e2f5-4c51-9657-0abc609193c1_0",
-      "start_time": "2024-05-21T11:31:57.029466Z",
-      "end_time": "2024-05-21T11:31:58.909297Z",
+      "parent_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_0",
+      "start_time": "2024-05-27T18:27:35.460162Z",
+      "end_time": "2024-05-27T18:27:37.115196Z",
       "index": 0,
       "api_calls": [
         {
@@ -371,14 +518,14 @@
           "inputs": {
             "directory": "638518876110000000"
           },
-          "output": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
-          "start_time": 1716301917.029466,
-          "end_time": 1716301918.908297,
+          "output": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
+          "start_time": 1716845255.461239,
+          "end_time": 1716845257.113728,
           "error": null,
           "children": [],
           "node_name": "retrieve_emails_content",
           "parent_id": "",
-          "id": "74219914-7307-41fb-abd0-bf117afba805",
+          "id": "73004a8d-bcb5-43ea-98bc-50b53f860769",
           "function": "my_python_tool",
           "system_metrics": {}
         }
@@ -390,15 +537,15 @@
         "stderr": ""
       },
       "system_metrics": {
-        "duration": 1.879831
+        "duration": 1.655034
       },
-      "result": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
+      "result": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
       "message_format": "basic"
     },
     {
       "node": "make_questions",
-      "flow_run_id": "2144366f-e2f5-4c51-9657-0abc609193c1",
-      "run_id": "2144366f-e2f5-4c51-9657-0abc609193c1_make_questions_0",
+      "flow_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea",
+      "run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_make_questions_0",
       "status": "Completed",
       "inputs": {
         "deployment_name": "gpt-4-1106",
@@ -407,17 +554,17 @@
         "response_format": {
           "type": "text"
         },
-        "context": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
+        "context": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
         "_inputs_to_escape": [
           "question"
         ]
       },
-      "output": "Felipe De Assis enviou um e-mail para a equipe de suporte ao cliente relatando um problema com um produto defeituoso, o Mountain-500 Silver, tamanho 42, comprado em 1º de junho de 2008, com o ID de pedido 71780. Apesar de seguir todas as etapas recomendadas de solução de problemas, o produto continua apresentando problemas. Felipe acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver a questão, além de pedir suporte para uma resolução rápida. Ele destaca a importância do produto em suas atividades diárias e aguarda uma resposta pronta da equipe de suporte.",
+      "output": "O primeiro arquivo é um recibo de uma compra feita em 1º de junho de 2008 pelo cliente Raja D. Venugopal. A compra incluiu vários itens relacionados a bicicletas, como quadros, pedais, shorts e uma mochila de hidratação, totalizando um valor de $42,452.65 após impostos. A entrega foi feita pela CARGO TRANSPORT 5 para um endereço em Burgess Hill, West Sussex, Inglaterra. A Adventure Works agradece ao cliente e espera atendê-lo novamente no futuro.\n\nO segundo arquivo é um e-mail de suporte enviado por Felipe De Assis, usando o mesmo endereço de e-mail para enviar e receber, referente a um problema com um produto defeituoso da compra mencionada acima. O produto em questão é uma bicicleta Mountain-500 Silver, tamanho 42, do pedido 71780. Raja D. Venugopal, que parece ser o cliente e também o remetente do e-mail, relata que a bicicleta não está funcionando conforme esperado, mesmo após seguir todas as etapas de solução de problemas recomendadas. Ele acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver o problema rapidamente.",
       "metrics": null,
       "error": null,
-      "parent_run_id": "2144366f-e2f5-4c51-9657-0abc609193c1_0",
-      "start_time": "2024-05-21T11:31:58.911886Z",
-      "end_time": "2024-05-21T11:32:16.478554Z",
+      "parent_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_0",
+      "start_time": "2024-05-27T18:27:37.116209Z",
+      "end_time": "2024-05-27T18:28:14.970526Z",
       "index": 0,
       "api_calls": [
         {
@@ -431,15 +578,15 @@
             "response_format": {
               "type": "text"
             },
-            "context": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
+            "context": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
             "_inputs_to_escape": [
               "question"
             ],
             "stream": false
           },
-          "output": "Felipe De Assis enviou um e-mail para a equipe de suporte ao cliente relatando um problema com um produto defeituoso, o Mountain-500 Silver, tamanho 42, comprado em 1º de junho de 2008, com o ID de pedido 71780. Apesar de seguir todas as etapas recomendadas de solução de problemas, o produto continua apresentando problemas. Felipe acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver a questão, além de pedir suporte para uma resolução rápida. Ele destaca a importância do produto em suas atividades diárias e aguarda uma resposta pronta da equipe de suporte.",
-          "start_time": 1716301918.911886,
-          "end_time": 1716301936.476556,
+          "output": "O primeiro arquivo é um recibo de uma compra feita em 1º de junho de 2008 pelo cliente Raja D. Venugopal. A compra incluiu vários itens relacionados a bicicletas, como quadros, pedais, shorts e uma mochila de hidratação, totalizando um valor de $42,452.65 após impostos. A entrega foi feita pela CARGO TRANSPORT 5 para um endereço em Burgess Hill, West Sussex, Inglaterra. A Adventure Works agradece ao cliente e espera atendê-lo novamente no futuro.\n\nO segundo arquivo é um e-mail de suporte enviado por Felipe De Assis, usando o mesmo endereço de e-mail para enviar e receber, referente a um problema com um produto defeituoso da compra mencionada acima. O produto em questão é uma bicicleta Mountain-500 Silver, tamanho 42, do pedido 71780. Raja D. Venugopal, que parece ser o cliente e também o remetente do e-mail, relata que a bicicleta não está funcionando conforme esperado, mesmo após seguir todas as etapas de solução de problemas recomendadas. Ele acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver o problema rapidamente.",
+          "start_time": 1716845257.116209,
+          "end_time": 1716845294.968529,
           "error": null,
           "children": [
             {
@@ -450,7 +597,7 @@
                 "messages": [
                   {
                     "role": "system",
-                    "content": "Você é um auxiliar que responderá a perguntas baseadas no contexto fornecido logo abaixo.\n\nCONTEXTO:\n[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
+                    "content": "Você é um auxiliar que responderá a perguntas baseadas no contexto fornecido logo abaixo.\n\nCONTEXTO:\n[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
                   },
                   {
                     "role": "user",
@@ -469,13 +616,14 @@
                 }
               },
               "output": {
-                "id": "chatcmpl-9RI0rEBN64AmWuJQVEkv7Cg3sYd5h",
+                "id": "chatcmpl-9TZMN1EH1S1I2rlijAFrQ6k3ZN3Mv",
                 "choices": [
                   {
                     "finish_reason": "stop",
                     "index": 0,
+                    "logprobs": null,
                     "message": {
-                      "content": "Felipe De Assis enviou um e-mail para a equipe de suporte ao cliente relatando um problema com um produto defeituoso, o Mountain-500 Silver, tamanho 42, comprado em 1º de junho de 2008, com o ID de pedido 71780. Apesar de seguir todas as etapas recomendadas de solução de problemas, o produto continua apresentando problemas. Felipe acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver a questão, além de pedir suporte para uma resolução rápida. Ele destaca a importância do produto em suas atividades diárias e aguarda uma resposta pronta da equipe de suporte.",
+                      "content": "O primeiro arquivo é um recibo de uma compra feita em 1º de junho de 2008 pelo cliente Raja D. Venugopal. A compra incluiu vários itens relacionados a bicicletas, como quadros, pedais, shorts e uma mochila de hidratação, totalizando um valor de $42,452.65 após impostos. A entrega foi feita pela CARGO TRANSPORT 5 para um endereço em Burgess Hill, West Sussex, Inglaterra. A Adventure Works agradece ao cliente e espera atendê-lo novamente no futuro.\n\nO segundo arquivo é um e-mail de suporte enviado por Felipe De Assis, usando o mesmo endereço de e-mail para enviar e receber, referente a um problema com um produto defeituoso da compra mencionada acima. O produto em questão é uma bicicleta Mountain-500 Silver, tamanho 42, do pedido 71780. Raja D. Venugopal, que parece ser o cliente e também o remetente do e-mail, relata que a bicicleta não está funcionando conforme esperado, mesmo após seguir todas as etapas de solução de problemas recomendadas. Ele acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver o problema rapidamente.",
                       "role": "assistant",
                       "function_call": null,
                       "tool_calls": null
@@ -500,14 +648,14 @@
                     }
                   }
                 ],
-                "created": 1716291125,
+                "created": 1716834463,
                 "model": "gpt-4",
                 "object": "chat.completion",
                 "system_fingerprint": "fp_2f57f81c11",
                 "usage": {
-                  "completion_tokens": 172,
-                  "prompt_tokens": 320,
-                  "total_tokens": 492
+                  "completion_tokens": 301,
+                  "prompt_tokens": 1036,
+                  "total_tokens": 1337
                 },
                 "prompt_filter_results": [
                   {
@@ -533,29 +681,29 @@
                   }
                 ]
               },
-              "start_time": 1716301918.915166,
-              "end_time": 1716301936.476556,
+              "start_time": 1716845257.119208,
+              "end_time": 1716845294.968529,
               "error": null,
               "children": [],
               "node_name": null,
-              "parent_id": "024c69fa-33fc-422f-b917-c8b4cbe2ed9e",
-              "id": "f2549b61-c059-402f-a214-5370669bf054",
+              "parent_id": "c8cca0c4-5283-4b5f-b9d7-4aad2735fbac",
+              "id": "b0cfc590-cda4-4ea4-ac45-72c17986abc2",
               "function": "openai.resources.chat.completions.Completions.create",
               "system_metrics": {
-                "completion_tokens": 172,
-                "prompt_tokens": 320,
-                "total_tokens": 492
+                "completion_tokens": 301,
+                "prompt_tokens": 1036,
+                "total_tokens": 1337
               }
             }
           ],
           "node_name": "make_questions",
           "parent_id": "",
-          "id": "024c69fa-33fc-422f-b917-c8b4cbe2ed9e",
+          "id": "c8cca0c4-5283-4b5f-b9d7-4aad2735fbac",
           "function": "AzureOpenAI.chat",
           "system_metrics": {
-            "completion_tokens": 172,
-            "prompt_tokens": 320,
-            "total_tokens": 492
+            "completion_tokens": 301,
+            "prompt_tokens": 1036,
+            "total_tokens": 1337
           }
         }
       ],
@@ -566,30 +714,30 @@
         "stderr": ""
       },
       "system_metrics": {
-        "completion_tokens": 172,
-        "prompt_tokens": 320,
-        "total_tokens": 492,
-        "duration": 17.566668
+        "completion_tokens": 301,
+        "prompt_tokens": 1036,
+        "total_tokens": 1337,
+        "duration": 37.854317
       },
-      "result": "Felipe De Assis enviou um e-mail para a equipe de suporte ao cliente relatando um problema com um produto defeituoso, o Mountain-500 Silver, tamanho 42, comprado em 1º de junho de 2008, com o ID de pedido 71780. Apesar de seguir todas as etapas recomendadas de solução de problemas, o produto continua apresentando problemas. Felipe acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver a questão, além de pedir suporte para uma resolução rápida. Ele destaca a importância do produto em suas atividades diárias e aguarda uma resposta pronta da equipe de suporte.",
+      "result": "O primeiro arquivo é um recibo de uma compra feita em 1º de junho de 2008 pelo cliente Raja D. Venugopal. A compra incluiu vários itens relacionados a bicicletas, como quadros, pedais, shorts e uma mochila de hidratação, totalizando um valor de $42,452.65 após impostos. A entrega foi feita pela CARGO TRANSPORT 5 para um endereço em Burgess Hill, West Sussex, Inglaterra. A Adventure Works agradece ao cliente e espera atendê-lo novamente no futuro.\n\nO segundo arquivo é um e-mail de suporte enviado por Felipe De Assis, usando o mesmo endereço de e-mail para enviar e receber, referente a um problema com um produto defeituoso da compra mencionada acima. O produto em questão é uma bicicleta Mountain-500 Silver, tamanho 42, do pedido 71780. Raja D. Venugopal, que parece ser o cliente e também o remetente do e-mail, relata que a bicicleta não está funcionando conforme esperado, mesmo após seguir todas as etapas de solução de problemas recomendadas. Ele acredita que o produto se qualifica para reembolso de acordo com a política de satisfação do cliente e solicita orientação sobre os procedimentos necessários para resolver o problema rapidamente.",
       "message_format": "basic"
     },
     {
       "node": "get_order_id",
-      "flow_run_id": "2144366f-e2f5-4c51-9657-0abc609193c1",
-      "run_id": "2144366f-e2f5-4c51-9657-0abc609193c1_get_order_id_0",
+      "flow_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea",
+      "run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_get_order_id_0",
       "status": "Completed",
       "inputs": {
         "deployment_name": "gpt-4-1106",
         "temperature": 0.0,
-        "input": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
+        "input": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
       },
       "output": "71780",
       "metrics": null,
       "error": null,
-      "parent_run_id": "2144366f-e2f5-4c51-9657-0abc609193c1_0",
-      "start_time": "2024-05-21T11:31:58.922761Z",
-      "end_time": "2024-05-21T11:32:00.333196Z",
+      "parent_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_0",
+      "start_time": "2024-05-27T18:27:37.125208Z",
+      "end_time": "2024-05-27T18:27:40.249072Z",
       "index": 0,
       "api_calls": [
         {
@@ -599,11 +747,11 @@
             "prompt": "system:\nYou are responsible for extracting the order number from the provided text.\nThe order number is composed of, at minumum, 5 numeric digits. \nAvoid returning any additional detail, return only the order number. \nIf there is no order number in the text, return \"-1\".\n\n# EXAMPLES\nUser: My order number is 12345\nAssistant: 12345\nUser: I'd like to receive an update about my order, which is number 76222.\nAssistant: 76222\nUser: Order number: 33581 Name: Michael Stevens \nAssistant: 33581\nUser: My name is John and I'd like to know more about my order.\nAssistant: -1\n\nuser: \n{{input}}\nassistant:\n",
             "deployment_name": "gpt-4-1106",
             "temperature": 0.0,
-            "input": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
+            "input": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
           },
           "output": "71780",
-          "start_time": 1716301918.922761,
-          "end_time": 1716301920.332186,
+          "start_time": 1716845257.125208,
+          "end_time": 1716845260.247057,
           "error": null,
           "children": [
             {
@@ -618,7 +766,7 @@
                   },
                   {
                     "role": "user",
-                    "content": "[b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
+                    "content": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
                   },
                   {
                     "role": "assistant",
@@ -634,11 +782,12 @@
                 "user": ""
               },
               "output": {
-                "id": "chatcmpl-9RI0rUSlEDYRRnA9r07wKqnF2Ied8",
+                "id": "chatcmpl-9TZMNWh2ViGT5suFqRILlsqRD4CJo",
                 "choices": [
                   {
                     "finish_reason": "stop",
                     "index": 0,
+                    "logprobs": null,
                     "message": {
                       "content": "71780",
                       "role": "assistant",
@@ -665,14 +814,14 @@
                     }
                   }
                 ],
-                "created": 1716291125,
+                "created": 1716834463,
                 "model": "gpt-4",
                 "object": "chat.completion",
                 "system_fingerprint": "fp_2f57f81c11",
                 "usage": {
                   "completion_tokens": 2,
-                  "prompt_tokens": 432,
-                  "total_tokens": 434
+                  "prompt_tokens": 1148,
+                  "total_tokens": 1150
                 },
                 "prompt_filter_results": [
                   {
@@ -698,29 +847,29 @@
                   }
                 ]
               },
-              "start_time": 1716301918.92676,
-              "end_time": 1716301920.332186,
+              "start_time": 1716845257.129433,
+              "end_time": 1716845260.247057,
               "error": null,
               "children": [],
               "node_name": null,
-              "parent_id": "6792cc85-35a6-4359-abd3-8f724d43b89a",
-              "id": "4ac0ff8d-0293-433e-906c-b65bd93a4a98",
+              "parent_id": "877ecd04-19ec-4198-afc9-14ad55904fa9",
+              "id": "153ad8ba-e747-4acd-bec0-47050b2989b9",
               "function": "openai.resources.chat.completions.Completions.create",
               "system_metrics": {
                 "completion_tokens": 2,
-                "prompt_tokens": 432,
-                "total_tokens": 434
+                "prompt_tokens": 1148,
+                "total_tokens": 1150
               }
             }
           ],
           "node_name": "get_order_id",
           "parent_id": "",
-          "id": "6792cc85-35a6-4359-abd3-8f724d43b89a",
+          "id": "877ecd04-19ec-4198-afc9-14ad55904fa9",
           "function": "AzureOpenAI.chat",
           "system_metrics": {
             "completion_tokens": 2,
-            "prompt_tokens": 432,
-            "total_tokens": 434
+            "prompt_tokens": 1148,
+            "total_tokens": 1150
           }
         }
       ],
@@ -732,11 +881,216 @@
       },
       "system_metrics": {
         "completion_tokens": 2,
-        "prompt_tokens": 432,
-        "total_tokens": 434,
-        "duration": 1.410435
+        "prompt_tokens": 1148,
+        "total_tokens": 1150,
+        "duration": 3.123864
       },
       "result": "71780",
+      "message_format": "basic"
+    },
+    {
+      "node": "retrieve_products_list",
+      "flow_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea",
+      "run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_retrieve_products_list_0",
+      "status": "Completed",
+      "inputs": {
+        "order_id": "71780"
+      },
+      "output": "[{'ProductName': 'HL Mountain Frame - Black, 42'}, {'ProductName': 'HL Mountain Frame - Silver, 38'}, {'ProductName': 'HL Mountain Handlebars'}, {'ProductName': 'HL Mountain Pedal'}, {'ProductName': 'Hydration Pack - 70 oz.'}, {'ProductName': 'LL Mountain Frame - Black, 44'}, {'ProductName': 'LL Mountain Frame - Black, 48'}, {'ProductName': 'LL Mountain Frame - Silver, 44'}, {'ProductName': 'LL Mountain Pedal'}, {'ProductName': 'ML Mountain Frame-W - Silver, 42'}, {'ProductName': 'ML Mountain Handlebars'}, {'ProductName': 'Mountain-200 Black, 38'}, {'ProductName': 'Mountain-200 Black, 42'}, {'ProductName': 'Mountain-200 Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 40'}, {'ProductName': 'Mountain-400-W Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 46'}, {'ProductName': 'Mountain-500 Black, 40'}, {'ProductName': 'Mountain-500 Black, 42'}, {'ProductName': 'Mountain-500 Black, 44'}, {'ProductName': 'Mountain-500 Black, 48'}, {'ProductName': 'Mountain-500 Black, 52'}, {'ProductName': 'Mountain-500 Silver, 40'}, {'ProductName': 'Mountain-500 Silver, 42'}, {'ProductName': 'Mountain-500 Silver, 44'}, {'ProductName': 'Mountain-500 Silver, 48'}, {'ProductName': 'Mountain-500 Silver, 52'}, {'ProductName': \"Women's Mountain Shorts, L\"}, {'ProductName': \"Women's Mountain Shorts, S\"}]",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_0",
+      "start_time": "2024-05-27T18:27:40.250160Z",
+      "end_time": "2024-05-27T18:27:42.212346Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "my_python_tool",
+          "type": "Function",
+          "inputs": {
+            "order_id": "71780"
+          },
+          "output": "[{'ProductName': 'HL Mountain Frame - Black, 42'}, {'ProductName': 'HL Mountain Frame - Silver, 38'}, {'ProductName': 'HL Mountain Handlebars'}, {'ProductName': 'HL Mountain Pedal'}, {'ProductName': 'Hydration Pack - 70 oz.'}, {'ProductName': 'LL Mountain Frame - Black, 44'}, {'ProductName': 'LL Mountain Frame - Black, 48'}, {'ProductName': 'LL Mountain Frame - Silver, 44'}, {'ProductName': 'LL Mountain Pedal'}, {'ProductName': 'ML Mountain Frame-W - Silver, 42'}, {'ProductName': 'ML Mountain Handlebars'}, {'ProductName': 'Mountain-200 Black, 38'}, {'ProductName': 'Mountain-200 Black, 42'}, {'ProductName': 'Mountain-200 Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 40'}, {'ProductName': 'Mountain-400-W Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 46'}, {'ProductName': 'Mountain-500 Black, 40'}, {'ProductName': 'Mountain-500 Black, 42'}, {'ProductName': 'Mountain-500 Black, 44'}, {'ProductName': 'Mountain-500 Black, 48'}, {'ProductName': 'Mountain-500 Black, 52'}, {'ProductName': 'Mountain-500 Silver, 40'}, {'ProductName': 'Mountain-500 Silver, 42'}, {'ProductName': 'Mountain-500 Silver, 44'}, {'ProductName': 'Mountain-500 Silver, 48'}, {'ProductName': 'Mountain-500 Silver, 52'}, {'ProductName': \"Women's Mountain Shorts, L\"}, {'ProductName': \"Women's Mountain Shorts, S\"}]",
+          "start_time": 1716845260.25016,
+          "end_time": 1716845262.212346,
+          "error": null,
+          "children": [],
+          "node_name": "retrieve_products_list",
+          "parent_id": "",
+          "id": "82712560-711c-4dc7-9217-b10e52e56430",
+          "function": "my_python_tool",
+          "system_metrics": {}
+        }
+      ],
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 1.962186
+      },
+      "result": "[{'ProductName': 'HL Mountain Frame - Black, 42'}, {'ProductName': 'HL Mountain Frame - Silver, 38'}, {'ProductName': 'HL Mountain Handlebars'}, {'ProductName': 'HL Mountain Pedal'}, {'ProductName': 'Hydration Pack - 70 oz.'}, {'ProductName': 'LL Mountain Frame - Black, 44'}, {'ProductName': 'LL Mountain Frame - Black, 48'}, {'ProductName': 'LL Mountain Frame - Silver, 44'}, {'ProductName': 'LL Mountain Pedal'}, {'ProductName': 'ML Mountain Frame-W - Silver, 42'}, {'ProductName': 'ML Mountain Handlebars'}, {'ProductName': 'Mountain-200 Black, 38'}, {'ProductName': 'Mountain-200 Black, 42'}, {'ProductName': 'Mountain-200 Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 40'}, {'ProductName': 'Mountain-400-W Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 46'}, {'ProductName': 'Mountain-500 Black, 40'}, {'ProductName': 'Mountain-500 Black, 42'}, {'ProductName': 'Mountain-500 Black, 44'}, {'ProductName': 'Mountain-500 Black, 48'}, {'ProductName': 'Mountain-500 Black, 52'}, {'ProductName': 'Mountain-500 Silver, 40'}, {'ProductName': 'Mountain-500 Silver, 42'}, {'ProductName': 'Mountain-500 Silver, 44'}, {'ProductName': 'Mountain-500 Silver, 48'}, {'ProductName': 'Mountain-500 Silver, 52'}, {'ProductName': \"Women's Mountain Shorts, L\"}, {'ProductName': \"Women's Mountain Shorts, S\"}]",
+      "message_format": "basic"
+    },
+    {
+      "node": "validate_product_claim",
+      "flow_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea",
+      "run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_validate_product_claim_0",
+      "status": "Completed",
+      "inputs": {
+        "deployment_name": "gpt-4-1106",
+        "products": "[{'ProductName': 'HL Mountain Frame - Black, 42'}, {'ProductName': 'HL Mountain Frame - Silver, 38'}, {'ProductName': 'HL Mountain Handlebars'}, {'ProductName': 'HL Mountain Pedal'}, {'ProductName': 'Hydration Pack - 70 oz.'}, {'ProductName': 'LL Mountain Frame - Black, 44'}, {'ProductName': 'LL Mountain Frame - Black, 48'}, {'ProductName': 'LL Mountain Frame - Silver, 44'}, {'ProductName': 'LL Mountain Pedal'}, {'ProductName': 'ML Mountain Frame-W - Silver, 42'}, {'ProductName': 'ML Mountain Handlebars'}, {'ProductName': 'Mountain-200 Black, 38'}, {'ProductName': 'Mountain-200 Black, 42'}, {'ProductName': 'Mountain-200 Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 40'}, {'ProductName': 'Mountain-400-W Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 46'}, {'ProductName': 'Mountain-500 Black, 40'}, {'ProductName': 'Mountain-500 Black, 42'}, {'ProductName': 'Mountain-500 Black, 44'}, {'ProductName': 'Mountain-500 Black, 48'}, {'ProductName': 'Mountain-500 Black, 52'}, {'ProductName': 'Mountain-500 Silver, 40'}, {'ProductName': 'Mountain-500 Silver, 42'}, {'ProductName': 'Mountain-500 Silver, 44'}, {'ProductName': 'Mountain-500 Silver, 48'}, {'ProductName': 'Mountain-500 Silver, 52'}, {'ProductName': \"Women's Mountain Shorts, L\"}, {'ProductName': \"Women's Mountain Shorts, S\"}]",
+        "context": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']"
+      },
+      "output": "1",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "4119cd6d-5b00-4cbc-930e-05ea72116fea_0",
+      "start_time": "2024-05-27T18:27:42.214651Z",
+      "end_time": "2024-05-27T18:27:43.575094Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Function",
+          "inputs": {
+            "prompt": "\nsystem:\nYour job is to validate if the customer mentioned a valid product name in accordance with the products purchased by him.\nIf the product mentioned by the customer is valid, return 1. Otherwise return 0.\nAvoid returning anything else except the 1 or 0, as requested above. \n\n# CUSTOMER CLAIM:\n{{context}}\n\n# PRODUCTS PURCHASED:\n{{products}}",
+            "deployment_name": "gpt-4-1106",
+            "products": "[{'ProductName': 'HL Mountain Frame - Black, 42'}, {'ProductName': 'HL Mountain Frame - Silver, 38'}, {'ProductName': 'HL Mountain Handlebars'}, {'ProductName': 'HL Mountain Pedal'}, {'ProductName': 'Hydration Pack - 70 oz.'}, {'ProductName': 'LL Mountain Frame - Black, 44'}, {'ProductName': 'LL Mountain Frame - Black, 48'}, {'ProductName': 'LL Mountain Frame - Silver, 44'}, {'ProductName': 'LL Mountain Pedal'}, {'ProductName': 'ML Mountain Frame-W - Silver, 42'}, {'ProductName': 'ML Mountain Handlebars'}, {'ProductName': 'Mountain-200 Black, 38'}, {'ProductName': 'Mountain-200 Black, 42'}, {'ProductName': 'Mountain-200 Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 40'}, {'ProductName': 'Mountain-400-W Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 46'}, {'ProductName': 'Mountain-500 Black, 40'}, {'ProductName': 'Mountain-500 Black, 42'}, {'ProductName': 'Mountain-500 Black, 44'}, {'ProductName': 'Mountain-500 Black, 48'}, {'ProductName': 'Mountain-500 Black, 52'}, {'ProductName': 'Mountain-500 Silver, 40'}, {'ProductName': 'Mountain-500 Silver, 42'}, {'ProductName': 'Mountain-500 Silver, 44'}, {'ProductName': 'Mountain-500 Silver, 48'}, {'ProductName': 'Mountain-500 Silver, 52'}, {'ProductName': \"Women's Mountain Shorts, L\"}, {'ProductName': \"Women's Mountain Shorts, S\"}]",
+            "context": "[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']",
+            "stream": false
+          },
+          "output": "1",
+          "start_time": 1716845262.214651,
+          "end_time": 1716845263.573963,
+          "error": null,
+          "children": [
+            {
+              "name": "openai_chat",
+              "type": "LLM",
+              "inputs": {
+                "model": "gpt-4-1106",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "Your job is to validate if the customer mentioned a valid product name in accordance with the products purchased by him.\nIf the product mentioned by the customer is valid, return 1. Otherwise return 0.\nAvoid returning anything else except the 1 or 0, as requested above. \n\n# CUSTOMER CLAIM:\n[b'{\"content\": \"Order ID: 71780 Date: June 1st, 2008 Customer Name: Raja D. Venugopal Sales Person: adventure-works\\\\\\\\jae0 Items Purchased: Name Color OrderQty UnitPrice LineTotal ML Mountain Frame-W - Silver, 42 Silver 4 218.454 873.816 Mountain-400-W Silver, 46 Silver 2 461.694 923.388 Mountain-500 Silver, 52 Silver 6 112.998 406.7928 HL Mountain Frame - Silver, 38 Silver 2 818.7 1637.4 Mountain-500 Black, 42 Black 1 323.994 323.994 LL Mountain Frame - Black, 48 Black 1 149.874 149.874 HL Mountain Frame - Black, 42 Black 1 809.76 809.76 Mountain-200 Black, 38 Black 4 1376.994 5507.976 LL Mountain Frame - Silver, 44 Silver 2 158.43 316.86 Mountain-200 Silver, 42 Silver 4 1391.994 5567.976 HL Mountain Pedal Silver/Black 1 48.594 48.594 Women\\'s Mountain Shorts, S Black 6 41.994 251.964 Mountain-500 Silver, 42 Silver 1 112.998 67.7988 Mountain-500 Black, 40 Black 2 323.994 647.988 Mountain-500 Black, 44 Black 3 323.994 971.982 Mountain-500 Black, 48 Black 1 323.994 323.994 Mountain-500 Black, 52 Black 2 323.994 647.988 Mountain-500 Silver, 40 Silver 2 112.998 135.5976 Mountain-500 Silver, 44 Silver 3 112.998 203.3964 Mountain-500 Silver, 48 Silver 3 112.998 203.3964 Mountain-400-W Silver, 40 Silver 2 461.694 923.388 Mountain-400-W Silver, 42 Silver 3 461.694 1385.082 Mountain-200 Black, 42 Black 5 1376.994 6884.97 ML Mountain Handlebars 3 37.152 111.456 HL Mountain Handlebars 1 72.162 72.162 LL Mountain Pedal Silver/Black 2 24.294 48.588 LL Mountain Frame - Black, 44 Black 1 149.874 149.874 Women\\'s Mountain Shorts, L Black 7 41.994 293.958 Hydration Pack - 70 oz. Silver 1 32.994 32.994 Subtotal: U$ 38,418.6895 Tax: U$ 3,073.4952 Total: U$ 42,452.6519 Ship Method: CARGO TRANSPORT 5 Ship address: Burgess Hill - Edward Way - West Sussex \\xe2\\x80\\x93 England - United Kingdom - RH15 9UD If you have any questions or concerns regarding this receipt or the products purchased, please do not hesitate to contact us. Thank you for choosing our store for your bicycle and related item needs. We hope to serve you again in the future. Best regards, Adventure Works.\"}', b'{\"content\": {\"subject\": \"Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)\", \"from\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"to\": \"Felipe De Assis <Felipe.Assis@microsoft.com>\", \"body\": \"Subject: Support Request for Defective Product - Mountain-500 Silver, 42 (Order ID 71780)  Dear Customer Support Team,  I am writing to you concerning a product issue related to my purchase made on June 1st, 2008, with the order ID 71780. The product in question is the Mountain-500 Silver, 42, which was acquired through a sales representative at your store.  Regrettably, this product has not been operating as expected. Despite following all the recommended troubleshooting steps, the issues persist, leading me to believe that it qualifies for reimbursement as per your customer satisfaction policy.  Given the product\\'s importance in my daily activities, I am keen to resolve this matter promptly. I would appreciate guidance on the necessary procedures to address this issue and request your support in facilitating a swift resolution.  Thank you for your attention to this matter and I look forward to your prompt response.  Warm regards, Raja D. Venugopal\"}}']\n\n# PRODUCTS PURCHASED:\n[{'ProductName': 'HL Mountain Frame - Black, 42'}, {'ProductName': 'HL Mountain Frame - Silver, 38'}, {'ProductName': 'HL Mountain Handlebars'}, {'ProductName': 'HL Mountain Pedal'}, {'ProductName': 'Hydration Pack - 70 oz.'}, {'ProductName': 'LL Mountain Frame - Black, 44'}, {'ProductName': 'LL Mountain Frame - Black, 48'}, {'ProductName': 'LL Mountain Frame - Silver, 44'}, {'ProductName': 'LL Mountain Pedal'}, {'ProductName': 'ML Mountain Frame-W - Silver, 42'}, {'ProductName': 'ML Mountain Handlebars'}, {'ProductName': 'Mountain-200 Black, 38'}, {'ProductName': 'Mountain-200 Black, 42'}, {'ProductName': 'Mountain-200 Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 40'}, {'ProductName': 'Mountain-400-W Silver, 42'}, {'ProductName': 'Mountain-400-W Silver, 46'}, {'ProductName': 'Mountain-500 Black, 40'}, {'ProductName': 'Mountain-500 Black, 42'}, {'ProductName': 'Mountain-500 Black, 44'}, {'ProductName': 'Mountain-500 Black, 48'}, {'ProductName': 'Mountain-500 Black, 52'}, {'ProductName': 'Mountain-500 Silver, 40'}, {'ProductName': 'Mountain-500 Silver, 42'}, {'ProductName': 'Mountain-500 Silver, 44'}, {'ProductName': 'Mountain-500 Silver, 48'}, {'ProductName': 'Mountain-500 Silver, 52'}, {'ProductName': \"Women's Mountain Shorts, L\"}, {'ProductName': \"Women's Mountain Shorts, S\"}]"
+                  }
+                ],
+                "temperature": 1.0,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": false,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-9TZMSNmFvuVJA4ld0qzWPrxe8R8dm",
+                "choices": [
+                  {
+                    "finish_reason": "stop",
+                    "index": 0,
+                    "logprobs": null,
+                    "message": {
+                      "content": "1",
+                      "role": "assistant",
+                      "function_call": null,
+                      "tool_calls": null
+                    },
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "created": 1716834468,
+                "model": "gpt-4",
+                "object": "chat.completion",
+                "system_fingerprint": "fp_2f57f81c11",
+                "usage": {
+                  "completion_tokens": 1,
+                  "prompt_tokens": 1412,
+                  "total_tokens": 1413
+                },
+                "prompt_filter_results": [
+                  {
+                    "prompt_index": 0,
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ]
+              },
+              "start_time": 1716845262.216312,
+              "end_time": 1716845263.573963,
+              "error": null,
+              "children": [],
+              "node_name": null,
+              "parent_id": "a1b18145-7f33-4eac-9432-f0a65d3155da",
+              "id": "2c27c1dc-d297-48c1-b1cf-2d3e0b875162",
+              "function": "openai.resources.chat.completions.Completions.create",
+              "system_metrics": {
+                "completion_tokens": 1,
+                "prompt_tokens": 1412,
+                "total_tokens": 1413
+              }
+            }
+          ],
+          "node_name": "validate_product_claim",
+          "parent_id": "",
+          "id": "a1b18145-7f33-4eac-9432-f0a65d3155da",
+          "function": "AzureOpenAI.chat",
+          "system_metrics": {
+            "completion_tokens": 1,
+            "prompt_tokens": 1412,
+            "total_tokens": 1413
+          }
+        }
+      ],
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "completion_tokens": 1,
+        "prompt_tokens": 1412,
+        "total_tokens": 1413,
+        "duration": 1.360443
+      },
+      "result": "1",
       "message_format": "basic"
     }
   ]

@@ -1,10 +1,13 @@
 import os
 import pyodbc
 import json
+from dotenv import load_dotenv
+
+load_dotenv()
 
 sql_conn_str = os.environ["SQL_CONN_STR"]
 
-def query_product_catalog(product_id: int):
+def query_order_products_names(order_id: int):
 
     # Create a new connection
     conn = pyodbc.connect(sql_conn_str)
@@ -13,17 +16,22 @@ def query_product_catalog(product_id: int):
     cursor = conn.cursor()
 
     # Execute the stored procedure
-    cursor.execute("{CALL p_ReturnProductData (?)}", product_id)
+    cursor.execute("{CALL p_ReturnOrderProducts_JSON (?)}", order_id)
 
-    # Fetch the JSON document as a string
-    json_string = cursor.fetchone()[0]
-
-    # Parse the JSON string into a Python object
-    data = json.loads(json_string)
-
-    print(data)
+    # If the stored procedure returns results, fetch them
+    results = cursor.fetchall()
 
     # Don't forget to close the connection when you're done
     conn.close()
 
-    return data
+    results = results[0][0]
+
+    # Parse the JSON string into a Python object
+    try:
+        data = json.loads(results)
+        return str(data)
+    
+    except Exception as e:
+        print(f"Failed to parse JSON: {e}")
+
+    
