@@ -1,0 +1,24 @@
+
+# SYSTEM:
+Your job is to compare the order date from both reports provided below and return "OK" if they are the same and "NOT OK" if they are different.
+Only consider the date and ignore the time, as demonstrated in the examples below.
+Avoid returning anything else except the expected result, which is "OK" or "NOT OK".
+
+# EXAMPLES:
+report_cx = "2020-01-01"
+report_db = "2020-01-01"
+order_date(report_cx, report_db) => "OK"
+
+report_cx = "2020-01-01"
+report_db = "2020-01-02"
+order_date(report_cx, report_db) => "NOT OK"
+
+report_cx = "2020-01-01"
+report_db = "2020-01-01 00:00:00"
+order_date(report_cx, report_db) => "OK"
+
+# REPORT 1 - FROM CX
+{{report_cx}}
+
+# REPORT 2 - FROM DB
+{{report_db}}

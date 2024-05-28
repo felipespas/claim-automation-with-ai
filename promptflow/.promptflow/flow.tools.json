@@ -1,22 +1,6 @@
 {
   "package": {},
   "code": {
-    "rewrite_question.jinja2": {
-      "type": "llm",
-      "inputs": {
-        "context": {
-          "type": [
-            "string"
-          ]
-        },
-        "question": {
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "source": "rewrite_question.jinja2"
-    },
     "retrieve_emails_content.py": {
       "type": "python",
       "inputs": {
@@ -106,6 +90,55 @@
         }
       },
       "source": "validate_product_claim.jinja2"
+    },
+    "generate_report_db.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "context": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "generate_report_db.jinja2"
+    },
+    "generate_report_cx.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "context": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "generate_report_cx.jinja2"
+    },
+    "extract_requests.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "context": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "extract_requests.jinja2"
+    },
+    "compare_order_date.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "report_cx": {
+          "type": [
+            "string"
+          ]
+        },
+        "report_db": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "compare_order_date.jinja2"
     }
   }
 }

@@ -1,17 +1,20 @@
 inputs:
-  questions:
-    type: string
-    default: Resuma o conteúdo dos arquivos fornecidos
   directory:
     type: string
     default: "638518876110000000"
 outputs:
-  answer:
+  report_db:
     type: string
-    reference: ${make_questions.output}
-  validation:
+    reference: ${generate_report_db.output}
+  report_cx:
     type: string
-    reference: ${validate_product_claim.output}
+    reference: ${generate_report_cx.output}
+  request:
+    type: string
+    reference: ${extract_requests.output}
+  order_check:
+    type: string
+    reference: ${compare_order_date.output}
 nodes:
 - name: retrieve_emails_content
   type: python
@@ -20,20 +23,6 @@ nodes:
     path: retrieve_emails_content.py
   inputs:
     directory: ${inputs.directory}
-- name: make_questions
-  type: llm
-  source:
-    type: code
-    path: rewrite_question.jinja2
-  inputs:
-    deployment_name: gpt-4-1106
-    temperature: 0
-    question: ${inputs.questions}
-    response_format:
-      type: text
-    context: ${retrieve_emails_content.output}
-  connection: openai1704canadaeast
-  api: chat
 - name: get_order_id
   type: llm
   source:
@@ -52,14 +41,50 @@ nodes:
     path: retrieve_products_list.py
   inputs:
     order_id: ${get_order_id.output}
-- name: validate_product_claim
+- name: generate_report_cx
   type: llm
   source:
     type: code
-    path: validate_product_claim.jinja2
+    path: generate_report_cx.jinja2
   inputs:
     deployment_name: gpt-4-1106
-    products: ${retrieve_products_list.output}
+    temperature: 0
+    response_format:
+      type: text
     context: ${retrieve_emails_content.output}
+  connection: openai1704canadaeast
+  api: chat
+- name: generate_report_db
+  type: llm
+  source:
+    type: code
+    path: generate_report_db.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    context: ${retrieve_products_list.output}
+    temperature: 0
+  connection: openai1704canadaeast
+  api: chat
+- name: extract_requests
+  type: llm
+  source:
+    type: code
+    path: extract_requests.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    context: ${retrieve_emails_content.output}
+    temperature: 0
+  connection: openai1704canadaeast
+  api: chat
+- name: compare_order_date
+  type: llm
+  source:
+    type: code
+    path: compare_order_date.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    temperature: 0
+    report_cx: ${generate_report_cx.output}
+    report_db: ${generate_report_db.output}
   connection: openai1704canadaeast
   api: chat

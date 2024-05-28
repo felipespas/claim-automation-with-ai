@@ -9,6 +9,8 @@ from utils_sql import *
 @tool
 def my_python_tool(order_id: str) -> str:
     
-    result = query_order_products_names(order_id)
+    # result = query_order_products_names(order_id)
+
+    result = query_order_product_details(order_id)
 
     return str(result)
