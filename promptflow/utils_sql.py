@@ -33,9 +33,9 @@ def query_order_product_details(order_id: int):
         
     except Exception as e:
 
-        # write the data to a file
-        with open('_error.txt', 'w') as f:
-            f.write(results)
+        # # write the data to a file
+        # with open('_error.txt', 'w') as f:
+        #     f.write(results)
 
         print(f"Error: {e}")
 
