@@ -10,4 +10,5 @@ __queuestorage*
 *.tfstate.*
 *.exe
 promptflow/pf
+promptflow/dist
 promptflow/__pycache__/retrieve_emails_content.cpython-311.pyc
