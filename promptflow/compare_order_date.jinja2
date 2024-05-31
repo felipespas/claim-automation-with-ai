@@ -7,15 +7,15 @@ Avoid returning anything else except the expected result, which is "OK" or "NOT 
 # EXAMPLES:
 report_cx = "2020-01-01"
 report_db = "2020-01-01"
-order_date(report_cx, report_db) => "OK"
+result => "OK"
 
 report_cx = "2020-01-01"
 report_db = "2020-01-02"
-order_date(report_cx, report_db) => "NOT OK"
+result => "NOT OK"
 
 report_cx = "2020-01-01"
 report_db = "2020-01-01 00:00:00"
-order_date(report_cx, report_db) => "OK"
+result => "OK"
 
 # REPORT 1 - FROM CX
 {{report_cx}}

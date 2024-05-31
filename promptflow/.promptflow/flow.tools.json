@@ -139,6 +139,22 @@
         }
       },
       "source": "compare_order_date.jinja2"
+    },
+    "compare_customer_name.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "report_cx": {
+          "type": [
+            "string"
+          ]
+        },
+        "report_db": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "compare_customer_name.jinja2"
     }
   }
 }

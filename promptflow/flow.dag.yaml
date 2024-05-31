@@ -15,6 +15,9 @@ outputs:
   order_check:
     type: string
     reference: ${compare_order_date.output}
+  customer_name_check:
+    type: string
+    reference: ${compare_customer_name.output}
 nodes:
 - name: retrieve_emails_content
   type: python
@@ -84,6 +87,17 @@ nodes:
   inputs:
     deployment_name: gpt-4-1106
     temperature: 0
+    report_cx: ${generate_report_cx.output}
+    report_db: ${generate_report_db.output}
+  connection: openai1704canadaeast
+  api: chat
+- name: compare_customer_name
+  type: llm
+  source:
+    type: code
+    path: compare_customer_name.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
     report_cx: ${generate_report_cx.output}
     report_db: ${generate_report_db.output}
   connection: openai1704canadaeast

@@ -1,12 +1,12 @@
 {
   "nodeLayouts": {
     "inputs": {
-      "x": 707.5,
+      "x": 640,
       "y": 42,
       "index": -1
     },
     "outputs": {
-      "x": 627.5,
+      "x": 570,
       "y": 846,
       "index": -1
     },
@@ -21,17 +21,17 @@
       "index": -1
     },
     "generate_report_cx": {
-      "x": 557.5,
+      "x": 490,
       "y": 578,
       "index": 3
     },
     "retrieve_emails_content": {
-      "x": 557.5,
+      "x": 490,
       "y": 176,
       "index": 0
     },
     "get_order_id": {
-      "x": 227.5,
+      "x": 160,
       "y": 310,
       "index": 1
     },
@@ -46,17 +46,17 @@
       "index": -1
     },
     "retrieve_products_list": {
-      "x": 227.5,
+      "x": 160,
       "y": 444,
       "index": 2
     },
     "generate_report_db": {
-      "x": 227.5,
+      "x": 160,
       "y": 578,
       "index": 4
     },
     "extract_requests": {
-      "x": 742.5,
+      "x": 840,
       "y": 712,
       "index": 5
     },
@@ -64,6 +64,11 @@
       "x": 140,
       "y": 712,
       "index": 6
+    },
+    "compare_customer_name": {
+      "x": 490,
+      "y": 712,
+      "index": 7
     }
   },
   "orientation": "Vertical"

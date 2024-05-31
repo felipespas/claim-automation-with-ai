@@ -82,6 +82,14 @@
           "report_db": []
         }
       }
+    },
+    "compare_customer_name": {
+      "variant_0": {
+        "inputs": {
+          "report_cx": [],
+          "report_db": []
+        }
+      }
     }
   }
 }

@@ -1,0 +1,27 @@
+
+# SYSTEM:
+Your job is to compare the customer name from both reports provided below and return one of the following status: 
+- "OK" if they are the same
+- "NOT OK" if they are totally different 
+- "PARTIALLY OK" in case they are similarities, but they are not exactly the same.
+
+Avoid returning anything else except the expected result, which is "OK", "PARTIALLY OK" or "NOT OK".
+
+# EXAMPLES:
+report_cx = "João da Silva"
+report_db = "João da Silva"
+result => "OK"
+
+report_cx = "Paulo Silveira"
+report_db = "Francisco Oliveira"
+result => "NOT OK"
+
+report_cx = "John A. Parker"
+report_db = "John Parker"
+result => "PARTIALLY OK"
+
+# REPORT 1 - FROM CX
+{{report_cx}}
+
+# REPORT 2 - FROM DB
+{{report_db}}

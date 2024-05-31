@@ -1,20 +1,22 @@
-2024-05-28 16:00:24 -0300   86784 execution.flow     INFO     Start executing nodes in thread pool mode.
-2024-05-28 16:00:24 -0300   86784 execution.flow     INFO     Start to run 7 nodes with concurrency level 16.
-2024-05-28 16:00:24 -0300   86784 execution.flow     INFO     Executing node retrieve_emails_content. node run id: 7cb76df4-e351-49e2-9bcc-44c09a21fcae_retrieve_emails_content_0
-2024-05-28 16:00:25 -0300   86784 execution.flow     WARNING  Output of retrieve_emails_content is not json serializable, use str to store it.
-2024-05-28 16:00:25 -0300   86784 execution.flow     INFO     Node retrieve_emails_content completes.
-2024-05-28 16:00:25 -0300   86784 execution.flow     INFO     Executing node get_order_id. node run id: 7cb76df4-e351-49e2-9bcc-44c09a21fcae_get_order_id_0
-2024-05-28 16:00:25 -0300   86784 execution.flow     INFO     Executing node generate_report_cx. node run id: 7cb76df4-e351-49e2-9bcc-44c09a21fcae_generate_report_cx_0
-2024-05-28 16:00:25 -0300   86784 execution.flow     INFO     Executing node extract_requests. node run id: 7cb76df4-e351-49e2-9bcc-44c09a21fcae_extract_requests_0
-2024-05-28 16:00:27 -0300   86784 execution.flow     WARNING  Input 'input' of get_order_id is not json serializable, use str to store it.
-2024-05-28 16:00:27 -0300   86784 execution.flow     INFO     Node get_order_id completes.
-2024-05-28 16:00:27 -0300   86784 execution.flow     INFO     Executing node retrieve_products_list. node run id: 7cb76df4-e351-49e2-9bcc-44c09a21fcae_retrieve_products_list_0
-2024-05-28 16:00:29 -0300   86784 execution.flow     INFO     Node retrieve_products_list completes.
-2024-05-28 16:00:29 -0300   86784 execution.flow     INFO     Executing node generate_report_db. node run id: 7cb76df4-e351-49e2-9bcc-44c09a21fcae_generate_report_db_0
-2024-05-28 16:00:36 -0300   86784 execution.flow     WARNING  Input 'context' of extract_requests is not json serializable, use str to store it.
-2024-05-28 16:00:36 -0300   86784 execution.flow     INFO     Node extract_requests completes.
-2024-05-28 16:02:48 -0300   86784 execution.flow     INFO     Node generate_report_db completes.
-2024-05-28 16:02:56 -0300   86784 execution.flow     WARNING  Input 'context' of generate_report_cx is not json serializable, use str to store it.
-2024-05-28 16:02:56 -0300   86784 execution.flow     INFO     Node generate_report_cx completes.
-2024-05-28 16:02:56 -0300   86784 execution.flow     INFO     Executing node compare_order_date. node run id: 7cb76df4-e351-49e2-9bcc-44c09a21fcae_compare_order_date_0
-2024-05-28 16:02:57 -0300   86784 execution.flow     INFO     Node compare_order_date completes.
+2024-05-31 15:44:39 -0300  164432 execution.flow     INFO     Start executing nodes in thread pool mode.
+2024-05-31 15:44:39 -0300  164432 execution.flow     INFO     Start to run 8 nodes with concurrency level 16.
+2024-05-31 15:44:39 -0300  164432 execution.flow     INFO     Executing node retrieve_emails_content. node run id: d31cc65e-1d13-4b60-843b-e9c3960430a1_retrieve_emails_content_0
+2024-05-31 15:44:41 -0300  164432 execution.flow     WARNING  Output of retrieve_emails_content is not json serializable, use str to store it.
+2024-05-31 15:44:41 -0300  164432 execution.flow     INFO     Node retrieve_emails_content completes.
+2024-05-31 15:44:41 -0300  164432 execution.flow     INFO     Executing node get_order_id. node run id: d31cc65e-1d13-4b60-843b-e9c3960430a1_get_order_id_0
+2024-05-31 15:44:41 -0300  164432 execution.flow     INFO     Executing node generate_report_cx. node run id: d31cc65e-1d13-4b60-843b-e9c3960430a1_generate_report_cx_0
+2024-05-31 15:44:41 -0300  164432 execution.flow     INFO     Executing node extract_requests. node run id: d31cc65e-1d13-4b60-843b-e9c3960430a1_extract_requests_0
+2024-05-31 15:44:42 -0300  164432 execution.flow     WARNING  Input 'input' of get_order_id is not json serializable, use str to store it.
+2024-05-31 15:44:42 -0300  164432 execution.flow     INFO     Node get_order_id completes.
+2024-05-31 15:44:42 -0300  164432 execution.flow     INFO     Executing node retrieve_products_list. node run id: d31cc65e-1d13-4b60-843b-e9c3960430a1_retrieve_products_list_0
+2024-05-31 15:44:44 -0300  164432 execution.flow     INFO     Node retrieve_products_list completes.
+2024-05-31 15:44:44 -0300  164432 execution.flow     INFO     Executing node generate_report_db. node run id: d31cc65e-1d13-4b60-843b-e9c3960430a1_generate_report_db_0
+2024-05-31 15:44:45 -0300  164432 execution.flow     WARNING  Input 'context' of extract_requests is not json serializable, use str to store it.
+2024-05-31 15:44:45 -0300  164432 execution.flow     INFO     Node extract_requests completes.
+2024-05-31 15:46:21 -0300  164432 execution.flow     INFO     Node generate_report_db completes.
+2024-05-31 15:46:40 -0300  164432 execution.flow     WARNING  Input 'context' of generate_report_cx is not json serializable, use str to store it.
+2024-05-31 15:46:40 -0300  164432 execution.flow     INFO     Node generate_report_cx completes.
+2024-05-31 15:46:40 -0300  164432 execution.flow     INFO     Executing node compare_order_date. node run id: d31cc65e-1d13-4b60-843b-e9c3960430a1_compare_order_date_0
+2024-05-31 15:46:40 -0300  164432 execution.flow     INFO     Executing node compare_customer_name. node run id: d31cc65e-1d13-4b60-843b-e9c3960430a1_compare_customer_name_0
+2024-05-31 15:46:41 -0300  164432 execution.flow     INFO     Node compare_order_date completes.
+2024-05-31 15:46:42 -0300  164432 execution.flow     INFO     Node compare_customer_name completes.
