@@ -37,3 +37,6 @@ az deployment group create --resource-group $resourceGroupName `
     --template-file C:\_Github\claim-automation-with-ai\logic-apps\logicapp.definition.json `
     --parameters $paramsFilePath `
     --parameters suffix=$resourceSuffix
+
+# print a message saying everything worked as planned
+Write-Host "Logic apps deployed successfully"
