@@ -1,33 +1,33 @@
 # az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
 
-Set-Location C:\_Github\ms-poc-sinistro-ai\terraform
+Set-Location C:\_Github\claim-automation-with-ai\terraform
 
 # read the value from txt file
-$resourceSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix.txt
+$resourceSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\suffix.txt
 
 # show the value
 Write-Host "Resources Suffix: $resourceSuffix"
 
 # read the value from txt file
-$resourceGroupName = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\resourceGroupName.txt
+$resourceGroupName = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\resourceGroupName.txt
 
 # show the value
 Write-Host "Resource Group Name: $resourceGroupName"
 
 # read the value from txt file
-$location = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\location.txt
+$location = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\location.txt
 
 # show the value
 Write-Host "Location: $location"
 
 # read the value from txt file
-$keyvaultSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\keyvaultSuffix.txt
+$keyvaultSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\keyvaultSuffix.txt
 
 # show the value
 Write-Host "Key Vault Suffix: $keyvaultSuffix"
 
 # read the sql server password from txt file
-$sqlPassword = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\sqlPassword.txt
+$sqlPassword = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\sqlPassword.txt
 
 # show the value
 Write-Host "SQL Password: $sqlPassword"

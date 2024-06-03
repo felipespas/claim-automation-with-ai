@@ -1,6 +1,6 @@
 # az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
 
-Set-Location C:\_Github\ms-poc-sinistro-ai\deploy
+Set-Location C:\_Github\claim-automation-with-ai\deploy
 
 # read the value from suffix.txt file
 $resourceSuffix = Get-Content -Path .\suffix.txt
@@ -33,9 +33,9 @@ $json = "{\""suffix\"":{\""value\"":\""$resourceSuffix\""}, \""keyvaultSuffix\""
 write-Host "JSON: $json"
 
 az deployment group validate --resource-group $resourceGroupName `
-    --template-file C:\_Github\ms-poc-sinistro-ai\logic-apps\logicapp.connectors.json `
+    --template-file C:\_Github\claim-automation-with-ai\logic-apps\logicapp.connectors.json `
     --parameters $json
 
 az deployment group create --resource-group $resourceGroupName `
-    --template-file C:\_Github\ms-poc-sinistro-ai\logic-apps\logicapp.connectors.json `
+    --template-file C:\_Github\claim-automation-with-ai\logic-apps\logicapp.connectors.json `
     --parameters $json

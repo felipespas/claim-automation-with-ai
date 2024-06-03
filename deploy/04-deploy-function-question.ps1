@@ -1,18 +1,18 @@
 # az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
 
-Set-Location C:\_Github\ms-poc-sinistro-ai\functions\func-question
+Set-Location C:\_Github\claim-automation-with-ai\functions\func-question
 
 # read the value from suffix.txt file
-$resourcesSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\suffix.txt
+$resourcesSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\suffix.txt
 
 # read the value from suffix.txt file
-$resourceGroupName = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\resourceGroupName.txt
+$resourceGroupName = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\resourceGroupName.txt
 
 # concatenate the value from variable $resourceSuffix with the string "mvp"
 $functionAppName = "fnquestionapp" + $resourcesSuffix
 
 # read the value from suffix.txt file
-$keyvaultSuffix = Get-Content -Path C:\_Github\ms-poc-sinistro-ai\deploy\keyvaultSuffix.txt
+$keyvaultSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\keyvaultSuffix.txt
 
 # show the value for functionAppName variable
 Write-Host "Function Name: $functionAppName"
