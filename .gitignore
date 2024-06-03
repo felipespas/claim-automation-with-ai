@@ -12,3 +12,4 @@ __queuestorage*
 promptflow/pf
 promptflow/dist
 promptflow/__pycache__/retrieve_emails_content.cpython-311.pyc
+deploy/sqlPassword.txt
