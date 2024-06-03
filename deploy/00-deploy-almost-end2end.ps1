@@ -40,6 +40,9 @@ try{
 
     # call the 08 script
     & '.\08-deploy-logicapp-connectors.ps1'
+
+    # print a message saying everything worked as planned
+    Write-Host "All scripts executed successfully"
 }
 catch {
     Write-Host "Error in the script: $($_.InvocationInfo.ScriptName)"
