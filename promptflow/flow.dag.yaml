@@ -1,7 +1,7 @@
 inputs:
   directory:
     type: string
-    default: "638518876110000000"
+    default: "638530437990000000"
 outputs:
   report_db:
     type: string
@@ -55,6 +55,7 @@ nodes:
     response_format:
       type: text
     context: ${retrieve_emails_content.output}
+    max_tokens: 500
   connection: openai1704canadaeast
   api: chat
 - name: generate_report_db
@@ -66,6 +67,7 @@ nodes:
     deployment_name: gpt-4-1106
     context: ${retrieve_products_list.output}
     temperature: 0
+    max_tokens: 500
   connection: openai1704canadaeast
   api: chat
 - name: extract_requests
@@ -77,6 +79,7 @@ nodes:
     deployment_name: gpt-4-1106
     context: ${retrieve_emails_content.output}
     temperature: 0
+    max_tokens: 100
   connection: openai1704canadaeast
   api: chat
 - name: compare_order_date
@@ -89,6 +92,7 @@ nodes:
     temperature: 0
     report_cx: ${generate_report_cx.output}
     report_db: ${generate_report_db.output}
+    max_tokens: 50
   connection: openai1704canadaeast
   api: chat
 - name: compare_customer_name
@@ -100,5 +104,6 @@ nodes:
     deployment_name: gpt-4-1106
     report_cx: ${generate_report_cx.output}
     report_db: ${generate_report_db.output}
+    max_tokens: 50
   connection: openai1704canadaeast
   api: chat

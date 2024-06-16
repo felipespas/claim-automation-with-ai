@@ -9,7 +9,5 @@ __queuestorage*
 *.tfstate
 *.tfstate.*
 *.exe
-promptflow/pf
-promptflow/dist
-promptflow/__pycache__/retrieve_emails_content.cpython-311.pyc
+*/.venv/*
 deploy/sqlPassword.txt

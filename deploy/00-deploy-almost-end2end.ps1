@@ -39,7 +39,12 @@ try{
     Set-Location C:\_Github\claim-automation-with-ai\deploy
 
     # call the 08 script
-    & '.\08-deploy-logicapp-connectors.ps1'
+    & '.\08-create-stored-procedure-sql.ps1'
+
+    Set-Location C:\_Github\claim-automation-with-ai\deploy
+
+    # call the 09 script
+    & '.\09-deploy-logicapp-connectors.ps1'
 
     # print a message saying everything worked as planned
     Write-Host "All scripts executed successfully"
