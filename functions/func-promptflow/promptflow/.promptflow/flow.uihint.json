@@ -1,0 +1,95 @@
+{
+  "nodes": {
+    "obtem_infomacao_inicial": {
+      "variant_0": {
+        "inputs": {
+          "question": [],
+          "response_format": [],
+          "context": []
+        }
+      }
+    },
+    "busca_conteudo_emails": {
+      "variant_0": {
+        "inputs": {
+          "directory": []
+        }
+      }
+    },
+    "retrieve_number": {
+      "variant_0": {
+        "inputs": {
+          "contexto": [],
+          "input": []
+        }
+      }
+    },
+    "retrieve_emails_content": {
+      "variant_0": {
+        "inputs": {
+          "directory": []
+        }
+      }
+    },
+    "generate_report_cx": {
+      "variant_0": {
+        "inputs": {
+          "question": []
+        }
+      }
+    },
+    "get_order_id": {
+      "variant_0": {
+        "inputs": {
+          "input": []
+        }
+      }
+    },
+    "query_database": {
+      "variant_0": {
+        "inputs": {
+          "input1": [],
+          "order_id": []
+        }
+      }
+    },
+    "confirm_product_claim": {
+      "variant_0": {
+        "inputs": {
+          "products": [],
+          "context": []
+        }
+      }
+    },
+    "generate_report_db": {
+      "variant_0": {
+        "inputs": {
+          "context": []
+        }
+      }
+    },
+    "extract_requests": {
+      "variant_0": {
+        "inputs": {
+          "context": []
+        }
+      }
+    },
+    "compare_order_date": {
+      "variant_0": {
+        "inputs": {
+          "report_cx": [],
+          "report_db": []
+        }
+      }
+    },
+    "compare_customer_name": {
+      "variant_0": {
+        "inputs": {
+          "report_cx": [],
+          "report_db": []
+        }
+      }
+    }
+  }
+}
