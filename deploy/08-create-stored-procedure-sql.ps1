@@ -27,7 +27,7 @@ $securePassword = ConvertTo-SecureString $sqlPassword -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential($userId, $securePassword)
 
 # Define the path to the .sql file
-$sqlFilePath = "C:\_Github\claim-automation-with-ai\promptflow\sql-codes\return-order-products-details.sql"
+$sqlFilePath = "C:\_Github\claim-automation-with-ai\sql-codes\return-order-products-details.sql"
 
 # Read the content of the .sql file
 $sqlCommand = Get-Content -Path $sqlFilePath

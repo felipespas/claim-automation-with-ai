@@ -1,0 +1,1 @@
+curl -X POST -d '{"directory": "638542258370000000"}' http://localhost:7074/api/claim01
