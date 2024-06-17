@@ -6,8 +6,8 @@ from utils_promptflow import *
 
 app = func.FunctionApp()
 
-@app.route(route="claim01", auth_level=func.AuthLevel.FUNCTION)
-def claim01(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="check01", auth_level=func.AuthLevel.FUNCTION)
+def check01(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     req_body = req.get_json()
@@ -25,7 +25,7 @@ def claim01(req: func.HttpRequest) -> func.HttpResponse:
     
     directory = req_body.get('directory')    
 
-    result = promptflow01(directory)    
+    result = exec_promptflow01(directory)    
 
     logging.info(f'This is the result: {result}')
 

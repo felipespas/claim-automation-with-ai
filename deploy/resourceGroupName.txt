@@ -1,1 +1,1 @@
-azure-sinistro-iac
+azure-claim-ai-project

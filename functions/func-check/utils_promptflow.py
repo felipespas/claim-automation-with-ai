@@ -5,13 +5,14 @@ from promptflow.entities import AzureOpenAIConnection
 
 load_dotenv()
 
-open_ai_connection_name = os.environ.get("AZURE_OPENAI_CONNECTION_NAME")
 open_ai_key = os.environ.get("AZURE_OPENAI_API_KEY")
 open_ai_api_base = os.environ.get("AZURE_OPENAI_ENDPOINT")
 open_ai_api_version = os.environ.get("AZURE_OPENAI_API_VERSION")
 open_ai_deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT")
 
-def promptflow01(directory:str) -> str:
+def exec_promptflow01(directory:str) -> str:
+
+    open_ai_connection_name = "azure-open-ai-connection"
 
     connection = AzureOpenAIConnection(
         name=open_ai_connection_name,
