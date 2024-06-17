@@ -1,7 +1,7 @@
 {
   "report_db": "```markdown\n# Order Report\n\n## Order Details\n\n- **Order number**: 71780\n- **Order date**: 2008-06-01\n- **Customer name**: Raja D. Venugopal\n- **Final value of the order**: $42,452.65\n\nThis value includes all applicable discounts, taxes, and freight costs.\n```",
-  "report_cx": "```markdown\n# Order Report\n\n## Order Details\n- **Order number:** 71780\n- **Order date:** June 1st, 2008\n- **Customer name:** Raja D. Venugopal\n- **Final value of the order:** U$ 42,452.6519 (including discount, taxes, and freight)\n```",
-  "request": "The customer is requesting guidance and support for a defective product, specifically the Mountain-500 Silver, 42, which was purchased with order ID 71780. They believe the product qualifies for reimbursement as per the customer satisfaction policy and are seeking a swift resolution to this issue.",
+  "report_cx": "```markdown\n# Order Report\n\n## Order Details\n- **Order number:** 71780\n- **Order date:** June 1st, 2008\n- **Customer name:** Raja D. Venugopal\n\n## Financial Summary\n- **Final value of the order:** U$ 42,452.6519\n  - *Including discount, taxes, and freight*\n```",
+  "request": "The customer, Raja D. Venugopal, is requesting support for a defective product, specifically the Mountain-500 Silver, 42, from their purchase made on June 1st, 2008, with the order ID 71780. They believe the product qualifies for reimbursement as per the customer satisfaction policy and are seeking guidance on the necessary procedures to address this issue. They request a swift resolution due to the product's importance in their daily activities.",
   "order_check": "OK",
   "customer_name_check": "OK"
 }

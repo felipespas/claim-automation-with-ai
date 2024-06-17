@@ -25,6 +25,8 @@ def check01(req: func.HttpRequest) -> func.HttpResponse:
     
     directory = req_body.get('directory')    
 
+    logging.info('Invoking exec_promptflow function.')
+
     result = exec_promptflow01(directory)    
 
     logging.info(f'This is the result: {result}')
