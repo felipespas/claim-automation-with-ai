@@ -59,7 +59,7 @@ try{
     $sqlPassword = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\sqlPassword.txt
 
     # obtain the connection string for a specific database 
-    $SQL_CONN_STR="Driver={ODBC Driver 17 for SQL Server};Server=tcp:$sqlServerName.database.windows.net,1433;Database=sample;Uid=Felipe;Pwd=$sqlPassword;Encrypt=no;TrustServerCertificate=no;Connection Timeout=30;"
+    $SQL_CONN_STR="Driver={ODBC Driver 18 for SQL Server};Server=tcp:$sqlServerName.database.windows.net,1433;Database=sample;Uid=Felipe;Pwd=$sqlPassword;Encrypt=no;TrustServerCertificate=no;Connection Timeout=30;"
 
     az functionapp config appsettings set --name $functionAppName --resource-group $resourceGroupName --settings "SQL_CONN_STR=$SQL_CONN_STR"
 

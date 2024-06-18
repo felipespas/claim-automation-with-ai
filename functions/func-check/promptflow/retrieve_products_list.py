@@ -1,4 +1,4 @@
-
+import logging
 from promptflow.core import tool
 from utils_sql import *
 
@@ -9,8 +9,10 @@ from utils_sql import *
 @tool
 def my_python_tool(order_id: str) -> str:
     
-    # result = query_order_products_names(order_id)
+    logging.info("Retrieve_products_list tool started")
 
     result = query_order_product_details(order_id)
+
+    logging.info("Retrieve_products_list tool finished successfully")
 
     return str(result)

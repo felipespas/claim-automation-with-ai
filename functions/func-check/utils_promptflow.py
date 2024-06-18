@@ -44,6 +44,7 @@ def exec_promptflow01(directory:str) -> str:
                             "compare_customer_name": {"connection": connection, "deployment_name": open_ai_deployment}
                             }
 
+
     logging.info('Calling prompt flow.')
 
     result = f(directory=directory)
