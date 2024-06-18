@@ -7,13 +7,13 @@
 			"command": "host start --port 7072",
 			"problemMatcher": "$func-python-watch",
 			"isBackground": true,
-			"dependsOn": "wrapper pip install",
+			"dependsOn": "pip install",
 			"options": {
 				"cwd": "${workspaceFolder}"
 			}
 		},
 		{
-			"label": "wrapper pip install",
+			"label": "pip install",
 			"type": "shell",
 			"windows": {
 				"command": "${config:azureFunctions.pythonVenv}\\Scripts\\python -m pip install -r requirements.txt"

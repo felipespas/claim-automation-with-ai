@@ -8,6 +8,9 @@
 		},		
 		{
 			"path": "func-receive"
+		},		
+		{
+			"path": "func-check"
 		}
 	],
 	"settings": {
@@ -21,7 +24,8 @@
 				"configurations": [
 					"Function - Process",
 					"Function - Question",
-					"Function - Receive"
+					"Function - Receive",
+					"Function - Check"
 				]
 			}
 		]
