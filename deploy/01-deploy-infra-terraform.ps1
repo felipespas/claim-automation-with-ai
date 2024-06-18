@@ -1,51 +1,64 @@
-# az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
+try{
 
-Set-Location C:\_Github\claim-automation-with-ai\terraform
+    # az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
 
-# read the value from txt file
-$resourceSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\suffix.txt
+    Set-Location C:\_Github\claim-automation-with-ai\terraform
 
-# show the value
-Write-Host "Resources Suffix: $resourceSuffix"
+    # read the value from txt file
+    $resourceSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\suffix.txt
 
-# read the value from txt file
-$resourceGroupName = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\resourceGroupName.txt
+    # show the value
+    Write-Host "Resources Suffix: $resourceSuffix"
 
-# show the value
-Write-Host "Resource Group Name: $resourceGroupName"
+    # read the value from txt file
+    $resourceGroupName = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\resourceGroupName.txt
 
-# read the value from txt file
-$location = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\location.txt
+    # show the value
+    Write-Host "Resource Group Name: $resourceGroupName"
 
-# show the value
-Write-Host "Location: $location"
+    # read the value from txt file
+    $location = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\location.txt
 
-# read the value from txt file
-$keyvaultSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\keyvaultSuffix.txt
+    # show the value
+    Write-Host "Location: $location"
 
-# show the value
-Write-Host "Key Vault Suffix: $keyvaultSuffix"
+    # read the value from txt file
+    $keyvaultSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\keyvaultSuffix.txt
 
-# read the sql server password from txt file
-$sqlPassword = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\sqlPassword.txt
+    # show the value
+    Write-Host "Key Vault Suffix: $keyvaultSuffix"
 
-# show the value
-Write-Host "SQL Password: $sqlPassword"
+    # read the sql server password from txt file
+    $sqlPassword = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\sqlPassword.txt
 
-# obtain my current ip address
-$myIpAddress = (Invoke-RestMethod http://ipinfo.io/json).ip
+    # show the value
+    Write-Host "SQL Password: $sqlPassword"
 
-# show the value
-Write-Host "My IP Address: $myIpAddress"
+    # obtain my current ip address
+    $myIpAddress = (Invoke-RestMethod http://ipinfo.io/json).ip
 
-terraform init
+    # show the value
+    Write-Host "My IP Address: $myIpAddress"
 
-terraform plan -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" `
-    -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" -var="myIpAddress=$myIpAddress"
+    terraform init
 
-terraform apply -auto-approve -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" `
-    -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" -var="myIpAddress=$myIpAddress"
+    # terraform plan -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" `
+    #     -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" -var="myIpAddress=$myIpAddress"
 
-# terraform destroy -auto-approve -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" -var="keyvaultSuffix=$keyvaultSuffix"
+    terraform apply -auto-approve -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" `
+        -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" -var="myIpAddress=$myIpAddress"
 
-# az group delete --name $resourceGroupName --yes --no-wait
+    # terraform destroy -auto-approve -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" `
+    #     -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" -var="myIpAddress=$myIpAddress"
+
+    # az group delete --name $resourceGroupName --yes --no-wait
+
+    Set-Location C:\_Github\claim-automation-with-ai\deploy
+}
+catch{
+    # print the error
+    Write-Host "Error: $_"
+    
+    # return error status
+    exit 1
+}

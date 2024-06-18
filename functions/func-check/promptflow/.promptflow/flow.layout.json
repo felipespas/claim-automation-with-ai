@@ -1,0 +1,75 @@
+{
+  "nodeLayouts": {
+    "inputs": {
+      "x": 640,
+      "y": 42,
+      "index": -1
+    },
+    "outputs": {
+      "x": 570,
+      "y": 846,
+      "index": -1
+    },
+    "obtem_infomacao_inicial": {
+      "x": 140,
+      "y": 310,
+      "index": -1
+    },
+    "busca_conteudo_emails": {
+      "x": 227.5,
+      "y": 176,
+      "index": -1
+    },
+    "generate_report_cx": {
+      "x": 490,
+      "y": 578,
+      "index": 3
+    },
+    "retrieve_emails_content": {
+      "x": 490,
+      "y": 176,
+      "index": 0
+    },
+    "get_order_id": {
+      "x": 160,
+      "y": 310,
+      "index": 1
+    },
+    "query_database": {
+      "x": 470,
+      "y": 444,
+      "index": -1
+    },
+    "confirm_product_claim": {
+      "x": 557.5,
+      "y": 578,
+      "index": -1
+    },
+    "retrieve_products_list": {
+      "x": 160,
+      "y": 444,
+      "index": 2
+    },
+    "generate_report_db": {
+      "x": 160,
+      "y": 578,
+      "index": 4
+    },
+    "extract_requests": {
+      "x": 840,
+      "y": 712,
+      "index": 5
+    },
+    "compare_order_date": {
+      "x": 140,
+      "y": 712,
+      "index": 6
+    },
+    "compare_customer_name": {
+      "x": 490,
+      "y": 712,
+      "index": 7
+    }
+  },
+  "orientation": "Vertical"
+}

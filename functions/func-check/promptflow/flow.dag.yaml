@@ -1,0 +1,109 @@
+inputs:
+  directory:
+    type: string
+    default: "638542594660000000"
+outputs:
+  report_db:
+    type: string
+    reference: ${generate_report_db.output}
+  report_cx:
+    type: string
+    reference: ${generate_report_cx.output}
+  request:
+    type: string
+    reference: ${extract_requests.output}
+  order_check:
+    type: string
+    reference: ${compare_order_date.output}
+  customer_name_check:
+    type: string
+    reference: ${compare_customer_name.output}
+nodes:
+- name: retrieve_emails_content
+  type: python
+  source:
+    type: code
+    path: retrieve_emails_content.py
+  inputs:
+    directory: ${inputs.directory}
+- name: get_order_id
+  type: llm
+  source:
+    type: code
+    path: get_order_id.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    temperature: 0
+    input: ${retrieve_emails_content.output}
+  connection: openai1704canadaeast
+  api: chat
+- name: retrieve_products_list
+  type: python
+  source:
+    type: code
+    path: retrieve_products_list.py
+  inputs:
+    order_id: ${get_order_id.output}
+- name: generate_report_cx
+  type: llm
+  source:
+    type: code
+    path: generate_report_cx.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    temperature: 0
+    response_format:
+      type: text
+    context: ${retrieve_emails_content.output}
+    max_tokens: 500
+  connection: openai1704canadaeast
+  api: chat
+- name: generate_report_db
+  type: llm
+  source:
+    type: code
+    path: generate_report_db.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    context: ${retrieve_products_list.output}
+    temperature: 0
+    max_tokens: 500
+  connection: openai1704canadaeast
+  api: chat
+- name: extract_requests
+  type: llm
+  source:
+    type: code
+    path: extract_requests.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    context: ${retrieve_emails_content.output}
+    temperature: 0
+    max_tokens: 100
+  connection: openai1704canadaeast
+  api: chat
+- name: compare_order_date
+  type: llm
+  source:
+    type: code
+    path: compare_order_date.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    temperature: 0
+    report_cx: ${generate_report_cx.output}
+    report_db: ${generate_report_db.output}
+    max_tokens: 50
+  connection: openai1704canadaeast
+  api: chat
+- name: compare_customer_name
+  type: llm
+  source:
+    type: code
+    path: compare_customer_name.jinja2
+  inputs:
+    deployment_name: gpt-4-1106
+    report_cx: ${generate_report_cx.output}
+    report_db: ${generate_report_db.output}
+    max_tokens: 50
+  connection: openai1704canadaeast
+  api: chat

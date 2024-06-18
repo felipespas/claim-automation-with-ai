@@ -1,10 +1,7 @@
 try{
     # az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
 
-    Set-Location C:\_Github\claim-automation-with-ai\functions\func-question
-
-    # remove the .venv directory with all its content
-    Remove-Item -Path .venv -Recurse -Force
+    Set-Location C:\_Github\claim-automation-with-ai\functions\func-check
 
     # read the value from suffix.txt file
     $resourcesSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\suffix.txt
@@ -13,7 +10,7 @@ try{
     $resourceGroupName = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\resourceGroupName.txt
 
     # concatenate the value from variable $resourceSuffix with the string "mvp"
-    $functionAppName = "fnquestionapp" + $resourcesSuffix
+    $functionAppName = "fncheckapp" + $resourcesSuffix
 
     # read the value from suffix.txt file
     $keyvaultSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\keyvaultSuffix.txt
@@ -33,7 +30,7 @@ try{
 
     ##############################################################################################
 
-    $funcName = "question01"
+    $funcName = "check01"
 
     # obtain the endpoint key for the function app
     $funcKey = (Invoke-AzResourceAction `

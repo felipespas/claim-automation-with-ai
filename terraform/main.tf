@@ -128,6 +128,8 @@ resource "azurerm_linux_function_app" "function_process_app" {
   identity {
     type = "SystemAssigned"
   }
+
+  depends_on = [ azurerm_storage_account.storage_process_fn ]
 }
 
 # FUNCTION QUESTION ################################################################################
@@ -159,6 +161,8 @@ resource "azurerm_linux_function_app" "function_question_app" {
   identity {
     type = "SystemAssigned"
   }
+  
+  depends_on = [ azurerm_storage_account.storage_question_fn ]
 }
 
 # FUNCTION RECEIVE ################################################################################
@@ -190,6 +194,41 @@ resource "azurerm_linux_function_app" "function_receive_app" {
   identity {
     type = "SystemAssigned"
   }
+  
+  depends_on = [ azurerm_storage_account.storage_receive_fn ]
+}
+
+# FUNCTION PROMPT FLOW ################################################################################
+
+resource "azurerm_storage_account" "storage_check_fn" {
+  name                     = "fncheckstg${var.suffix}"
+  resource_group_name      = azurerm_resource_group.rg.name
+  location                 = azurerm_resource_group.rg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+resource "azurerm_linux_function_app" "function_check_app" {
+  name                = "fncheckapp${var.suffix}"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+
+  storage_account_name       = azurerm_storage_account.storage_check_fn.name
+  storage_account_access_key = azurerm_storage_account.storage_check_fn.primary_access_key
+  service_plan_id            = azurerm_service_plan.function_plan.id
+
+  site_config {
+    application_stack {
+      python_version = "3.11"
+    }
+    application_insights_key = azurerm_application_insights.app_insights.instrumentation_key
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  depends_on = [ azurerm_storage_account.storage_check_fn ]
 }
 
 # AI SERVICES ################################################################################
@@ -229,21 +268,6 @@ resource "azurerm_key_vault" "key_vault" {
 }
 
 # EVENT HUB ################################################################################
-
-# resource "azurerm_storage_account" "storage_event_hub_checkpoint" {
-#   name                     = "eventhubckpstg${var.suffix}"
-#   resource_group_name      = azurerm_resource_group.rg.name
-#   location                 = azurerm_resource_group.rg.location
-#   account_tier             = "Standard"
-#   account_replication_type = "LRS"
-#   is_hns_enabled           = "false" 
-# }
-
-# resource "azurerm_storage_container" "container_event_hub_checkpoint" {
-#   name                  = "checkpoint"
-#   storage_account_name  = azurerm_storage_account.storage_event_hub_checkpoint.name
-#   container_access_type = "private"
-# }
 
 resource "azurerm_eventhub_namespace" "event_hub_namespace" {
   name                = "eventhub${var.suffix}"
@@ -305,7 +329,6 @@ resource "azurerm_mssql_firewall_rule" "my_machine_ip_address_rule" {
   end_ip_address   = var.myIpAddress
 }
 
-
 # PERMISSIONS ################################################################################
 
 resource "azurerm_role_assignment" "logic_app_blob_contributor" {
@@ -315,6 +338,13 @@ resource "azurerm_role_assignment" "logic_app_blob_contributor" {
   depends_on = [ azurerm_logic_app_workflow.logic_app ]
 }
 
+resource "azurerm_role_assignment" "logic_apps_secret_user" {
+  scope                = azurerm_key_vault.key_vault.id
+  role_definition_name = "Key Vault Secrets User"
+  principal_id         = azurerm_logic_app_workflow.logic_app.identity[0].principal_id
+  depends_on           = [ azurerm_logic_app_workflow.logic_app, azurerm_key_vault.key_vault ]
+}
+
 resource "azurerm_role_assignment" "function_process_blob_contributor" {
   scope                = azurerm_storage_account.datalake_res.id
   role_definition_name = "Storage Blob Data Contributor"
@@ -322,11 +352,11 @@ resource "azurerm_role_assignment" "function_process_blob_contributor" {
   depends_on           = [ azurerm_storage_account.datalake_res, azurerm_linux_function_app.function_process_app ]
 }
 
-resource "azurerm_role_assignment" "logic_apps_secret_user" {
-  scope                = azurerm_key_vault.key_vault.id
-  role_definition_name = "Key Vault Secrets User"
-  principal_id         = azurerm_logic_app_workflow.logic_app.identity[0].principal_id
-  depends_on           = [ azurerm_logic_app_workflow.logic_app, azurerm_key_vault.key_vault ]
+resource "azurerm_role_assignment" "function_check_blob_contributor" {
+  scope                = azurerm_storage_account.datalake_res.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_linux_function_app.function_check_app.identity[0].principal_id
+  depends_on           = [ azurerm_storage_account.datalake_res, azurerm_linux_function_app.function_check_app ]
 }
 
 resource "azurerm_role_assignment" "felipe_secret_user" {

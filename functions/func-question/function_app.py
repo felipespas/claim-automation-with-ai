@@ -56,4 +56,4 @@ def question01(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'Total tokens: {str(tokens)}')
     logging.info(f'Response: {response}')
 
-    return func.HttpResponse(f'\n Resposta: {response} \n\n', status_code=200)
+    return func.HttpResponse(f'\n Result: {response} \n\n', status_code=200)
