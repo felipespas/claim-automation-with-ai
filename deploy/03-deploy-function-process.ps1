@@ -1,10 +1,11 @@
 try{
-    # az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
+    # login to azure using powershell
+    # Connect-AzAccount -Tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
+
+    # set the subscription id
+    Set-AzContext -Subscription "MCAPS-Hybrid-REQ-37753-2022-Fassis"
 
     Set-Location C:\_Github\claim-automation-with-ai\functions\func-process
-
-    # remove the .venv directory with all its content
-    Remove-Item -Path .venv -Recurse -Force
 
     # read the value from suffix.txt file
     $resourcesSuffix = Get-Content -Path C:\_Github\claim-automation-with-ai\deploy\suffix.txt
