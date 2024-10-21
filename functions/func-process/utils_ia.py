@@ -118,19 +118,23 @@ def capture_text_from_pdf(blob_url: str):
 
 def capture_text_from_office(blob_url: str):
 
-    document_intelligence_client = DocumentIntelligenceClient(
-        endpoint=endpoint, credential=AzureKeyCredential(key), api_version="2024-02-29-preview"
-    )
+    try:
+        document_intelligence_client = DocumentIntelligenceClient(
+            endpoint=endpoint, credential=AzureKeyCredential(key), api_version="2024-02-29-preview"
+        )
 
-    poller = document_intelligence_client.begin_analyze_document(
-        "prebuilt-layout", 
-        AnalyzeDocumentRequest(url_source=blob_url)
-    )
+        poller = document_intelligence_client.begin_analyze_document(
+            "prebuilt-layout", 
+            AnalyzeDocumentRequest(url_source=blob_url)
+        )
 
-    result: AnalyzeResult = poller.result()
+        result: AnalyzeResult = poller.result()
 
-    result_json = {
-        "content": result.content.replace("\n", " ")
-    }
+        result_json = {
+            "content": result.content.replace("\n", " ")
+        }
 
-    return result_json
+        return result_json
+    
+    except Exception as e:
+        return {"error": str(e)}

@@ -2,18 +2,28 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "3.93.0"
+      version = "4.5.0"
     }
   }
 
-  required_version = "1.7.3"
+  required_version = "1.9.8"
 }
 
 provider "azurerm" {
-  features {}
+  features {
+    resource_group {
+        prevent_deletion_if_contains_resources = false
+        }
+    }
+    subscription_id = var.subscription_id
 }
 
 data "azurerm_client_config" "current" {}
+
+variable "subscription_id" {
+  description = "The subscription ID for the Azure account"
+  type        = string
+}
 
 variable "suffix" {
   description = "The suffix for the resources"
@@ -45,6 +55,8 @@ variable "myIpAddress"{
   type        = string
 }
 
+# RG ################################################################################
+
 resource "azurerm_resource_group" "rg" {
   name = var.resourceGroupName
   location = var.location
@@ -57,10 +69,11 @@ resource "azurerm_storage_account" "datalake_res" {
   resource_group_name               = azurerm_resource_group.rg.name
   location                          = azurerm_resource_group.rg.location
   account_tier                      = "Standard"
-  account_replication_type          = "LRS"
   account_kind                      = "StorageV2"
-  is_hns_enabled                    = "true"
-  public_network_access_enabled     = "true"  
+  account_replication_type          = "LRS"
+  https_traffic_only_enabled        = false
+  is_hns_enabled                    = true
+  public_network_access_enabled     = true
 }
 
 resource "azurerm_storage_data_lake_gen2_filesystem" "datalake_emails" {
@@ -99,7 +112,7 @@ resource "azurerm_application_insights" "app_insights" {
   application_type    = "other"
 }
 
-# FUNCTION PROCESS ################################################################################
+# # FUNCTION PROCESS ################################################################################
 
 resource "azurerm_storage_account" "storage_process_fn" {
   name                     = "fnprocessstg${var.suffix}"
@@ -132,7 +145,7 @@ resource "azurerm_linux_function_app" "function_process_app" {
   depends_on = [ azurerm_storage_account.storage_process_fn ]
 }
 
-# FUNCTION QUESTION ################################################################################
+# # FUNCTION QUESTION ################################################################################
 
 resource "azurerm_storage_account" "storage_question_fn" {
   name                     = "fnquestionstg${var.suffix}"
@@ -235,7 +248,8 @@ resource "azurerm_linux_function_app" "function_check_app" {
 
 resource "azurerm_cognitive_account" "azure_ai_services" {
   name                = "aiservices${var.suffix}"
-  location            = azurerm_resource_group.rg.location
+  # location            = azurerm_resource_group.rg.location
+  location            = "eastus"
   resource_group_name = azurerm_resource_group.rg.name
   kind                = "CognitiveServices"
   sku_name = "S0" 
@@ -285,6 +299,14 @@ resource "azurerm_eventhub" "event_hub" {
   message_retention   = 1
 }
 
+resource "azurerm_eventhub" "event_hub_testing" {
+  name                = "testing"
+  namespace_name      = azurerm_eventhub_namespace.event_hub_namespace.name
+  resource_group_name = azurerm_resource_group.rg.name
+  partition_count     = 1
+  message_retention   = 1
+}
+
 # SQL SERVER #################################################################################
 
 resource "azurerm_mssql_server" "sqlserver_logical_server" {
@@ -302,7 +324,7 @@ resource "azurerm_mssql_server" "sqlserver_logical_server" {
   }
 
   tags = {
-    environment = "production"
+    environment = "poc"
   }
 }
 

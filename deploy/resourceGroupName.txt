@@ -1,1 +1,1 @@
-azure-claim-ai-project
+azure-csu-claim-ai-poc

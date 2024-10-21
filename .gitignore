@@ -11,3 +11,4 @@ __queuestorage*
 *.exe
 */.venv/*
 deploy/sqlPassword.txt
+terraform/terraform.log

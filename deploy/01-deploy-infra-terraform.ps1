@@ -1,8 +1,11 @@
 try{
 
-    # az login --tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
+    Set-Location C:\_Github\claim-automation-with-ai\deploy
 
-    Connect-AzAccount -Tenant 16b3c013-d300-468d-ac64-7eda0820b6d3
+    $tenant_id = "16b3c013-d300-468d-ac64-7eda0820b6d3"
+    $subscription_id = "2edd29f5-689f-48c5-b93e-93723216ea91"
+
+    .\connect-azure.ps1 $tenant_id $subscription_id
 
     Set-Location C:\_Github\claim-automation-with-ai\terraform
 
@@ -44,14 +47,23 @@ try{
 
     terraform init
 
-    # terraform plan -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" `
-    #     -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" -var="myIpAddress=$myIpAddress"
+    # terraform plan -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" `
+    #     -var="location=$location" -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" `
+    #     -var="myIpAddress=$myIpAddress" -var="subscription_id=$subscription_id"
 
-    terraform apply -auto-approve -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" `
-        -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" -var="myIpAddress=$myIpAddress"
+    # $env:TF_LOG = "DEBUG"
+    # $env:TF_LOG_PATH = "terraform.log"        
 
-    # terraform destroy -auto-approve -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" -var="location=$location" `
-    #     -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" -var="myIpAddress=$myIpAddress"
+    terraform apply -auto-approve -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" `
+        -var="location=$location" -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" `
+        -var="myIpAddress=$myIpAddress" -var="subscription_id=$subscription_id"
+
+    # $env:TF_LOG = ""
+    # $env:TF_LOG_PATH = ""
+
+    # terraform destroy -auto-approve -var="suffix=$resourceSuffix" -var="resourceGroupName=$resourceGroupName" `
+    #    -var="location=$location" -var="keyvaultSuffix=$keyvaultSuffix" -var="sqlPassword=$sqlPassword" `
+    #    -var="myIpAddress=$myIpAddress" -var="subscription_id=$subscription_id"
 
     # az group delete --name $resourceGroupName --yes --no-wait
 

@@ -1,3 +1,0 @@
-DATA_LAKE_URL_ENDPOINT = "https://.dfs.core.windows.net/"
-STORAGE_ACCOUNT_CONNECTION_STRING = ""
-STORAGE_ACCOUNT_KEY = ""
